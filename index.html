@@ -26,7 +26,7 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .sbtn { flex: 1; border: 1.5px solid #ddd; border-radius: 10px; padding: 11px; font-size: 15px; cursor: pointer; background: #fff; color: #666; font-weight: 500; }
 .sbtn.active { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
 
-/* תיקון מבנה השורות למניעת חריגה במובייל */
+/* מבנה שורות קבוע למניעת זליגה מחוץ למסך במובייל */
 .sr { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; width: 100%; }
 .sr-header { display: flex; justify-content: space-between; align-items: center; width: 100%; font-size: 14px; font-weight: 500; color: #444; }
 .sv { font-size: 16px; font-weight: 600; color: #1565c0; text-align: left; }
@@ -224,16 +224,11 @@ function activateApp() {
   }
   
   // !!! זכור להחליף את '0500000000' במספר האמיתי שלך כאן !!!
-  var myPhone = "972544825688"; 
+  var myPhone = "0500000000"; 
   var text = "היי עמיאל, אני חקלאי בשם: " + name + ", והפעלתי כעת את מחשבון הדישון של פנורה.";
   
-  // שמירה בדפדפן שהמשתמש מאושר
   localStorage.setItem("panora_activated", "true");
-  
-  // מעבר ישיר לוואטסאפ באותו חלון
   window.location.href = "https://wa.me/" + myPhone + "?text=" + encodeURIComponent(text);
-  
-  // מעלים את מסך החסימה
   document.getElementById("activationOverlay").style.display = "none";
 }
 
