@@ -2,15 +2,15 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>מחשבון דישון לחקלאי</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #f5f5f0; color: #1a1a1a; min-height: 100vh; }
-.wrap { max-width: 480px; margin: 0 auto; padding: 16px 14px 40px; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #f5f5f0; color: #1a1a1a; min-height: 100vh; overflow-x: hidden; }
+.wrap { max-width: 480px; margin: 0 auto; padding: 16px 14px 40px; width: 100%; }
 h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .sub { font-size: 14px; color: #666; margin-bottom: 18px; }
-.card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+.card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); width: 100%; }
 .ctitle { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
 .fert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
 .fb { border: 1.5px solid #ddd; border-radius: 10px; padding: 12px 10px; cursor: pointer; background: #fff; color: #1a1a1a; text-align: right; line-height: 1.5; width: 100%; }
@@ -25,13 +25,17 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .season-row.show { display: flex; }
 .sbtn { flex: 1; border: 1.5px solid #ddd; border-radius: 10px; padding: 11px; font-size: 15px; cursor: pointer; background: #fff; color: #666; font-weight: 500; }
 .sbtn.active { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
-.sr { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.sr label { font-size: 14px; color: #555; white-space: nowrap; min-width: 90px; }
-.slider-container { flex: 1; display: flex; align-items: center; gap: 6px; }
-.sr input[type=range] { flex: 1; accent-color: #2e7d32; cursor: pointer; height: 20px; }
-.step-btn { border: 1.5px solid #ddd; background: #fff; color: #444; width: 32px; height: 32px; border-radius: 6px; font-size: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; user-select: none; }
+
+/* תיקון מבנה השורות למניעת חריגה במובייל */
+.sr { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; width: 100%; }
+.sr-header { display: flex; justify-content: space-between; align-items: center; width: 100%; font-size: 14px; font-weight: 500; color: #444; }
+.sv { font-size: 16px; font-weight: 600; color: #1565c0; text-align: left; }
+.slider-container { width: 100%; display: flex; align-items: center; gap: 8px; }
+.sr input[type=range] { flex: 1; accent-color: #2e7d32; cursor: pointer; height: 30px; }
+
+.step-btn { border: 1.5px solid #ddd; background: #fff; color: #444; width: 36px; height: 36px; border-radius: 8px; font-size: 20px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; user-select: none; }
 .step-btn:active { background: #f0f0f0; }
-.sv { font-size: 17px; font-weight: 600; min-width: 90px; text-align: left; }
+
 .presets { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid #f0f0f0; }
 .pbtn { border: 1.5px solid #ddd; border-radius: 8px; padding: 9px 13px; font-size: 14px; cursor: pointer; background: #fff; color: #444; }
 .ibox { background: #e3f2fd; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
@@ -41,16 +45,16 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .bigbox .bl { font-size: 13px; color: #555; margin-bottom: 6px; }
 .bigbox .bv { font-size: 52px; font-weight: 700; color: #1565c0; line-height: 1; }
 .bigbox .bu { font-size: 14px; color: #555; margin-top: 6px; }
-.pg { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 12px; }
-.pc { border-radius: 10px; padding: 10px 8px; text-align: center; }
+.pg { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin-bottom: 12px; width: 100%; }
+.pc { border-radius: 10px; padding: 10px 4px; text-align: center; }
 .pn { background: #e3f2fd; } .pp { background: #fce4ec; } .pk { background: #e8f5e9; } .pe { background: #f5f5f5; }
-.pc .pl { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
-.pc .pv { font-size: 22px; font-weight: 700; }
+.pc .pl { font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+.pc .pv { font-size: 18px; font-weight: 700; }
 .pn .pl,.pn .pv { color: #1565c0; }
 .pp .pl,.pp .pv { color: #880e4f; }
 .pk .pl,.pk .pv { color: #1b5e20; }
 .pe .pl,.pe .pv { color: #bbb; }
-.fml { background: #f8f8f8; border-radius: 8px; padding: 10px 12px; font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 12px; }
+.fml { background: #f8f8f8; border-radius: 8px; padding: 10px 12px; font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 12px; word-break: break-word; }
 .fml strong { color: #1a1a1a; }
 .div { border: none; border-top: 1px solid #f0f0f0; margin: 12px 0; }
 .sg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
@@ -63,7 +67,7 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .tg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .tc { background: #fff; border-radius: 8px; padding: 10px 12px; text-align: center; }
 .tc .tl { font-size: 12px; color: #555; margin-bottom: 4px; }
-.tc .tv { font-size: 26px; font-weight: 700; color: #1b5e20; }
+.tc .tv { font-size: 24px; font-weight: 700; color: #1b5e20; }
 .tc .tu { font-size: 12px; color: #888; margin-top: 2px; }
 .note { border-radius: 8px; padding: 10px 12px; font-size: 14px; font-weight: 500; margin-bottom: 12px; }
 .ok { background: #e8f5e9; color: #1b5e20; }
@@ -74,7 +78,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 </head>
 <body>
 
-<!-- מסך חסימה והפעלה דרך וואטסאפ (יוסתר אוטומטית אם המשתמש כבר הפעיל בעבר) -->
+<!-- מסך חסימה והפעלה דרך וואטסאפ -->
 <div id="activationOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#f5f5f0; z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center; dir:rtl;">
   <div style="background:#fff; padding:28px 24px; border-radius:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1); max-width:400px; width:100%;">
     <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #2e7d32; margin-bottom: 6px;">PANORA SEEDS</div>
@@ -111,8 +115,8 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 <!-- קלט מוצק -->
 <div class="card hidden" id="secS">
   <p class="ctitle">כמות ודוד</p>
-  <div class="sr"><label>שקים:</label><div class="slider-container"><button class="step-btn" onclick="step('sBags',-1)">-</button><input type="range" id="sBags" min="1" max="20" value="8" step="1" oninput="go()"><button class="step-btn" onclick="step('sBags',1)">+</button></div><span class="sv" id="lBags">8 שקים</span></div>
-  <div class="sr" style="margin-bottom:0"><label>דוד (ל'):</label><div class="slider-container"><button class="step-btn" onclick="step('sTank',-1)">-</button><input type="range" id="sTank" min="100" max="2000" value="1000" step="100" oninput="go()"><button class="step-btn" onclick="step('sTank',1)">+</button></div><span class="sv" id="lTank">1,000 ל'</span></div>
+  <div class="sr"><div class="sr-header"><label>שקים:</label><span class="sv" id="lBags">8 שקים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sBags',-1)">-</button><input type="range" id="sBags" min="1" max="20" value="8" step="1" oninput="go()"><button class="step-btn" onclick="step('sBags',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>דוד (ל'):</label><span class="sv" id="lTank">1,000 ל'</span></div><div class="slider-container"><button class="step-btn" onclick="step('sTank',-1)">-</button><input type="range" id="sTank" min="100" max="2000" value="1000" step="100" oninput="go()"><button class="step-btn" onclick="step('sTank',1)">+</button></div></div>
   <div class="presets" id="solidPresets"></div>
 </div>
 
@@ -120,16 +124,16 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 <div class="card hidden" id="secL">
   <p class="ctitle">הזרקה ישירה — דוד דשן טהור</p>
   <div class="ibox"><span>N בליטר דשן טהור:</span><strong id="nPerLiter">—</strong></div>
-  <div class="sr"><label>הזרקה (ל'/קוב):</label><div class="slider-container"><button class="step-btn" onclick="step('lInj',-1)">-</button><input type="range" id="lInj" min="0.1" max="20" value="1" step="0.1" oninput="go()"><button class="step-btn" onclick="step('lInj',1)">+</button></div><span class="sv" id="lLInj">1.0 ל'/קוב</span></div>
-  <div class="sr" style="margin-bottom:0"><label>השקיה (קוב/דונם):</label><div class="slider-container"><button class="step-btn" onclick="step('lWat',-1)">-</button><input type="range" id="lWat" min="0.5" max="10" value="4" step="0.5" oninput="go()"><button class="step-btn" onclick="step('lWat',1)">+</button></div><span class="sv" id="lLWat">4.0 קוב</span></div>
+  <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lLInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('lInj',-1)">-</button><input type="range" id="lInj" min="0.1" max="20" value="1" step="0.1" oninput="go()"><button class="step-btn" onclick="step('lInj',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lLWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('lWat',-1)">-</button><input type="range" id="lWat" min="0.5" max="10" value="4" step="0.5" oninput="go()"><button class="step-btn" onclick="step('lWat',1)">+</button></div></div>
 </div>
 
 <!-- קלט דישון ישיר -->
 <div class="card hidden" id="secD">
   <p class="ctitle">דישון ישיר — שק לדוד קטן</p>
-  <div class="sr"><label>שקים לדוד:</label><div class="slider-container"><button class="step-btn" onclick="step('dBags',-1)">-</button><input type="range" id="dBags" min="1" max="10" value="1" step="1" oninput="go()"><button class="step-btn" onclick="step('dBags',1)">+</button></div><span class="sv" id="lDBags">1 שק</span></div>
-  <div class="sr"><label>שטח (דונם):</label><div class="slider-container"><button class="step-btn" onclick="step('dArea',-1)">-</button><input type="range" id="dArea" min="1" max="50" value="8" step="1" oninput="go()"><button class="step-btn" onclick="step('dArea',1)">+</button></div><span class="sv" id="lDArea">8 דונם</span></div>
-  <div class="sr" style="margin-bottom:0"><label>השקיה כל (ימים):</label><div class="slider-container"><button class="step-btn" onclick="step('dFreq',-1)">-</button><input type="range" id="dFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('dFreq',1)">+</button></div><span class="sv" id="lDFreq">כל 2 ימים</span></div>
+  <div class="sr"><div class="sr-header"><label>שקים לדוד:</label><span class="sv" id="lDBags">1 שק</span></div><div class="slider-container"><button class="step-btn" onclick="step('dBags',-1)">-</button><input type="range" id="dBags" min="1" max="10" value="1" step="1" oninput="go()"><button class="step-btn" onclick="step('dBags',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>שטח (דונם):</label><span class="sv" id="lDArea">8 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('dArea',-1)">-</button><input type="range" id="dArea" min="1" max="50" value="8" step="1" oninput="go()"><button class="step-btn" onclick="step('dArea',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lDFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('dFreq',-1)">-</button><input type="range" id="dFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('dFreq',1)">+</button></div></div>
 </div>
 
 <!-- תוצאות מוצק -->
@@ -144,9 +148,9 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="fml" id="sFml"></div>
   <div class="div"></div>
   <p class="ctitle">N לדונם</p>
-  <div class="sr"><label>הזרקה (ל'/קוב):</label><div class="slider-container"><button class="step-btn" onclick="step('sInj',-1)">-</button><input type="range" id="sInj" min="0.1" max="20" value="1" step="0.1" oninput="go()"><button class="step-btn" onclick="step('sInj',1)">+</button></div><span class="sv" id="lSInj">1.0 ל'/קוב</span></div>
-  <div class="sr"><label>השקיה (קוב/דונם):</label><div class="slider-container"><button class="step-btn" onclick="step('sWat',-1)">-</button><input type="range" id="sWat" min="0.5" max="10" value="4" step="0.5" oninput="go()"><button class="step-btn" onclick="step('sWat',1)">+</button></div><span class="sv" id="lSWat">4.0 קוב</span></div>
-  <div class="sr" style="margin-bottom:10px"><label>השקיה כל (ימים):</label><div class="slider-container"><button class="step-btn" onclick="step('sFreq',-1)">-</button><input type="range" id="sFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('sFreq',1)">+</button></div><span class="sv" id="lSFreq">כל 2 ימים</span></div>
+  <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lSInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('sInj',-1)">-</button><input type="range" id="sInj" min="0.1" max="20" value="1" step="0.1" oninput="go()"><button class="step-btn" onclick="step('sInj',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lSWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('sWat',-1)">-</button><input type="range" id="sWat" min="0.5" max="10" value="4" step="0.5" oninput="go()"><button class="step-btn" onclick="step('sWat',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lSFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sFreq',-1)">-</button><input type="range" id="sFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('sFreq',1)">+</button></div></div>
   <div class="sg">
     <div class="sc"><div class="sl">N לדונם לאירוע</div><div class="sv2" id="sDunEv">—</div><div class="su">גרם</div></div>
     <div class="sc"><div class="sl">N לדונם ליום</div><div class="sv2" id="sDunDay">—</div><div class="su">גרם</div></div>
@@ -154,10 +158,10 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="note" id="sNote"></div>
   <div class="div"></div>
   <p class="ctitle">סה"כ לחלקה</p>
-  <div class="sr" style="margin-bottom:10px"><label>שטח החלקה:</label><div class="slider-container"><button class="step-btn" onclick="step('sTot',-1)">-</button><input type="range" id="sTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('sTot',1)">+</button></div><span class="sv" id="lSTot">10 דונם</span></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lSTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('sTot',-1)">-</button><input type="range" id="sTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('sTot',1)">+</button></div></div>
   <div class="tbox"><div class="tt">כמות דשן לחלקה כולה</div><div class="tg">
-    <div class="tc"><div class="tl">ליטר תמיסה לאירוע</div><div class="tv" id="sTotEv">—</div><div class="tu">ליטר</div></div>
-    <div class="tc"><div class="tl">ליטר תמיסה לשבוע</div><div class="tv" id="sTotWk">—</div><div class="tu">ליטר</div></div>
+    <div class="tc"><div class="tl">ליטר לאירוע</div><div class="tv" id="sTotEv">—</div></div>
+    <div class="tc"><div class="tl">ליטר לשבוע</div><div class="tv" id="sTotWk">—</div></div>
   </div></div>
 </div>
 
@@ -169,15 +173,15 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <div class="sc"><div class="sl">ליטר דשן לדונם</div><div class="sv2" id="lFertDun">—</div></div>
     <div class="sc"><div class="sl">N לדונם ליום</div><div class="sv2" id="lNday">—</div><div class="su">גרם</div></div>
   </div>
-  <div class="sr" style="margin-bottom:10px"><label>השקיה כל (ימים):</label><div class="slider-container"><button class="step-btn" onclick="step('lFreq',-1)">-</button><input type="range" id="lFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('lFreq',1)">+</button></div><span class="sv" id="lLFreq">כל 2 ימים</span></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lLFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('lFreq',-1)">-</button><input type="range" id="lFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('lFreq',1)">+</button></div></div>
   <div class="fml" id="lFml"></div>
   <div class="note" id="lNote"></div>
   <div class="div"></div>
   <p class="ctitle">סה"כ לחלקה</p>
-  <div class="sr" style="margin-bottom:10px"><label>שטח החלקה:</label><div class="slider-container"><button class="step-btn" onclick="step('lTot',-1)">-</button><input type="range" id="lTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('lTot',1)">+</button></div><span class="sv" id="lLTot">10 דונם</span></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lLTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('lTot',-1)">-</button><input type="range" id="lTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('lTot',1)">+</button></div></div>
   <div class="tbox"><div class="tt">כמות דשן לחלקה כולה</div><div class="tg">
-    <div class="tc"><div class="tl">ליטר דשן לאירוע</div><div class="tv" id="lTotEv">—</div><div class="tu">ליטר</div></div>
-    <div class="tc"><div class="tl">ליטר דשן לשבוע</div><div class="tv" id="lTotWk">—</div><div class="tu">ליטר</div></div>
+    <div class="tc"><div class="tl">ליטר לאירוע</div><div class="tv" id="lTotEv">—</div></div>
+    <div class="tc"><div class="tl">ליטר לשבוע</div><div class="tv" id="lTotWk">—</div></div>
   </div></div>
 </div>
 
@@ -193,10 +197,10 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="note" id="dNote"></div>
   <div class="div"></div>
   <p class="ctitle">סה"כ לחלקה</p>
-  <div class="sr" style="margin-bottom:10px"><label>שטח החלקה:</label><div class="slider-container"><button class="step-btn" onclick="step('dTot',-1)">-</button><input type="range" id="dTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('dTot',1)">+</button></div><span class="sv" id="lDTot">10 דונם</span></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lDTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('dTot',-1)">-</button><input type="range" id="dTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('dTot',1)">+</button></div></div>
   <div class="tbox"><div class="tt">כמות דשן לחלקה כולה</div><div class="tg">
-    <div class="tc"><div class="tl">ק"ג דשן לאירוע</div><div class="tv" id="dTotEv">—</div><div class="tu">ק"ג</div></div>
-    <div class="tc"><div class="tl">ק"ג דשן לשבוע</div><div class="tv" id="dTotWk">—</div><div class="tu">ק"ג</div></div>
+    <div class="tc"><div class="tl">ק"ג לאירוע</div><div class="tv" id="dTotEv">—</div></div>
+    <div class="tc"><div class="tl">ק"ג לשבוע</div><div class="tv" id="dTotWk">—</div></div>
   </div></div>
 </div>
 
@@ -219,12 +223,17 @@ function activateApp() {
     return;
   }
   
-  // !!! החלף כאן את המספר למספר האמיתי שלך (במבנה בינלאומי, בלי פלוס או אפסים בהתחלה) !!!
+  // !!! זכור להחליף את '0500000000' במספר האמיתי שלך כאן !!!
   var myPhone = "972544825688"; 
   var text = "היי עמיאל, אני חקלאי בשם: " + name + ", והפעלתי כעת את מחשבון הדישון של פנורה.";
   
+  // שמירה בדפדפן שהמשתמש מאושר
   localStorage.setItem("panora_activated", "true");
-  window.open("https://wa.me/" + myPhone + "?text=" + encodeURIComponent(text), '_blank');
+  
+  // מעבר ישיר לוואטסאפ באותו חלון
+  window.location.href = "https://wa.me/" + myPhone + "?text=" + encodeURIComponent(text);
+  
+  // מעלים את מסך החסימה
   document.getElementById("activationOverlay").style.display = "none";
 }
 
@@ -298,8 +307,8 @@ function buildPresets(){
     b.className = "pbtn";
     b.textContent = p.l;
     b.onclick = (function(pr){ return function(){
-      if(pr.bags !== undefined){ document.getElementById("sBags").value = pr.bags; txt("lBags", pr.bags + " \u05e9\u05e7\u05d9\u05dd"); }
-      if(pr.tank){ document.getElementById("sTank").value = pr.tank; txt("lTank", pr.tank.toLocaleString("he-IL") + " \u05dc'"); }
+      if(pr.bags !== undefined){ document.getElementById("sBags").value = pr.bags; txt("lBags", pr.bags + " שקים"); }
+      if(pr.tank){ document.getElementById("sTank").value = pr.tank; txt("lTank", pr.tank.toLocaleString("he-IL") + " ל'"); }
       go();
     }; })(p);
     c.appendChild(b);
@@ -308,9 +317,9 @@ function buildPresets(){
 
 function setNote(id, val){
   var el = document.getElementById(id);
-  if(val < 100)      { el.className="note warn"; el.textContent="\u26a0 "+rnd(val)+" \u05d2\u05e8' N/\u05d3\u05d5\u05e0\u05dd/\u05d9\u05d5\u05dd \u2014 \u05e0\u05de\u05d5\u05da"; }
-  else if(val > 600) { el.className="note warn"; el.textContent="\u26a0 "+rnd(val)+" \u05d2\u05e8' N/\u05d3\u05d5\u05e0\u05dd/\u05d9\u05d5\u05dd \u2014 \u05d2\u05d1\u05d5\u05d4, \u05e1\u05db\u05e0\u05ea \u05de\u05dc\u05d7"; }
-  else               { el.className="note ok";   el.textContent="\u2713 "+rnd(val)+" \u05d2\u05e8' N/\u05d3\u05d5\u05e0\u05dd/\u05d9\u05d5\u05dd \u2014 \u05d8\u05d5\u05d5\u05d7 \u05ea\u05e7\u05d9\u05df"; }
+  if(val < 100)      { el.className="note warn"; el.textContent="\u26a0 "+rnd(val)+" גר' N/דונם/יום — נמוך"; }
+  else if(val > 600) { el.className="note warn"; el.textContent="\u26a0 "+rnd(val)+" גר' N/דונם/יום — גבוה, סכנת מלח"; }
+  else               { el.className="note ok";   el.textContent="\u2713 "+rnd(val)+" גר' N/דונם/יום — טווח תקין"; }
 }
 
 function go(){
@@ -320,8 +329,8 @@ function go(){
   if(f.tp === "s"){
     var bags = +document.getElementById("sBags").value;
     var tank = +document.getElementById("sTank").value;
-    txt("lBags", bags + " \u05e9\u05e7\u05d9\u05dd");
-    txt("lTank", tank.toLocaleString("he-IL") + " \u05dc'");
+    txt("lBags", bags + " שקים");
+    txt("lTank", tank.toLocaleString("he-IL") + " ל'");
     var nKg = bags*f.bag*f.n, pKg = bags*f.bag*f.p, kKg = bags*f.bag*f.k;
     var nGL = nKg*1000/tank, pGL = pKg*1000/tank, kGL = kKg*1000/tank;
     txt("sNgl",  f2(nGL));
@@ -330,46 +339,46 @@ function go(){
     if(f.p>0){ pc.className="pc pp"; txt("sPppm",rnd(pGL*1000)); } else { pc.className="pc pe"; txt("sPppm","—"); }
     if(f.k>0){ kc.className="pc pk"; txt("sKppm",rnd(kGL*1000)); } else { kc.className="pc pe"; txt("sKppm","—"); }
     document.getElementById("sFml").innerHTML =
-      bags+" \u05e9\u05e7\u05d9\u05dd \u00d7 "+f.bag+' \u05e7"ג \u00d7 '+Math.round(f.n*100)+"% = <strong>"+f2(nKg)+' \u05e7"ג N</strong><br>'+
-      "\u00f7 "+tank.toLocaleString("he-IL")+" \u05dc' = <strong>"+f2(nGL)+" \u05d2\u05e8' N \u05dc\u05db\u05dc \u05dc\u05d9\u05d8\u05e8 \u05ea\u05de\u05d9\u05e1\u05d4</strong>";
+      bags+" שקים × "+f.bag+' ק"ג × '+Math.round(f.n*100)+"% = <strong>"+f2(nKg)+' ק"ג N</strong><br>'+
+      "÷ "+tank.toLocaleString("he-IL")+" ל' = <strong>"+f2(nGL)+" גר' N לכל ליטר תמיסה</strong>";
     var inj=+document.getElementById("sInj").value, wat=+document.getElementById("sWat").value, frq=+document.getElementById("sFreq").value;
-    txt("lSInj",f1(inj)+" \u05dc'/\u05e7\u05d5\u05d1"); txt("lSWat",f1(wat)+" \u05e7\u05d5\u05d1"); txt("lSFreq","\u05db\u05dc "+frq+" \u05d9\u05de\u05d9\u05dd");
+    txt("lSInj",f1(inj)+" ל'/קוב"); txt("lSWat",f1(wat)+" קוב"); txt("lSFreq","כל "+frq+" ימים");
     var nEv=inj*wat*nGL, nDay=nEv/frq;
     txt("sDunEv",rnd(nEv)); txt("sDunDay",rnd(nDay)); setNote("sNote",nDay);
     var tot=+document.getElementById("sTot").value;
-    txt("lSTot",tot+" \u05d3\u05d5\u05e0\u05dd");
+    txt("lSTot",tot+" דונם");
     txt("sTotEv",rnd(inj*wat*tot));
     txt("sTotWk",rnd(inj*wat*tot*7/frq));
 
   } else if(f.tp === "l"){
     var nL=(f.sea&&ssn==="winter")?f.nLw:f.nL;
-    txt("nPerLiter",nL+" \u05d2\u05e8'/\u05dc'");
+    txt("nPerLiter",nL+" גר'/ל'");
     var inj=+document.getElementById("lInj").value, wat=+document.getElementById("lWat").value, frq=+document.getElementById("lFreq").value;
-    txt("lLInj",f1(inj)+" \u05dc'/\u05e7\u05d5\u05d1"); txt("lLWat",f1(wat)+" \u05e7\u05d5\u05d1"); txt("lLFreq","\u05db\u05dc "+frq+" \u05d9\u05de\u05d9\u05dd");
+    txt("lLInj",f1(inj)+" ל'/קוב"); txt("lLWat",f1(wat)+" קוב"); txt("lLFreq","כל "+frq+" ימים");
     var fpd=inj*wat, nDun=fpd*nL, nDay=nDun/frq;
-    txt("lNdun",rnd(nDun)); txt("lFertDun",f2(fpd)+" \u05dc'"); txt("lNday",rnd(nDay));
+    txt("lNdun",rnd(nDun)); txt("lFertDun",f2(fpd)+" ל'"); txt("lNday",rnd(nDay));
     document.getElementById("lFml").innerHTML =
-      f1(inj)+" \u05dc'/\u05e7\u05d5\u05d1 \u00d7 "+f1(wat)+" \u05e7\u05d5\u05d1 = <strong>"+f2(fpd)+" \u05dc' \u05d3\u05e9\u05df \u05dc\u05d3\u05d5\u05e0\u05dd</strong><br>"+
-      "\u00d7 "+nL+" \u05d2\u05e8'/\u05dc' = <strong>"+rnd(nDun)+" \u05d2\u05e8\u05dd N \u05dc\u05d3\u05d5\u05e0\u05dd \u05dc\u05d4\u05e9\u05e7\u05d9\u05d4</strong>";
+      f1(inj)+" ל'/קוב × "+f1(wat)+" קוב = <strong>"+f2(fpd)+" ל' דשן לדונם</strong><br>"+
+      "× "+nL+" גר'/ל' = <strong>"+rnd(nDun)+" גרם N לדונם להשקיה</strong>";
     setNote("lNote",nDay);
     var tot=+document.getElementById("lTot").value;
-    txt("lLTot",tot+" \u05d3\u05d5\u05e0\u05dd");
+    txt("lLTot",tot+" דונם");
     txt("lTotEv",f2(fpd*tot));
     txt("lTotWk",f2(fpd*tot*7/frq));
 
   } else {
     var bags=+document.getElementById("dBags").value, area=+document.getElementById("dArea").value, frq=+document.getElementById("dFreq").value;
-    txt("lDBags",bags+(bags===1?" \u05e9\u05e7":" \u05e9\u05e7\u05d9\u05dd"));
-    txt("lDArea",area+" \u05d3\u05d5\u05e0\u05dd");
-    txt("lDFreq","\u05db\u05dc "+frq+" \u05d9\u05de\u05d9\u05dd");
+    txt("lDBags",bags+(bags===1?" שק":" שקים"));
+    txt("lDArea",area+" דונם");
+    txt("lDFreq","כל "+frq+" ימים");
     var nTot=bags*f.bag*f.n*1000, nEv=nTot/area, nDay=nEv/frq;
     txt("dNev",rnd(nEv)); txt("dNday",rnd(nDay)); txt("dNwk",rnd(nDay*7));
     document.getElementById("dFml").innerHTML =
-      bags+" \u05e9\u05e7\u05d9\u05dd \u00d7 "+f.bag+' \u05e7"ג \u00d7 '+Math.round(f.n*100)+"% = <strong>"+f2(nTot/1000)+' \u05e7"ג N</strong><br>'+
-      "\u00f7 "+area+" \u05d3\u05d5\u05e0\u05dd = <strong>"+rnd(nEv)+" \u05d2\u05e8\u05dd N \u05dc\u05d3\u05d5\u05e0\u05dd \u05dc\u05d0\u05d9\u05e8\u05d5\u05e2</strong>";
+      bags+" שקים × "+f.bag+' ק"ג × '+Math.round(f.n*100)+"% = <strong>"+f2(nTot/1000)+' ק"ג N</strong><br>'+
+      "÷ "+area+" דונם = <strong>"+rnd(nEv)+" גרם N לדונם לאירוע</strong>";
     setNote("dNote",nDay);
     var tot=+document.getElementById("dTot").value;
-    txt("lDTot",tot+" \u05d3\u05d5\u05e0\u05dd");
+    txt("lDTot",tot+" דונם");
     txt("dTotEv",f2(bags*f.bag*tot/area));
     txt("dTotWk",f2(bags*f.bag*tot/area*7/frq));
   }
