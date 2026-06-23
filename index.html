@@ -26,7 +26,6 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .sbtn { flex: 1; border: 1.5px solid #ddd; border-radius: 10px; padding: 11px; font-size: 15px; cursor: pointer; background: #fff; color: #666; font-weight: 500; }
 .sbtn.active { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
 
-/* מבנה שורות קבוע למניעת זליגה מחוץ למסך במובייל */
 .sr { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; width: 100%; }
 .sr-header { display: flex; justify-content: space-between; align-items: center; width: 100%; font-size: 14px; font-weight: 500; color: #444; }
 .sv { font-size: 16px; font-weight: 600; color: #1565c0; text-align: left; }
@@ -45,22 +44,26 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .bigbox .bl { font-size: 13px; color: #555; margin-bottom: 6px; }
 .bigbox .bv { font-size: 52px; font-weight: 700; color: #1565c0; line-height: 1; }
 .bigbox .bu { font-size: 14px; color: #555; margin-top: 6px; }
-.pg { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin-bottom: 12px; width: 100%; }
-.pc { border-radius: 10px; padding: 10px 4px; text-align: center; }
-.pn { background: #e3f2fd; } .pp { background: #fce4ec; } .pk { background: #e8f5e9; } .pe { background: #f5f5f5; }
+
+/* גריד גמיש ל-4 אלמנטים (N, P, K, Ca) */
+.pg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-bottom: 12px; width: 100%; }
+.pc { border-radius: 10px; padding: 10px 2px; text-align: center; }
+.pn { background: #e3f2fd; } .pp { background: #fce4ec; } .pk { background: #e8f5e9; } .pca { background: #fff3e0; } .pe { background: #f5f5f5; }
 .pc .pl { font-size: 11px; font-weight: 600; margin-bottom: 4px; }
-.pc .pv { font-size: 18px; font-weight: 700; }
+.pc .pv { font-size: 15px; font-weight: 700; }
 .pn .pl,.pn .pv { color: #1565c0; }
 .pp .pl,.pp .pv { color: #880e4f; }
 .pk .pl,.pk .pv { color: #1b5e20; }
+.pca .pl,.pca .pv { color: #e65100; }
 .pe .pl,.pe .pv { color: #bbb; }
+
 .fml { background: #f8f8f8; border-radius: 8px; padding: 10px 12px; font-size: 13px; color: #555; line-height: 1.8; margin-bottom: 12px; word-break: break-word; }
 .fml strong { color: #1a1a1a; }
 .div { border: none; border-top: 1px solid #f0f0f0; margin: 12px 0; }
 .sg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
 .sc { background: #f8f8f8; border-radius: 10px; padding: 12px; }
 .sc .sl { font-size: 12px; color: #777; margin-bottom: 4px; }
-.sc .sv2 { font-size: 24px; font-weight: 700; color: #1565c0; }
+.sc .sv2 { font-size: 22px; font-weight: 700; color: #1565c0; }
 .sc .su { font-size: 12px; color: #888; margin-top: 2px; }
 .tbox { background: #e8f5e9; border-radius: 12px; padding: 14px; margin-top: 4px; }
 .tbox .tt { font-size: 11px; font-weight: 600; color: #2e7d32; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
@@ -138,16 +141,17 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <div class="pc pn"><div class="pl">N ppm</div><div class="pv" id="sNppm">—</div></div>
     <div class="pc pe" id="sPcard"><div class="pl">P ppm</div><div class="pv" id="sPppm">—</div></div>
     <div class="pc pe" id="sKcard"><div class="pl">K ppm</div><div class="pv" id="sKppm">—</div></div>
+    <div class="pc pe" id="sCacard"><div class="pl">Ca ppm</div><div class="pv" id="sCappm">—</div></div>
   </div>
   <div class="fml" id="sFml"></div>
   <div class="div"></div>
-  <p class="ctitle">N לדונם</p>
+  <p class="ctitle">יסודות לדונם לאירוע</p>
   <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lSInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('sInj',-1)">-</button><input type="range" id="sInj" min="0.1" max="20" value="1" step="0.1" oninput="go()"><button class="step-btn" onclick="step('sInj',1)">+</button></div></div>
   <div class="sr"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lSWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('sWat',-1)">-</button><input type="range" id="sWat" min="0.5" max="10" value="4" step="0.5" oninput="go()"><button class="step-btn" onclick="step('sWat',1)">+</button></div></div>
   <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lSFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sFreq',-1)">-</button><input type="range" id="sFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('sFreq',1)">+</button></div></div>
   <div class="sg">
     <div class="sc"><div class="sl">N לדונם לאירוע</div><div class="sv2" id="sDunEv">—</div><div class="su">גרם</div></div>
-    <div class="sc"><div class="sl">N לדונם ליום</div><div class="sv2" id="sDunDay">—</div><div class="su">גרם</div></div>
+    <div class="sc"><div class="sl">Ca לדונם לאירוע</div><div class="sv2" id="sCaDunEv">—</div><div class="su">גרם</div></div>
   </div>
   <div class="note" id="sNote"></div>
   <div class="div"></div>
@@ -216,7 +220,7 @@ function activateApp() {
   }
   
   // !!! זכור להחליף את '0500000000' במספר האמיתי שלך כאן !!!
-  var myPhone = "972544825688"; 
+  var myPhone = "0500000000"; 
   var text = "היי עמיאל, אני חקלאי בשם: " + name + ", והפעלתי כעת את מחשבון הדישון של פנורה.";
   
   localStorage.setItem("panora_activated", "true");
@@ -225,14 +229,16 @@ function activateApp() {
 }
 
 var F = [
-  {nm:"17-10-27",      sb:'מוצק \u00b7 25 \u05e7"ג',          tp:"s", n:0.17, p:0.10, k:0.27, bag:25, pre:[{l:"8 שקים / 1000 ל",bags:8,tank:1000},{l:"10 שקים / 1000 ל",bags:10,tank:1000}]},
-  {nm:"20-20-20",      sb:'מוצק \u00b7 25 \u05e7"ג',          tp:"s", n:0.20, p:0.20, k:0.20, bag:25, pre:[{l:"4 שקים / 500 ל",bags:4,tank:500},{l:"8 שקים / 1000 ל",bags:8,tank:1000}]},
-  {nm:"\u05d7\u05e0\u05e7\u05ea \u05d0\u05e9\u05dc\u05d2\u05df", sb:'13-0-46 \u00b7 25 \u05e7"ג', tp:"s", n:0.13, p:0, k:0.46, bag:25, pre:[{l:"4 שקים / 1000 ל",bags:4,tank:1000},{l:"8 שקים / 1000 ל",bags:8,tank:1000}]},
+  {nm:"17-10-27",      sb:'מוצק \u00b7 25 \u05e7"ג',          tp:"s", n:0.17, p:0.10, k:0.27, ca:0, bag:25, pre:[{l:"8 שקים / 1000 ל",bags:8,tank:1000},{l:"10 שקים / 1000 ל",bags:10,tank:1000}]},
+  {nm:"20-20-20",      sb:'מוצק \u00b7 25 \u05e7"ג',          tp:"s", n:0.20, p:0.20, k:0.20, ca:0, bag:25, pre:[{l:"4 שקים / 500 ל",bags:4,tank:500},{l:"8 שקים / 1000 ל",bags:8,tank:1000}]},
+  {nm:"\u05d7\u05e0\u05e7\u05ea \u05d0\u05e9\u05dc\u05d2\u05df", sb:'13-0-46 \u00b7 25 \u05e7"ג', tp:"s", n:0.13, p:0, k:0.46, ca:0, bag:25, pre:[{l:"4 שקים / 1000 ל",bags:4,tank:1000},{l:"8 שקים / 1000 ל",bags:8,tank:1000}]},
+  {nm:"חנקת סידן",     sb:'מוצק \u00b7 15.5% N \u00b7 25 ק"ג', tp:"s", n:0.155, p:0, k:0, ca:0.19, bag:25, pre:[{l:"6 שקים / 1000 ל",bags:6,tank:1000},{l:"8 שקים / 1000 ל",bags:8,tank:1000}]},
   {nm:"\u05d0\u05de\u05d5\u05df \u05d7\u05e0\u05e7\u05ea\u05d9", sb:"\u05e0\u05d5\u05d6\u05dc\u05d9 \u00b7 270/222 \u05d2\u05e8'/\u05dc'", tp:"l", nL:270, nLw:222, sea:true},
   {nm:"\u05e9\u05e4\u05e8 5-3-8",  sb:"\u05e0\u05d5\u05d6\u05dc\u05d9 \u00b7 60 \u05d2\u05e8'/\u05dc'",  tp:"l", nL:60},
   {nm:"\u05e9\u05e4\u05e8 4-2-8",  sb:"\u05e0\u05d5\u05d6\u05dc\u05d9 \u00b7 46 \u05d2\u05e8'/\u05dc'",  tp:"l", nL:46},
   {nm:"\u05e9\u05e4\u05e8 6-6-6",  sb:"\u05e0\u05d5\u05d6\u05dc\u05d9 \u00b7 72 \u05d2\u05e8'/\u05dc'",  tp:"l", nL:72},
   {nm:"\u05e9\u05e4\u05e8 7-3-7",  sb:"\u05e0\u05d5\u05d6\u05dc\u05d9 \u00b7 84 \u05d2\u05e8'/\u05dc'",  tp:"l", nL:84},
+  {nm:"חומצה זרחתית",  sb:"נוזלי \u00b7 75% \u00b7 ללא חנקן",  tp:"l", nL:0, isAcid:true},
   {nm:"17-10-27",      sb:'\u05d3\u05d9\u05e9\u05d5\u05df \u05d9\u05e9\u05d9\u05e8 \u00b7 25 \u05e7"ג', tp:"d", n:0.17, bag:25},
   {nm:"20-20-20",      sb:'\u05d3\u05d9\u05e9\u05d5\u05df \u05d9\u05e9\u05d9\u05e8 \u00b7 25 \u05e7"ג', tp:"d", n:0.20, bag:25},
   {nm:"\u05d7\u05e0\u05e7\u05ea \u05d0\u05e9\u05dc\u05d2\u05df", sb:'\u05d3\u05d9\u05e9\u05d5\u05df \u05d9\u05e9\u05d9\u05e8 \u00b7 25 \u05e7"ג', tp:"d", n:0.13, bag:25}
@@ -285,6 +291,7 @@ function setSeason(s){
   go();
 }
 
+// מעודכן לעבוד עם הערכים החדשים
 function buildPresets(){
   var f = F[cur], c = document.getElementById("solidPresets");
   c.innerHTML = "";
@@ -294,19 +301,23 @@ function buildPresets(){
     b.className = "pbtn";
     b.textContent = p.l;
     b.onclick = (function(pr){ return function(){
-      if(pr.bags !== undefined){ document.getElementById("sBags").value = pr.bags; txt("lBags", pr.bags + " שקים"); }
-      if(pr.tank){ document.getElementById("sTank").value = pr.tank; txt("lTank", pr.tank.toLocaleString("he-IL") + " ל'"); }
+      if(pr.bags !== undefined){ document.getElementById("sBags").value = pr.bags; }
+      if(pr.tank){ document.getElementById("sTank").value = pr.tank; }
       go();
     }; })(p);
     c.appendChild(b);
   });
 }
 
-function setNote(id, val){
+function setNote(id, val, isAcid){
   var el = document.getElementById(id);
-  if(val < 100)      { el.className="note warn"; el.textContent="\u26a0 "+rnd(val)+" גר' N/דונם/יום — נמוך"; }
-  else if(val > 600) { el.className="note warn"; el.textContent="\u26a0 "+rnd(val)+" גר' N/דונם/יום — גבוה, סכנת מלח"; }
-  else               { el.className="note ok";   el.textContent="\u2713 "+rnd(val)+" גר' N/דונם/יום — טווח תקין"; }
+  if (isAcid) {
+    el.className="note ok"; el.textContent="✓ חומצה זרחתית מיועדת לאספקת זרחן נקי ולניקוי מערכות ההשקיה.";
+    return;
+  }
+  if(val < 100)      { el.className="note warn"; el.textContent="⚠️ "+rnd(val)+" גר' N/דונם/יום — נמוך"; }
+  else if(val > 600) { el.className="note warn"; el.textContent="⚠️ "+rnd(val)+" גר' N/דונם/יום — גבוה, סכנת מלח"; }
+  else               { el.className="note ok";   el.textContent="✓ "+rnd(val)+" גר' N/דונם/יום — טווח תקין"; }
 }
 
 function go(){
@@ -318,20 +329,52 @@ function go(){
     var tank = +document.getElementById("sTank").value;
     txt("lBags", bags + " שקים");
     txt("lTank", tank.toLocaleString("he-IL") + " ל'");
-    var nKg = bags*f.bag*f.n, pKg = bags*f.bag*f.p, kKg = bags*f.bag*f.k;
-    var nGL = nKg*1000/tank, pGL = pKg*1000/tank, kGL = kKg*1000/tank;
+    
+    // חישוב קילוגרמים של יסודות מסיסים
+    var nKg = bags*f.bag*f.n;
+    var pKg = bags*f.bag*f.p;
+    var kKg = bags*f.bag*f.k;
+    var caKg = bags*f.bag*(f.ca || 0); // חישוב סידן צרוף (קאלציום) בשק
+    
+    var nGL = nKg*1000/tank;
+    var pGL = pKg*1000/tank;
+    var kGL = kKg*1000/tank;
+    var caGL = caKg*1000/tank;
+    
     txt("sNgl",  f2(nGL));
     txt("sNppm", rnd(nGL*1000));
-    var pc = document.getElementById("sPcard"), kc = document.getElementById("sKcard");
+    
+    var pc = document.getElementById("sPcard"), kc = document.getElementById("sKcard"), cac = document.getElementById("sCacard");
+    
+    // שליטה בהצגת הכרטיסים הדינמיים (N, P, K, Ca) לפי הרכב הדשן
     if(f.p>0){ pc.className="pc pp"; txt("sPppm",rnd(pGL*1000)); } else { pc.className="pc pe"; txt("sPppm","—"); }
     if(f.k>0){ kc.className="pc pk"; txt("sKppm",rnd(kGL*1000)); } else { kc.className="pc pe"; txt("sKppm","—"); }
-    document.getElementById("sFml").innerHTML =
-      bags+" שקים × "+f.bag+' ק"ג × '+Math.round(f.n*100)+"% = <strong>"+f2(nKg)+' ק"ג N</strong><br>'+
-      "÷ "+tank.toLocaleString("he-IL")+" ל' = <strong>"+f2(nGL)+" גר' N לכל ליטר תמיסה</strong>";
+    if(f.ca>0){ cac.className="pc pca"; txt("sCappm",rnd(caGL*1000)); } else { cac.className="pc pe"; txt("sCappm","—"); }
+    
+    // בניית נוסחת הפירוט הכתובה
+    if (f.ca > 0) {
+      document.getElementById("sFml").innerHTML =
+        bags+" שקים × "+f.bag+' ק"ג × '+f1(f.n*100)+"% = <strong>"+f2(nKg)+' ק"ג N חנקן</strong><br>'+
+        bags+" שקים × "+f.bag+' ק"ג × 19% = <strong>"+f2(caKg)+' ק"ג Ca סידן צרוף</strong><br>'+
+        "÷ "+tank.toLocaleString("he-IL")+" ל' תמיסת אם בדוד";
+    } else {
+      document.getElementById("sFml").innerHTML =
+        bags+" שקים × "+f.bag+' ק"ג × '+f1(f.n*100)+"% = <strong>"+f2(nKg)+' ק"ג N</strong><br>'+
+        "÷ "+tank.toLocaleString("he-IL")+" ל' = <strong>"+f2(nGL)+" גר' N לכל ליטר תמיסה</strong>";
+    }
+    
     var inj=+document.getElementById("sInj").value, wat=+document.getElementById("sWat").value, frq=+document.getElementById("sFreq").value;
     txt("lSInj",f1(inj)+" ל'/קוב"); txt("lSWat",f1(wat)+" קוב"); txt("lSFreq","כל "+frq+" ימים");
-    var nEv=inj*wat*nGL, nDay=nEv/frq;
-    txt("sDunEv",rnd(nEv)); txt("sDunDay",rnd(nDay)); setNote("sNote",nDay);
+    
+    var nEv = inj*wat*nGL;
+    var caEv = inj*wat*caGL;
+    var nDay = nEv/frq;
+    
+    txt("sDunEv",rnd(nEv)); 
+    txt("sCaDunEv", f.ca > 0 ? rnd(caEv) : "0"); 
+    txt("sDunDay",rnd(nDay)); 
+    setNote("sNote",nDay, false);
+    
     var tot=+document.getElementById("sTot").value;
     txt("lSTot",tot+" דונם");
     txt("sTotEv",rnd(inj*wat*tot));
@@ -339,15 +382,23 @@ function go(){
 
   } else if(f.tp === "l"){
     var nL=(f.sea&&ssn==="winter")?f.nLw:f.nL;
-    txt("nPerLiter",nL+" גר'/ל'");
+    txt("nPerLiter", f.isAcid ? "0 גר'/ל'" : nL+" גר'/ל'");
     var inj=+document.getElementById("lInj").value, wat=+document.getElementById("lWat").value, frq=+document.getElementById("lFreq").value;
     txt("lLInj",f1(inj)+" ל'/קוב"); txt("lLWat",f1(wat)+" קוב"); txt("lLFreq","כל "+frq+" ימים");
     var fpd=inj*wat, nDun=fpd*nL, nDay=nDun/frq;
-    txt("lNdun",rnd(nDun)); txt("lFertDun",f2(fpd)+" ל'"); txt("lNday",rnd(nDay));
-    document.getElementById("lFml").innerHTML =
-      f1(inj)+" ל'/קוב × "+f1(wat)+" קוב = <strong>"+f2(fpd)+" ל' דשן לדונם</strong><br>"+
-      "× "+nL+" גר'/ל' = <strong>"+rnd(nDun)+" גרם N לדונם להשקיה</strong>";
-    setNote("lNote",nDay);
+    txt("lNdun", f.isAcid ? "0 (חומצה נשמרת לזרחן)" : rnd(nDun)); 
+    txt("lFertDun",f2(fpd)+" ל'"); 
+    txt("lNday", f.isAcid ? "0" : rnd(nDay));
+    
+    if (f.isAcid) {
+      document.getElementById("lFml").innerHTML =
+        f1(inj)+" ל'/קוב × "+f1(wat)+" קוב = <strong>"+f2(fpd)+" ל' חומצה לדונם</strong><br>פורמולציה מרוכזת לניקוי ואספקת זרחן.";
+    } else {
+      document.getElementById("lFml").innerHTML =
+        f1(inj)+" ל'/קוב × "+f1(wat)+" קוב = <strong>"+f2(fpd)+" ל' דשן לדונם</strong><br>"+
+        "× "+nL+" גר'/ל' = <strong>"+rnd(nDun)+" גרם N לדונם להשקיה</strong>";
+    }
+    setNote("lNote",nDay, f.isAcid);
     var tot=+document.getElementById("lTot").value;
     txt("lLTot",tot+" דונם");
     txt("lTotEv",f2(fpd*tot));
@@ -363,7 +414,7 @@ function go(){
     document.getElementById("dFml").innerHTML =
       bags+" שקים × "+f.bag+' ק"ג × '+Math.round(f.n*100)+"% = <strong>"+f2(nTot/1000)+' ק"ג N</strong><br>'+
       "÷ "+area+" דונם = <strong>"+rnd(nEv)+" גרם N לדונם לאירוע</strong>";
-    setNote("dNote",nDay);
+    setNote("dNote",nDay, false);
     var tot=+document.getElementById("dTot").value;
     txt("lDTot",tot+" דונם");
     txt("dTotEv",f2(bags*f.bag*tot/area));
