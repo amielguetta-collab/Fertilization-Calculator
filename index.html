@@ -78,7 +78,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 </head>
 <body>
 
-<!-- מסך חסימה והפעלה דרך וואטסאפ -->
 <div id="activationOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#f5f5f0; z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-align:center; dir:rtl;">
   <div style="background:#fff; padding:28px 24px; border-radius:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1); max-width:400px; width:100%;">
     <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #2e7d32; margin-bottom: 6px;">PANORA SEEDS</div>
@@ -95,7 +94,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 
 <div class="wrap">
 
-<!-- חותמת מותג עליונה קבועה -->
 <div style="background: #1a6eb5; color: #fff; margin: -16px -14px 20px -14px; padding: 16px 14px; text-align: center; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
   <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #a5d6a7; margin-bottom: 2px; text-transform: uppercase;">PANORA SEEDS</div>
   <h1 style="font-size: 21px; font-weight: 600; margin: 0; color: #fff; letter-spacing: -0.5px;">מחשבון דישון לחקלאי</h1>
@@ -112,7 +110,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 </div>
 
-<!-- קלט מוצק -->
 <div class="card hidden" id="secS">
   <p class="ctitle">כמות ודוד</p>
   <div class="sr"><div class="sr-header"><label>שקים:</label><span class="sv" id="lBags">8 שקים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sBags',-1)">-</button><input type="range" id="sBags" min="1" max="20" value="8" step="1" oninput="go()"><button class="step-btn" onclick="step('sBags',1)">+</button></div></div>
@@ -120,7 +117,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="presets" id="solidPresets"></div>
 </div>
 
-<!-- קלט נוזלי -->
 <div class="card hidden" id="secL">
   <p class="ctitle">הזרקה ישירה — דוד דשן טהור</p>
   <div class="ibox"><span>N בליטר דשן טהור:</span><strong id="nPerLiter">—</strong></div>
@@ -128,7 +124,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lLWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('lWat',-1)">-</button><input type="range" id="lWat" min="0.5" max="10" value="4" step="0.5" oninput="go()"><button class="step-btn" onclick="step('lWat',1)">+</button></div></div>
 </div>
 
-<!-- קלט דישון ישיר -->
 <div class="card hidden" id="secD">
   <p class="ctitle">דישון ישיר — שק לדוד קטן</p>
   <div class="sr"><div class="sr-header"><label>שקים לדוד:</label><span class="sv" id="lDBags">1 שק</span></div><div class="slider-container"><button class="step-btn" onclick="step('dBags',-1)">-</button><input type="range" id="dBags" min="1" max="10" value="1" step="1" oninput="go()"><button class="step-btn" onclick="step('dBags',1)">+</button></div></div>
@@ -136,7 +131,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lDFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('dFreq',-1)">-</button><input type="range" id="dFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('dFreq',1)">+</button></div></div>
 </div>
 
-<!-- תוצאות מוצק -->
 <div class="card hidden" id="outS">
   <p class="ctitle">תמיסת האם בדוד</p>
   <div class="bigbox"><div class="bl">N — חנקן צרוף לכל ליטר תמיסה</div><div class="bv" id="sNgl">—</div><div class="bu">גרם / ליטר</div></div>
@@ -165,7 +159,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div></div>
 </div>
 
-<!-- תוצאות נוזלי -->
 <div class="card hidden" id="outL">
   <p class="ctitle">N לדונם</p>
   <div class="bigbox"><div class="bl">N לדונם בהשקיה זו</div><div class="bv" id="lNdun">—</div><div class="bu">גרם / דונם</div></div>
@@ -185,7 +178,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div></div>
 </div>
 
-<!-- תוצאות דישון ישיר -->
 <div class="card hidden" id="outD">
   <p class="ctitle">N לשדה</p>
   <div class="bigbox"><div class="bl">N לדונם לאירוע</div><div class="bv" id="dNev">—</div><div class="bu">גרם / דונם</div></div>
@@ -206,7 +198,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 
 <footer>
   <strong>PANORA SEEDS · פנורה ישראל</strong><br>
-  פיתוח וליווי מקצועי: עמיאל גואטה, אגרונום ©
+  פיתוח: עמיאל גואטה ©
 </footer>
 </div>
 
@@ -224,7 +216,7 @@ function activateApp() {
   }
   
   // !!! זכור להחליף את '0500000000' במספר האמיתי שלך כאן !!!
-  var myPhone = "0500000000"; 
+  var myPhone = "972544825688"; 
   var text = "היי עמיאל, אני חקלאי בשם: " + name + ", והפעלתי כעת את מחשבון הדישון של פנורה.";
   
   localStorage.setItem("panora_activated", "true");
