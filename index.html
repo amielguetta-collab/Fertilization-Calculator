@@ -13,6 +13,9 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); width: 100%; }
 .ctitle { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
 
+/* פתרון הבאג: הגדרת ההסתרה המוחלטת לאלמנטים לא פעילים */
+.hidden { display: none !important; }
+
 /* ===== TABS ===== */
 .tab-bar { display: flex; background: #fff; border-radius: 14px; padding: 5px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); gap: 4px; }
 .tab-btn { flex: 1; border: none; border-radius: 10px; padding: 11px 6px; font-size: 14px; font-weight: 600; cursor: pointer; background: transparent; color: #888; transition: all 0.18s; font-family: inherit; line-height: 1.3; }
@@ -141,6 +144,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 </head>
 <body>
 
+<!-- Activation overlay -->
 <div id="activationOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#f5f5f0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;">
   <div style="background:#fff;padding:28px 24px;border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,0.1);max-width:400px;width:100%;">
     <img src="logo.png" alt="Panora Seeds Logo" style="max-height:40px;margin-bottom:8px;">
@@ -156,12 +160,14 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 
 <div class="wrap">
 
+<!-- Header -->
 <div style="background:#1a6eb5;color:#fff;margin:-16px -14px 20px -14px;padding:16px 14px;text-align:center;border-bottom-left-radius:16px;border-bottom-right-radius:16px;box-shadow:0 2px 6px rgba(0,0,0,0.1);">
   <img src="logo.png" alt="Panora Seeds Logo" style="max-height:40px;margin-bottom:8px;">
   <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#a5d6a7;margin-bottom:2px;text-transform:uppercase;">PANORA SEEDS</div>
   <h1 style="font-size:21px;font-weight:600;margin:0;color:#fff;letter-spacing:-0.5px;">מחשבון דישון לחקלאי</h1>
 </div>
 
+<!-- Tab bar -->
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('market')" id="tabMarket">
     דשנים מהשוק
@@ -173,6 +179,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </button>
 </div>
 
+<!-- ==================== TAB: MARKET ==================== -->
 <div class="tab-pane active" id="paneMarket">
 
 <div class="card">
@@ -271,7 +278,11 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div></div>
 </div>
 
-</div><div class="tab-pane" id="paneSingles">
+</div><!-- end paneMarket -->
+
+
+<!-- ==================== TAB: SINGLES ==================== -->
+<div class="tab-pane" id="paneSingles">
 
 <div class="card">
   <p class="ctitle">הרכבת תמיסת אם — שקי 25 ק"ג</p>
@@ -280,6 +291,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <br>⚠ <strong>MAP ו-CaNO₃ אסור לערבב ישירות</strong> — הוסף לתמיסה בנפרד.
   </div>
 
+  <!-- דוד -->
   <div class="sr">
     <div class="sr-header"><label>נפח הדוד (ל'):</label><span class="sv" id="lMixTank">1,000 ל'</span></div>
     <div class="slider-container">
@@ -292,6 +304,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="div"></div>
   <p class="ctitle">סינגלים — שקי 25 ק"ג</p>
 
+  <!-- MAP -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">MAP</span><span class="sng-npk">12-61-0 · מונו-אמוניום פוספט</span></div>
@@ -304,6 +317,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
+  <!-- MKP -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">MKP</span><span class="sng-npk">0-52-34 · מונו-פוטסיום פוספט</span></div>
@@ -316,6 +330,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
+  <!-- KNO3 -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">חנקת אשלגן</span><span class="sng-npk">13-0-46 · KNO₃</span></div>
@@ -328,6 +343,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
+  <!-- CaNO3 -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">חנקת סידן</span><span class="sng-npk">15.5% N · 19% Ca · CaNO₃</span></div>
@@ -340,6 +356,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
+  <!-- MgNO3 -->
   <div class="sng-block" style="margin-bottom:0">
     <div class="sng-top">
       <div><span class="sng-name">חנקת מגנזיום</span><span class="sng-npk">11% N · 9.5% Mg · MgNO₃</span></div>
@@ -353,6 +370,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 </div>
 
+<!-- תוצאת תמיסת האם -->
 <div class="mix-result" id="mixResult">
   <div class="mix-title">תמיסת האם — ריכוז לכל ליטר</div>
   <div class="mix-grid">
@@ -365,8 +383,10 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="mix-ppm-row" id="mixPpmRow"></div>
 </div>
 
+<!-- בלוק אזהרות -->
 <div id="alertsBlock"></div>
 
+<!-- N לדונם מתמיסת האם -->
 <div class="card" id="mixDunCard">
   <p class="ctitle">N לדונם מהתמיסה</p>
   <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lMInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mInj',-0.1)">-</button><input type="range" id="mInj" min="0.1" max="20" value="1" step="0.1" oninput="calcMixInteract()"><button class="step-btn" onclick="stepMix('mInj',0.1)">+</button></div></div>
@@ -381,16 +401,22 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 </div>
 
+<!-- רשימת הוספה לדוד -->
 <div class="card" id="mixSummaryCard">
   <p class="ctitle">סיכום — מה להוסיף לדוד</p>
   <div id="mixSummaryList"></div>
 </div>
 
-</div><footer>
+</div><!-- end paneSingles -->
+
+<footer>
   <img src="logo.png" alt="Panora Seeds Logo" style="max-height:30px;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto;">
   <strong>PANORA SEEDS · פנורה ישראל</strong>
 </footer>
-</div><div style="position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(245,245,240,0.95);backdrop-filter:blur(6px);border-top:1px solid #e0e0e0;z-index:50;max-width:480px;margin:0 auto;">
+</div><!-- end wrap -->
+
+<!-- כפתור שלח צף -->
+<div style="position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(245,245,240,0.95);backdrop-filter:blur(6px);border-top:1px solid #e0e0e0;z-index:50;max-width:480px;margin:0 auto;">
   <button id="calcBtn" onclick="sendReport()" style="width:100%;background:#1a6eb5;color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 2px 6px rgba(26,110,181,0.3);">חשב</button>
 </div>
 
@@ -401,7 +427,6 @@ function markInteracted(){ userInteracted = true; hideResults(); }
 function goInteract(){ markInteracted(); go(); }
 function calcMixInteract(){ markInteracted(); calcMix(); }
 
-// [אזהרת אבטחה]: החלפתי את הטוקן הישיר בכתובת Webhook. אל תחשוף טוקנים של טלגרם בצד הלקוח!
 var WEBHOOK_URL = "הכנס_כאן_את_כתובת_הוובהוק_שלך_מזאפייר_או_מייק"; 
 
 function tgSend(msg){
