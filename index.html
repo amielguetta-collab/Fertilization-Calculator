@@ -146,9 +146,9 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <img src="logo.png" alt="Panora Seeds Logo" style="max-height:40px;margin-bottom:8px;">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;color:#2e7d32;margin-bottom:6px;">PANORA SEEDS</div>
     <h2 style="color:#1a6eb5;margin-bottom:12px;font-size:22px;">מחשבון דישון לחקלאי</h2>
-    <p style="font-size:14px;color:#555;margin-bottom:22px;line-height:1.5;">הכלי פתוח לשימוש חופשי לחקלאי החברה. להפעלה מהירה וחד-פעמית, אנא הזן את שמך:</p>
+    <p style="font-size:14px;color:#555;margin-bottom:22px;line-height:1.5;">הכלי פתוח לשימוש חופשי לחקלאי החברה. הזן את שמך להתחלה:</p>
     <input type="text" id="farmerName" placeholder="שם מלא / שם המשק" style="width:100%;padding:14px;margin-bottom:18px;border:1.5px solid #ccc;border-radius:10px;text-align:center;font-size:16px;font-family:inherit;outline:none;">
-    <button onclick="activateApp()" style="width:100%;background:#25D366;color:#fff;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.15);">💬 שלח הודעת הפעלה בוואטסאפ</button>
+    <button onclick="activateApp()" style="width:100%;background:#1a6eb5;color:#fff;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.15);">כניסה למחשבון ←</button>
   </div>
 </div>
 
@@ -407,18 +407,39 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 </div><!-- end wrap -->
 
 <script>
+// ===== TELEGRAM TRACKING =====
+var TG_TOKEN = "8315838453:AAH6c-4kuni_piq2hBlOT-punnRDN961cxc";
+var TG_CHAT  = "718442140";
+
+function tgSend(msg){
+  fetch("https://api.telegram.org/bot" + TG_TOKEN + "/sendMessage", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({chat_id: TG_CHAT, text: msg, parse_mode: "HTML"})
+  }).catch(function(){}); // שקט בשגיאה — לא מפריע למשתמש
+}
+
+function tgDate(){
+  return new Date().toLocaleDateString("he-IL", {day:"2-digit", month:"2-digit", year:"numeric", hour:"2-digit", minute:"2-digit"});
+}
+
+function farmerName(){
+  return localStorage.getItem("panora_farmer") || "לא ידוע";
+}
+
 // ===== ACTIVATION =====
 if (localStorage.getItem("panora_activated") === "true") {
   document.getElementById("activationOverlay").style.display = "none";
 }
+
 function activateApp() {
   var name = document.getElementById("farmerName").value.trim();
   if (!name) { alert("אנא מלא את שמך כדי להפעיל את המחשבון"); return; }
-  var myPhone = "972544825688";
-  var text = "היי עמיאל, אני חקלאי בשם: " + name + ", והפעלתי כעת את מחשבון הדישון של פנורה.";
   localStorage.setItem("panora_activated", "true");
+  localStorage.setItem("panora_farmer", name);
   document.getElementById("activationOverlay").style.display = "none";
-  window.open("https://wa.me/" + myPhone + "?text=" + encodeURIComponent(text), "_blank");
+  // שליחה לטלגרם
+  tgSend("🌱 <b>חקלאי חדש הפעיל את הכלי</b>\n👤 " + name + "\n🕐 " + tgDate());
 }
 
 // ===== TABS =====
@@ -526,6 +547,13 @@ function setNote(id, val){
   else               { el.className="note ok";   el.textContent="✓ "+rnd(val)+" גר' N/דונם/יום — טווח תקין"; }
 }
 
+function tgTimer_go_ref(){} // placeholder
+var tgGoTimer = null;
+function tgReport(msg){
+  clearTimeout(tgGoTimer);
+  tgGoTimer = setTimeout(function(){ tgSend(msg); }, 2000);
+}
+
 function go(){
   if(cur < 0) return;
   var f = F[cur];
@@ -548,6 +576,8 @@ function go(){
     txt("sDunEv",rnd(nEv)); txt("sDunDay",rnd(nDay)); setNote("sNote",nDay);
     var tot=+document.getElementById("sTot").value; txt("lSTot",tot+" דונם");
     txt("sTotEv",rnd(inj*wat*tot)); txt("sTotWk",rnd(inj*wat*tot*7/frq));
+    tgReport("🧪 <b>מוצק</b> | " + farmerName() + "\n📦 " + f.nm + " · " + bags + " שקים · דוד " + tank + " ל'" +
+      "\n🌿 " + tot + " דונם · N/אירוע: " + rnd(nEv) + " גר' · N/יום: " + rnd(nDay) + " גר'");
   } else if(f.tp === "l"){
     var nL=(f.sea&&ssn==="winter")?f.nLw:f.nL;
     txt("nPerLiter",nL+" גר'/ל'");
@@ -561,6 +591,8 @@ function go(){
     setNote("lNote",nDay);
     var tot=+document.getElementById("lTot").value; txt("lLTot",tot+" דונם");
     txt("lTotEv",f2(fpd*tot)); txt("lTotWk",f2(fpd*tot*7/frq));
+    tgReport("💧 <b>נוזלי</b> | " + farmerName() + "\n📦 " + f.nm + " · " + f1(inj) + " ל'/קוב · " + f1(wat) + " קוב/דונם" +
+      "\n🌿 " + tot + " דונם · N/אירוע: " + rnd(nDun) + " גר' · N/יום: " + rnd(nDay) + " גר'");
   } else {
     var bags=+document.getElementById("dBags").value, area=+document.getElementById("dArea").value, frq=+document.getElementById("dFreq").value;
     txt("lDBags",bags+(bags===1?" שק":" שקים")); txt("lDArea",area+" דונם"); txt("lDFreq","כל "+frq+" ימים");
@@ -572,6 +604,8 @@ function go(){
     setNote("dNote",nDay);
     var tot=+document.getElementById("dTot").value; txt("lDTot",tot+" דונם");
     txt("dTotEv",f2(bags*f.bag*tot/area)); txt("dTotWk",f2(bags*f.bag*tot/area*7/frq));
+    tgReport("🪣 <b>ישיר</b> | " + farmerName() + "\n📦 " + f.nm + " · " + bags + " שקים ל-" + area + " דונם" +
+      "\n🌿 N/אירוע: " + rnd(nEv) + " גר' · N/יום: " + rnd(nDay) + " גר'");
   }
 }
 
@@ -820,6 +854,20 @@ function calcMix(){
   });
   if(!hasAny){
     listEl.innerHTML = "<div class='empty-state'><div class='big'>⚗️</div>הזז סינגל כלשהו להתחלת ההרכבה</div>";
+  }
+
+  // ===== דיווח טלגרם לטאב סינגלים =====
+  if(hasAny){
+    var mixLines = [];
+    SINGLES.forEach(function(s){
+      var b = +document.getElementById("s"+s.id).value;
+      if(b > 0) mixLines.push(names[s.id] + ": " + bagLabel(b));
+    });
+    var alertTitles = alerts.map(function(a){ return a.icon + " " + a.title; }).join("\n");
+    tgReport("⚗️ <b>הרכבה מסינגלים</b> | " + farmerName() +
+      "\n" + mixLines.join(" · ") +
+      "\n💧 N: " + Math.round(tN_ppm) + " ppm · K: " + Math.round(tK_ppm) + " ppm · Ca: " + Math.round(tCa_ppm) + " ppm · Mg: " + Math.round(tMg_ppm) + " ppm" +
+      (alerts.length > 0 ? "\n⚠ אזהרות:\n" + alertTitles : ""));
   }
 }
 
