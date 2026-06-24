@@ -13,7 +13,7 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); width: 100%; }
 .ctitle { font-size: 11px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
 
-/* פתרון הבאג: הגדרת ההסתרה המוחלטת לאלמנטים לא פעילים */
+/* פתרון הבאג: הסתרה מוחלטת לאלמנטים לא פעילים */
 .hidden { display: none !important; }
 
 /* ===== TABS ===== */
@@ -23,6 +23,11 @@ h1 { font-size: 22px; font-weight: 600; margin-bottom: 2px; }
 .tab-btn span { display: block; font-size: 10px; font-weight: 400; opacity: 0.75; margin-top: 2px; }
 .tab-pane { display: none; }
 .tab-pane.active { display: block; }
+
+/* ===== SUB-TABS (שיטת יישום) ===== */
+.sub-tabs { display: flex; gap: 8px; }
+.sub-tab { flex: 1; text-align: center; padding: 10px 0; background: #f0f0f0; border-radius: 10px; font-size: 13px; font-weight: 600; color: #555; cursor: pointer; transition: all 0.2s; border: 1.5px solid transparent; }
+.sub-tab.active { background: #e3f2fd; color: #1565c0; border-color: #1565c0; }
 
 /* ===== MARKET TAB ===== */
 .fert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
@@ -183,6 +188,15 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 <div class="tab-pane active" id="paneMarket">
 
 <div class="card">
+  <p class="ctitle">שיטת יישום</p>
+  <div class="sub-tabs" id="catTabs">
+    <div class="sub-tab active" onclick="setGroup('s')">דוד מוצק</div>
+    <div class="sub-tab" onclick="setGroup('l')">הזרקת נוזלי</div>
+    <div class="sub-tab" onclick="setGroup('d')">דישון ישיר</div>
+  </div>
+  
+  <div class="div" style="margin: 14px 0;"></div>
+  
   <p class="ctitle">בחר דשן</p>
   <div class="fert-grid" id="fertGrid"></div>
   <div class="season-row" id="seasonRow">
@@ -191,6 +205,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 </div>
 
+<!-- כרטיסיות הקלט של מוצק (דוד) -->
 <div class="card hidden" id="secS">
   <p class="ctitle">כמות ודוד</p>
   <div class="sr"><div class="sr-header"><label>שקים:</label><span class="sv" id="lBags">8 שקים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sBags',-1)">-</button><input type="range" id="sBags" min="1" max="20" value="8" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('sBags',1)">+</button></div></div>
@@ -198,6 +213,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="presets" id="solidPresets"></div>
 </div>
 
+<!-- כרטיסיות הקלט של נוזלי -->
 <div class="card hidden" id="secL">
   <p class="ctitle">הזרקה ישירה — דוד דשן טהור</p>
   <div class="ibox"><span>N בליטר דשן טהור:</span><strong id="nPerLiter">—</strong></div>
@@ -205,6 +221,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lLWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('lWat',-1)">-</button><input type="range" id="lWat" min="0.5" max="10" value="4" step="0.5" oninput="goInteract()"><button class="step-btn" onclick="step('lWat',1)">+</button></div></div>
 </div>
 
+<!-- כרטיסיות הקלט של דישון ישיר -->
 <div class="card hidden" id="secD">
   <p class="ctitle">דישון ישיר — שק לדוד קטן</p>
   <div class="sr"><div class="sr-header"><label>שקים לדוד:</label><span class="sv" id="lDBags">1 שק</span></div><div class="slider-container"><button class="step-btn" onclick="step('dBags',-1)">-</button><input type="range" id="dBags" min="1" max="10" value="1" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('dBags',1)">+</button></div></div>
@@ -212,6 +229,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lDFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('dFreq',-1)">-</button><input type="range" id="dFreq" min="1" max="7" value="2" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('dFreq',1)">+</button></div></div>
 </div>
 
+<!-- פלט מוצק (דוד) -->
 <div class="card hidden" id="outS">
   <p class="ctitle">תמיסת האם בדוד</p>
   <div class="bigbox"><div class="bl">N — חנקן צרוף לכל ליטר תמיסה</div><div class="bv" id="sNgl">—</div><div class="bu">גרם / ליטר</div></div>
@@ -242,6 +260,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div></div>
 </div>
 
+<!-- פלט נוזלי -->
 <div class="card hidden" id="outL">
   <p class="ctitle">N לדונם</p>
   <div class="bigbox"><div class="bl">N לדונם בהשקיה זו</div><div class="bv" id="lNdun">—</div><div class="bu">גרם / דונם</div></div>
@@ -263,6 +282,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div></div>
 </div>
 
+<!-- פלט דישון ישיר -->
 <div class="card hidden" id="outD">
   <div class="bigbox"><div class="bl">N לדונם לאירוע</div><div class="bv" id="dNev">—</div><div class="bu">גרם / דונם</div></div>
   <div id="resultD" class="result-hidden">
@@ -291,7 +311,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <br>⚠ <strong>MAP ו-CaNO₃ אסור לערבב ישירות</strong> — הוסף לתמיסה בנפרד.
   </div>
 
-  <!-- דוד -->
   <div class="sr">
     <div class="sr-header"><label>נפח הדוד (ל'):</label><span class="sv" id="lMixTank">1,000 ל'</span></div>
     <div class="slider-container">
@@ -304,7 +323,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="div"></div>
   <p class="ctitle">סינגלים — שקי 25 ק"ג</p>
 
-  <!-- MAP -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">MAP</span><span class="sng-npk">12-61-0 · מונו-אמוניום פוספט</span></div>
@@ -317,7 +335,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
-  <!-- MKP -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">MKP</span><span class="sng-npk">0-52-34 · מונו-פוטסיום פוספט</span></div>
@@ -330,7 +347,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
-  <!-- KNO3 -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">חנקת אשלגן</span><span class="sng-npk">13-0-46 · KNO₃</span></div>
@@ -343,7 +359,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
-  <!-- CaNO3 -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">חנקת סידן</span><span class="sng-npk">15.5% N · 19% Ca · CaNO₃</span></div>
@@ -356,7 +371,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
-  <!-- MgNO3 -->
   <div class="sng-block" style="margin-bottom:0">
     <div class="sng-top">
       <div><span class="sng-name">חנקת מגנזיום</span><span class="sng-npk">11% N · 9.5% Mg · MgNO₃</span></div>
@@ -370,7 +384,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 </div>
 
-<!-- תוצאת תמיסת האם -->
 <div class="mix-result" id="mixResult">
   <div class="mix-title">תמיסת האם — ריכוז לכל ליטר</div>
   <div class="mix-grid">
@@ -383,10 +396,8 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="mix-ppm-row" id="mixPpmRow"></div>
 </div>
 
-<!-- בלוק אזהרות -->
 <div id="alertsBlock"></div>
 
-<!-- N לדונם מתמיסת האם -->
 <div class="card" id="mixDunCard">
   <p class="ctitle">N לדונם מהתמיסה</p>
   <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lMInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mInj',-0.1)">-</button><input type="range" id="mInj" min="0.1" max="20" value="1" step="0.1" oninput="calcMixInteract()"><button class="step-btn" onclick="stepMix('mInj',0.1)">+</button></div></div>
@@ -401,7 +412,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 </div>
 
-<!-- רשימת הוספה לדוד -->
 <div class="card" id="mixSummaryCard">
   <p class="ctitle">סיכום — מה להוסיף לדוד</p>
   <div id="mixSummaryList"></div>
@@ -415,7 +425,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 </footer>
 </div><!-- end wrap -->
 
-<!-- כפתור שלח צף -->
 <div style="position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(245,245,240,0.95);backdrop-filter:blur(6px);border-top:1px solid #e0e0e0;z-index:50;max-width:480px;margin:0 auto;">
   <button id="calcBtn" onclick="sendReport()" style="width:100%;background:#1a6eb5;color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 2px 6px rgba(26,110,181,0.3);">חשב</button>
 </div>
@@ -503,6 +512,19 @@ var F = [
 ];
 
 var cur = -1, ssn = "summer";
+var activeGroup = "s"; // סוג ברירת מחדל בעת טעינת המסך
+
+function setGroup(g) {
+  activeGroup = g;
+  var tabs = document.getElementById("catTabs").children;
+  tabs[0].className = "sub-tab" + (g==='s' ? " active" : "");
+  tabs[1].className = "sub-tab" + (g==='l' ? " active" : "");
+  tabs[2].className = "sub-tab" + (g==='d' ? " active" : "");
+  
+  // מוצא את המוצר הראשון בקטגוריה ובוחר אותו אוטומטית כדי לעדכן את הפנלים
+  var firstIdx = F.findIndex(function(f) { return f.tp === g; });
+  if (firstIdx !== -1) pick(firstIdx);
+}
 
 function f1(n){ return parseFloat(n.toFixed(1)).toLocaleString("he-IL"); }
 function f2(n){ return parseFloat(n.toFixed(2)).toLocaleString("he-IL"); }
@@ -522,12 +544,10 @@ function step(id, dir){
 function buildGrid(){
   var g = document.getElementById("fertGrid");
   g.innerHTML = "";
-  var groups = [
-    {label:"מוצק — דוד", types:["s"]},
-    {label:"נוזלי — הזרקה", types:["l"]},
-    {label:"ישיר — ללא דוד", types:["d"]}
-  ];
   F.forEach(function(f,i){
+    // הסתרת מוצרים שלא שייכים לקטגוריה הפעילה
+    if (f.tp !== activeGroup) return;
+    
     var b = document.createElement("button");
     b.className = "fb f" + f.tp + (i===cur ? " active" : "");
     b.innerHTML = "<strong>" + f.nm + "</strong><span>" + f.sb + "</span>";
@@ -578,7 +598,6 @@ function setNote(id, val){
   else               { el.className="note ok";   el.textContent="✓ "+rnd(val)+" גר' N/דונם/יום — טווח תקין"; }
 }
 
-var tgGoTimer = null;
 var lastReport = "";
 
 function pendingReport(msg){
@@ -657,7 +676,8 @@ function go(){
   }
 }
 
-pick(0);
+// אתחול האפליקציה למצב דוד מוצק ('s')
+setGroup('s');
 
 var SINGLES = [
   {id:"MAP",   n:0.12,  p:0.61, k:0.00, ca:0.000, mg:0.000},
