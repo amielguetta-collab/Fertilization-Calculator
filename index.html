@@ -146,8 +146,10 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <img src="logo.png" alt="Panora Seeds Logo" style="max-height:40px;margin-bottom:8px;">
     <div style="font-size:12px;font-weight:700;letter-spacing:2px;color:#2e7d32;margin-bottom:6px;">PANORA SEEDS</div>
     <h2 style="color:#1a6eb5;margin-bottom:12px;font-size:22px;">מחשבון דישון לחקלאי</h2>
-    <p style="font-size:14px;color:#555;margin-bottom:22px;line-height:1.5;">הכלי פתוח לשימוש חופשי לחקלאי החברה. הזן את שמך להתחלה:</p>
-    <input type="text" id="farmerName" placeholder="שם מלא / שם המשק" style="width:100%;padding:14px;margin-bottom:18px;border:1.5px solid #ccc;border-radius:10px;text-align:center;font-size:16px;font-family:inherit;outline:none;">
+    <p style="font-size:14px;color:#555;margin-bottom:22px;line-height:1.5;">הכלי פתוח לשימוש חופשי לחקלאי החברה. הזן את פרטיך להתחלה:</p>
+    <input type="text" id="farmerName" placeholder="שם מלא / שם המשק" style="width:100%;padding:14px;margin-bottom:10px;border:1.5px solid #ccc;border-radius:10px;text-align:center;font-size:16px;font-family:inherit;outline:none;">
+    <input type="tel" id="farmerPhone" placeholder="מספר טלפון" style="width:100%;padding:14px;margin-bottom:6px;border:1.5px solid #ccc;border-radius:10px;text-align:center;font-size:16px;font-family:inherit;outline:none;">
+    <p style="font-size:12px;color:#aaa;margin-bottom:18px;text-align:center;">* כדי שנוכל לעדכן אותך בחידושים בכלי</p>
     <button onclick="activateApp()" style="width:100%;background:#1a6eb5;color:#fff;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.15);">כניסה למחשבון ←</button>
   </div>
 </div>
@@ -408,7 +410,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 
 <script>
 // ===== TELEGRAM TRACKING =====
-var TG_TOKEN = "8315838453:AAH6c-4kuni_piq2hBlOT-punnRDN961cxc";
+var TG_TOKEN = "8315838453:AAF1cK3LdQdmnlHcAIYPjLvPPxQ9OYlt29o";
 var TG_CHAT  = "718442140";
 
 function tgSend(msg){
@@ -433,13 +435,14 @@ if (localStorage.getItem("panora_activated") === "true") {
 }
 
 function activateApp() {
-  var name = document.getElementById("farmerName").value.trim();
+  var name  = document.getElementById("farmerName").value.trim();
+  var phone = document.getElementById("farmerPhone").value.trim();
   if (!name) { alert("אנא מלא את שמך כדי להפעיל את המחשבון"); return; }
   localStorage.setItem("panora_activated", "true");
   localStorage.setItem("panora_farmer", name);
+  localStorage.setItem("panora_phone", phone);
   document.getElementById("activationOverlay").style.display = "none";
-  // שליחה לטלגרם
-  tgSend("🌱 <b>חקלאי חדש הפעיל את הכלי</b>\n👤 " + name + "\n🕐 " + tgDate());
+  tgSend("🌱 <b>חקלאי חדש הפעיל את הכלי</b>\n👤 " + name + "\n📱 " + (phone || "לא הוזן") + "\n🕐 " + tgDate());
 }
 
 // ===== TABS =====
