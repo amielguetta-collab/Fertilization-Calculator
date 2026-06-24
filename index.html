@@ -189,23 +189,23 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 
 <div class="card hidden" id="secS">
   <p class="ctitle">כמות ודוד</p>
-  <div class="sr"><div class="sr-header"><label>שקים:</label><span class="sv" id="lBags">8 שקים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sBags',-1)">-</button><input type="range" id="sBags" min="1" max="20" value="8" step="1" oninput="go()"><button class="step-btn" onclick="step('sBags',1)">+</button></div></div>
-  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>דוד (ל'):</label><span class="sv" id="lTank">1,000 ל'</span></div><div class="slider-container"><button class="step-btn" onclick="step('sTank',-1)">-</button><input type="range" id="sTank" min="100" max="2000" value="1000" step="100" oninput="go()"><button class="step-btn" onclick="step('sTank',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>שקים:</label><span class="sv" id="lBags">8 שקים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sBags',-1)">-</button><input type="range" id="sBags" min="1" max="20" value="8" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('sBags',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>דוד (ל'):</label><span class="sv" id="lTank">1,000 ל'</span></div><div class="slider-container"><button class="step-btn" onclick="step('sTank',-1)">-</button><input type="range" id="sTank" min="100" max="2000" value="1000" step="100" oninput="goInteract()"><button class="step-btn" onclick="step('sTank',1)">+</button></div></div>
   <div class="presets" id="solidPresets"></div>
 </div>
 
 <div class="card hidden" id="secL">
   <p class="ctitle">הזרקה ישירה — דוד דשן טהור</p>
   <div class="ibox"><span>N בליטר דשן טהור:</span><strong id="nPerLiter">—</strong></div>
-  <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lLInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('lInj',-1)">-</button><input type="range" id="lInj" min="0.1" max="20" value="1" step="0.1" oninput="go()"><button class="step-btn" onclick="step('lInj',1)">+</button></div></div>
-  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lLWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('lWat',-1)">-</button><input type="range" id="lWat" min="0.5" max="10" value="4" step="0.5" oninput="go()"><button class="step-btn" onclick="step('lWat',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lLInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('lInj',-1)">-</button><input type="range" id="lInj" min="0.1" max="20" value="1" step="0.1" oninput="goInteract()"><button class="step-btn" onclick="step('lInj',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lLWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('lWat',-1)">-</button><input type="range" id="lWat" min="0.5" max="10" value="4" step="0.5" oninput="goInteract()"><button class="step-btn" onclick="step('lWat',1)">+</button></div></div>
 </div>
 
 <div class="card hidden" id="secD">
   <p class="ctitle">דישון ישיר — שק לדוד קטן</p>
-  <div class="sr"><div class="sr-header"><label>שקים לדוד:</label><span class="sv" id="lDBags">1 שק</span></div><div class="slider-container"><button class="step-btn" onclick="step('dBags',-1)">-</button><input type="range" id="dBags" min="1" max="10" value="1" step="1" oninput="go()"><button class="step-btn" onclick="step('dBags',1)">+</button></div></div>
-  <div class="sr"><div class="sr-header"><label>שטח (דונם):</label><span class="sv" id="lDArea">8 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('dArea',-1)">-</button><input type="range" id="dArea" min="1" max="50" value="8" step="1" oninput="go()"><button class="step-btn" onclick="step('dArea',1)">+</button></div></div>
-  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lDFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('dFreq',-1)">-</button><input type="range" id="dFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('dFreq',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>שקים לדוד:</label><span class="sv" id="lDBags">1 שק</span></div><div class="slider-container"><button class="step-btn" onclick="step('dBags',-1)">-</button><input type="range" id="dBags" min="1" max="10" value="1" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('dBags',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>שטח (דונם):</label><span class="sv" id="lDArea">8 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('dArea',-1)">-</button><input type="range" id="dArea" min="1" max="50" value="8" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('dArea',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:0"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lDFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('dFreq',-1)">-</button><input type="range" id="dFreq" min="1" max="7" value="2" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('dFreq',1)">+</button></div></div>
 </div>
 
 <div class="card hidden" id="outS">
@@ -219,9 +219,9 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="fml" id="sFml"></div>
   <div class="div"></div>
   <p class="ctitle">N לדונם</p>
-  <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lSInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('sInj',-1)">-</button><input type="range" id="sInj" min="0.1" max="20" value="1" step="0.1" oninput="go()"><button class="step-btn" onclick="step('sInj',1)">+</button></div></div>
-  <div class="sr"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lSWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('sWat',-1)">-</button><input type="range" id="sWat" min="0.5" max="10" value="4" step="0.5" oninput="go()"><button class="step-btn" onclick="step('sWat',1)">+</button></div></div>
-  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lSFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sFreq',-1)">-</button><input type="range" id="sFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('sFreq',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lSInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('sInj',-1)">-</button><input type="range" id="sInj" min="0.1" max="20" value="1" step="0.1" oninput="goInteract()"><button class="step-btn" onclick="step('sInj',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lSWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="step('sWat',-1)">-</button><input type="range" id="sWat" min="0.5" max="10" value="4" step="0.5" oninput="goInteract()"><button class="step-btn" onclick="step('sWat',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lSFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('sFreq',-1)">-</button><input type="range" id="sFreq" min="1" max="7" value="2" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('sFreq',1)">+</button></div></div>
   <div class="sg">
     <div class="sc"><div class="sl">N לדונם לאירוע</div><div class="sv2" id="sDunEv">—</div><div class="su">גרם</div></div>
     <div class="sc"><div class="sl">N לדונם ליום</div><div class="sv2" id="sDunDay">—</div><div class="su">גרם</div></div>
@@ -229,7 +229,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="note" id="sNote"></div>
   <div class="div"></div>
   <p class="ctitle">סה"כ לחלקה</p>
-  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lSTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('sTot',-1)">-</button><input type="range" id="sTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('sTot',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lSTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('sTot',-1)">-</button><input type="range" id="sTot" min="1" max="100" value="10" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('sTot',1)">+</button></div></div>
   <div class="tbox"><div class="tt">כמות דשן לחלקה כולה</div><div class="tg">
     <div class="tc"><div class="tl">ליטר לאירוע</div><div class="tv" id="sTotEv">—</div></div>
     <div class="tc"><div class="tl">ליטר לשבוע</div><div class="tv" id="sTotWk">—</div></div>
@@ -243,12 +243,12 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <div class="sc"><div class="sl">ליטר דשן לדונם</div><div class="sv2" id="lFertDun">—</div></div>
     <div class="sc"><div class="sl">N לדונם ליום</div><div class="sv2" id="lNday">—</div><div class="su">גרם</div></div>
   </div>
-  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lLFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('lFreq',-1)">-</button><input type="range" id="lFreq" min="1" max="7" value="2" step="1" oninput="go()"><button class="step-btn" onclick="step('lFreq',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lLFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="step('lFreq',-1)">-</button><input type="range" id="lFreq" min="1" max="7" value="2" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('lFreq',1)">+</button></div></div>
   <div class="fml" id="lFml"></div>
   <div class="note" id="lNote"></div>
   <div class="div"></div>
   <p class="ctitle">סה"כ לחלקה</p>
-  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lLTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('lTot',-1)">-</button><input type="range" id="lTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('lTot',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lLTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('lTot',-1)">-</button><input type="range" id="lTot" min="1" max="100" value="10" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('lTot',1)">+</button></div></div>
   <div class="tbox"><div class="tt">כמות דשן לחלקה כולה</div><div class="tg">
     <div class="tc"><div class="tl">ליטר לאירוע</div><div class="tv" id="lTotEv">—</div></div>
     <div class="tc"><div class="tl">ליטר לשבוע</div><div class="tv" id="lTotWk">—</div></div>
@@ -266,7 +266,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="note" id="dNote"></div>
   <div class="div"></div>
   <p class="ctitle">סה"כ לחלקה</p>
-  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lDTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('dTot',-1)">-</button><input type="range" id="dTot" min="1" max="100" value="10" step="1" oninput="go()"><button class="step-btn" onclick="step('dTot',1)">+</button></div></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>שטח החלקה:</label><span class="sv" id="lDTot">10 דונם</span></div><div class="slider-container"><button class="step-btn" onclick="step('dTot',-1)">-</button><input type="range" id="dTot" min="1" max="100" value="10" step="1" oninput="goInteract()"><button class="step-btn" onclick="step('dTot',1)">+</button></div></div>
   <div class="tbox"><div class="tt">כמות דשן לחלקה כולה</div><div class="tg">
     <div class="tc"><div class="tl">ק"ג לאירוע</div><div class="tv" id="dTotEv">—</div></div>
     <div class="tc"><div class="tl">ק"ג לשבוע</div><div class="tv" id="dTotWk">—</div></div>
@@ -291,7 +291,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <div class="sr-header"><label>נפח הדוד (ל'):</label><span class="sv" id="lMixTank">1,000 ל'</span></div>
     <div class="slider-container">
       <button class="step-btn" onclick="stepMix('mixTank',-100)">-</button>
-      <input type="range" id="mixTank" min="100" max="5000" value="1000" step="100" oninput="calcMix()">
+      <input type="range" id="mixTank" min="100" max="5000" value="1000" step="100" oninput="calcMixInteract()">
       <button class="step-btn" onclick="stepMix('mixTank',100)">+</button>
     </div>
   </div>
@@ -307,7 +307,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sMAP',-1)">−</button>
-      <input type="range" id="sMAP" min="0" max="10" value="0" step="1" oninput="calcMix()">
+      <input type="range" id="sMAP" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
       <button class="step-btn" onclick="stepSingle('sMAP',1)">+</button>
     </div>
   </div>
@@ -320,7 +320,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sMKP',-1)">−</button>
-      <input type="range" id="sMKP" min="0" max="10" value="0" step="1" oninput="calcMix()">
+      <input type="range" id="sMKP" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
       <button class="step-btn" onclick="stepSingle('sMKP',1)">+</button>
     </div>
   </div>
@@ -333,7 +333,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sKNO3',-1)">−</button>
-      <input type="range" id="sKNO3" min="0" max="10" value="0" step="1" oninput="calcMix()">
+      <input type="range" id="sKNO3" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
       <button class="step-btn" onclick="stepSingle('sKNO3',1)">+</button>
     </div>
   </div>
@@ -346,7 +346,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sCaNO3',-1)">−</button>
-      <input type="range" id="sCaNO3" min="0" max="10" value="0" step="1" oninput="calcMix()">
+      <input type="range" id="sCaNO3" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
       <button class="step-btn" onclick="stepSingle('sCaNO3',1)">+</button>
     </div>
   </div>
@@ -359,7 +359,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sMgNO3',-1)">−</button>
-      <input type="range" id="sMgNO3" min="0" max="10" value="0" step="1" oninput="calcMix()">
+      <input type="range" id="sMgNO3" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
       <button class="step-btn" onclick="stepSingle('sMgNO3',1)">+</button>
     </div>
   </div>
@@ -384,9 +384,9 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 <!-- N לדונם מתמיסת האם -->
 <div class="card" id="mixDunCard">
   <p class="ctitle">N לדונם מהתמיסה</p>
-  <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lMInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mInj',-0.1)">-</button><input type="range" id="mInj" min="0.1" max="20" value="1" step="0.1" oninput="calcMix()"><button class="step-btn" onclick="stepMix('mInj',0.1)">+</button></div></div>
-  <div class="sr"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lMWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mWat',-0.5)">-</button><input type="range" id="mWat" min="0.5" max="10" value="4" step="0.5" oninput="calcMix()"><button class="step-btn" onclick="stepMix('mWat',0.5)">+</button></div></div>
-  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lMFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mFreq',-1)">-</button><input type="range" id="mFreq" min="1" max="7" value="2" step="1" oninput="calcMix()"><button class="step-btn" onclick="stepMix('mFreq',1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lMInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mInj',-0.1)">-</button><input type="range" id="mInj" min="0.1" max="20" value="1" step="0.1" oninput="calcMixInteract()"><button class="step-btn" onclick="stepMix('mInj',0.1)">+</button></div></div>
+  <div class="sr"><div class="sr-header"><label>השקיה (קוב/דונם):</label><span class="sv" id="lMWat">4.0 קוב</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mWat',-0.5)">-</button><input type="range" id="mWat" min="0.5" max="10" value="4" step="0.5" oninput="calcMixInteract()"><button class="step-btn" onclick="stepMix('mWat',0.5)">+</button></div></div>
+  <div class="sr" style="margin-bottom:10px"><div class="sr-header"><label>השקיה כל (ימים):</label><span class="sv" id="lMFreq">כל 2 ימים</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mFreq',-1)">-</button><input type="range" id="mFreq" min="1" max="7" value="2" step="1" oninput="calcMixInteract()"><button class="step-btn" onclick="stepMix('mFreq',1)">+</button></div></div>
   <div class="sg">
     <div class="sc"><div class="sl">N לדונם לאירוע</div><div class="sv2" id="mDunEv">—</div><div class="su">גרם</div></div>
     <div class="sc"><div class="sl">N לדונם ליום</div><div class="sv2" id="mDunDay">—</div><div class="su">גרם</div></div>
@@ -410,6 +410,10 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 
 <script>
 // ===== TELEGRAM TRACKING =====
+var userInteracted = false;
+function markInteracted(){ userInteracted = true; }
+function goInteract(){ markInteracted(); go(); }
+function calcMixInteract(){ markInteracted(); calcMix(); }
 var TG_TOKEN = "8315838453:AAF1cK3LdQdmnlHcAIYPjLvPPxQ9OYlt29o";
 var TG_CHAT  = "718442140";
 
@@ -482,6 +486,7 @@ function show(id,v){ document.getElementById(id).className = "card" + (v ? "" : 
 function txt(id,v){ document.getElementById(id).textContent = v; }
 
 function step(id, dir){
+  markInteracted();
   var el = document.getElementById(id);
   var s = parseFloat(el.step) || 1;
   var mn = parseFloat(el.min), mx = parseFloat(el.max);
@@ -503,7 +508,7 @@ function buildGrid(){
     var b = document.createElement("button");
     b.className = "fb f" + f.tp + (i===cur ? " active" : "");
     b.innerHTML = "<strong>" + f.nm + "</strong><span>" + f.sb + "</span>";
-    b.onclick = (function(idx){ return function(){ pick(idx); }; })(i);
+    b.onclick = (function(idx){ return function(){ markInteracted(); pick(idx); }; })(i);
     g.appendChild(b);
   });
 }
@@ -553,8 +558,9 @@ function setNote(id, val){
 function tgTimer_go_ref(){} // placeholder
 var tgGoTimer = null;
 function tgReport(msg){
+  if(!userInteracted) return;
   clearTimeout(tgGoTimer);
-  tgGoTimer = setTimeout(function(){ tgSend(msg); }, 2000);
+  tgGoTimer = setTimeout(function(){ tgSend(msg); }, 10000);
 }
 
 function go(){
@@ -632,6 +638,7 @@ var SINGLES = [
 var BAG_KG = 25; // משקל שק סטנדרטי
 
 function stepSingle(id, dir){
+  markInteracted();
   var el = document.getElementById(id);
   var mn = +el.min, mx = +el.max;
   var nv = +el.value + dir;
