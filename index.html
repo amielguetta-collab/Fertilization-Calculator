@@ -417,8 +417,8 @@ function activateApp() {
   var myPhone = "972544825688";
   var text = "היי עמיאל, אני חקלאי בשם: " + name + ", והפעלתי כעת את מחשבון הדישון של פנורה.";
   localStorage.setItem("panora_activated", "true");
-  window.location.href = "https://wa.me/" + myPhone + "?text=" + encodeURIComponent(text);
   document.getElementById("activationOverlay").style.display = "none";
+  window.open("https://wa.me/" + myPhone + "?text=" + encodeURIComponent(text), "_blank");
 }
 
 // ===== TABS =====
