@@ -141,7 +141,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 </head>
 <body>
 
-<!-- Activation overlay -->
 <div id="activationOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#f5f5f0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;">
   <div style="background:#fff;padding:28px 24px;border-radius:16px;box-shadow:0 4px 15px rgba(0,0,0,0.1);max-width:400px;width:100%;">
     <img src="logo.png" alt="Panora Seeds Logo" style="max-height:40px;margin-bottom:8px;">
@@ -157,14 +156,12 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 
 <div class="wrap">
 
-<!-- Header -->
 <div style="background:#1a6eb5;color:#fff;margin:-16px -14px 20px -14px;padding:16px 14px;text-align:center;border-bottom-left-radius:16px;border-bottom-right-radius:16px;box-shadow:0 2px 6px rgba(0,0,0,0.1);">
   <img src="logo.png" alt="Panora Seeds Logo" style="max-height:40px;margin-bottom:8px;">
   <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#a5d6a7;margin-bottom:2px;text-transform:uppercase;">PANORA SEEDS</div>
   <h1 style="font-size:21px;font-weight:600;margin:0;color:#fff;letter-spacing:-0.5px;">מחשבון דישון לחקלאי</h1>
 </div>
 
-<!-- Tab bar -->
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('market')" id="tabMarket">
     דשנים מהשוק
@@ -176,7 +173,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </button>
 </div>
 
-<!-- ==================== TAB: MARKET ==================== -->
 <div class="tab-pane active" id="paneMarket">
 
 <div class="card">
@@ -261,13 +257,8 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 </div>
 
 <div class="card hidden" id="outD">
-  <p class="ctitle">N לשדה</p>
   <div class="bigbox"><div class="bl">N לדונם לאירוע</div><div class="bv" id="dNev">—</div><div class="bu">גרם / דונם</div></div>
   <div id="resultD" class="result-hidden">
-  <div class="sg">
-    <div class="sc"><div class="sl">N לדונם ליום</div><div class="sv2" id="dNday">—</div><div class="su">גרם</div></div>
-    <div class="sc"><div class="sl">N לדונם לשבוע</div><div class="sv2" id="dNwk">—</div><div class="su">גרם</div></div>
-  </div>
   <div class="fml" id="dFml"></div>
   <div class="note" id="dNote"></div>
   </div>
@@ -280,11 +271,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div></div>
 </div>
 
-</div><!-- end paneMarket -->
-
-
-<!-- ==================== TAB: SINGLES ==================== -->
-<div class="tab-pane" id="paneSingles">
+</div><div class="tab-pane" id="paneSingles">
 
 <div class="card">
   <p class="ctitle">הרכבת תמיסת אם — שקי 25 ק"ג</p>
@@ -293,7 +280,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     <br>⚠ <strong>MAP ו-CaNO₃ אסור לערבב ישירות</strong> — הוסף לתמיסה בנפרד.
   </div>
 
-  <!-- דוד -->
   <div class="sr">
     <div class="sr-header"><label>נפח הדוד (ל'):</label><span class="sv" id="lMixTank">1,000 ל'</span></div>
     <div class="slider-container">
@@ -306,7 +292,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="div"></div>
   <p class="ctitle">סינגלים — שקי 25 ק"ג</p>
 
-  <!-- MAP -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">MAP</span><span class="sng-npk">12-61-0 · מונו-אמוניום פוספט</span></div>
@@ -319,7 +304,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
-  <!-- MKP -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">MKP</span><span class="sng-npk">0-52-34 · מונו-פוטסיום פוספט</span></div>
@@ -332,7 +316,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
-  <!-- KNO3 -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">חנקת אשלגן</span><span class="sng-npk">13-0-46 · KNO₃</span></div>
@@ -345,7 +328,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
-  <!-- CaNO3 -->
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">חנקת סידן</span><span class="sng-npk">15.5% N · 19% Ca · CaNO₃</span></div>
@@ -358,7 +340,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
-  <!-- MgNO3 -->
   <div class="sng-block" style="margin-bottom:0">
     <div class="sng-top">
       <div><span class="sng-name">חנקת מגנזיום</span><span class="sng-npk">11% N · 9.5% Mg · MgNO₃</span></div>
@@ -372,7 +353,6 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 </div>
 
-<!-- תוצאת תמיסת האם -->
 <div class="mix-result" id="mixResult">
   <div class="mix-title">תמיסת האם — ריכוז לכל ליטר</div>
   <div class="mix-grid">
@@ -385,10 +365,8 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   <div class="mix-ppm-row" id="mixPpmRow"></div>
 </div>
 
-<!-- בלוק אזהרות -->
 <div id="alertsBlock"></div>
 
-<!-- N לדונם מתמיסת האם -->
 <div class="card" id="mixDunCard">
   <p class="ctitle">N לדונם מהתמיסה</p>
   <div class="sr"><div class="sr-header"><label>הזרקה (ל'/קוב):</label><span class="sv" id="lMInj">1.0 ל'/קוב</span></div><div class="slider-container"><button class="step-btn" onclick="stepMix('mInj',-0.1)">-</button><input type="range" id="mInj" min="0.1" max="20" value="1" step="0.1" oninput="calcMixInteract()"><button class="step-btn" onclick="stepMix('mInj',0.1)">+</button></div></div>
@@ -403,25 +381,494 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 </div>
 
-<!-- רשימת הוספה לדוד -->
 <div class="card" id="mixSummaryCard">
   <p class="ctitle">סיכום — מה להוסיף לדוד</p>
   <div id="mixSummaryList"></div>
 </div>
 
-</div><!-- end paneSingles -->
-
-<footer>
+</div><footer>
   <img src="logo.png" alt="Panora Seeds Logo" style="max-height:30px;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto;">
   <strong>PANORA SEEDS · פנורה ישראל</strong>
 </footer>
-</div><!-- end wrap -->
-
-<!-- כפתור שלח צף -->
-<div style="position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(245,245,240,0.95);backdrop-filter:blur(6px);border-top:1px solid #e0e0e0;z-index:100;max-width:480px;margin:0 auto;">
+</div><div style="position:fixed;bottom:0;left:0;right:0;padding:12px 16px;background:rgba(245,245,240,0.95);backdrop-filter:blur(6px);border-top:1px solid #e0e0e0;z-index:50;max-width:480px;margin:0 auto;">
   <button id="calcBtn" onclick="sendReport()" style="width:100%;background:#1a6eb5;color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 2px 6px rgba(26,110,181,0.3);">חשב</button>
 </div>
 
-<script>var _0x1eb6bd=_0x5275;(function(_0x48e589,_0x3d1454){var _0xcdc7b7=_0x5275,_0xfe9795=_0x48e589();while(!![]){try{var _0x3b6264=parseInt(_0xcdc7b7(0x25b))/0x1+-parseInt(_0xcdc7b7(0x1d0))/0x2+parseInt(_0xcdc7b7(0x25a))/0x3*(-parseInt(_0xcdc7b7(0x1d3))/0x4)+parseInt(_0xcdc7b7(0x1b3))/0x5*(-parseInt(_0xcdc7b7(0x271))/0x6)+-parseInt(_0xcdc7b7(0x282))/0x7*(-parseInt(_0xcdc7b7(0x2c1))/0x8)+-parseInt(_0xcdc7b7(0x317))/0x9+parseInt(_0xcdc7b7(0x23a))/0xa*(parseInt(_0xcdc7b7(0x2a5))/0xb);if(_0x3b6264===_0x3d1454)break;else _0xfe9795['push'](_0xfe9795['shift']());}catch(_0x469cbf){_0xfe9795['push'](_0xfe9795['shift']());}}}(_0x375f,0x92cb8));var userInteracted=![];function markInteracted(){userInteracted=!![],hideResults();}function _0x5275(_0x278801,_0x214fb5){_0x278801=_0x278801-0x1ad;var _0x375fda=_0x375f();var _0x527598=_0x375fda[_0x278801];if(_0x5275['DJqSMA']===undefined){var _0x4fa74d=function(_0x55ebec){var _0x173fef='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';var _0x5a7ebf='',_0x420b87='';for(var _0x1e40c7=0x0,_0x15493f,_0x350dce,_0xf2a077=0x0;_0x350dce=_0x55ebec['charAt'](_0xf2a077++);~_0x350dce&&(_0x15493f=_0x1e40c7%0x4?_0x15493f*0x40+_0x350dce:_0x350dce,_0x1e40c7++%0x4)?_0x5a7ebf+=String['fromCharCode'](0xff&_0x15493f>>(-0x2*_0x1e40c7&0x6)):0x0){_0x350dce=_0x173fef['indexOf'](_0x350dce);}for(var _0x2d93b9=0x0,_0x2f823e=_0x5a7ebf['length'];_0x2d93b9<_0x2f823e;_0x2d93b9++){_0x420b87+='%'+('00'+_0x5a7ebf['charCodeAt'](_0x2d93b9)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x420b87);};_0x5275['Qmbwcm']=_0x4fa74d,_0x5275['IVBUxY']={},_0x5275['DJqSMA']=!![];}var _0x1645c6=_0x375fda[0x0],_0x43efc5=_0x278801+_0x1645c6,_0x5aa56a=_0x5275['IVBUxY'][_0x43efc5];return!_0x5aa56a?(_0x527598=_0x5275['Qmbwcm'](_0x527598),_0x5275['IVBUxY'][_0x43efc5]=_0x527598):_0x527598=_0x5aa56a,_0x527598;}function goInteract(){markInteracted(),go();}function calcMixInteract(){markInteracted(),calcMix();}var TG_TOKEN='8315838453'+_0x1eb6bd(0x259)+'ni_piq2hBl'+_0x1eb6bd(0x2e6)+_0x1eb6bd(0x30b),TG_CHAT=_0x1eb6bd(0x1d4);function tgSend(_0x5a7ebf){var _0x12ee62=_0x1eb6bd;fetch(_0x12ee62(0x238)+_0x12ee62(0x24e)+_0x12ee62(0x20c)+TG_TOKEN+(_0x12ee62(0x2b0)+'ge'),{'method':'POST','headers':{'Content-Type':'applicatio'+_0x12ee62(0x327)},'body':JSON[_0x12ee62(0x2e9)]({'chat_id':TG_CHAT,'text':_0x5a7ebf,'parse_mode':_0x12ee62(0x27a)})})[_0x12ee62(0x305)](function(){});}function _0x375f(){var _0xbda978=['inEr15pxLDEtiq','Cgj0BG','15txPnEI15NxNcdxKnEQinEu','16hxM9EG16OG16NxL9Ev16GG','B3v0ra','BeXjBMO','C05VDgu','oImXnty1yZa7zG','ocdxQDEN15NxNsaVide','8j+QOYa8yJ7xMDEP15NxQdW','s05pmW','inECjY/xP9Ev15e','CMvZDwX0uW','15VxNca','15dxLsdxNnEQ157xMDEH15qG','inEt15xxOnED','sYdxKTEr15xxLcdxNTEt15K','phn0CM9UzYbZDa','150V15NxLDEDiokaLcdxOnEE','ihbWBsdcTYbdytO','BeruB3q','zMfYBwvYtMfTzq','BwfYA2v0','BsKUinEw16JxL9EFinEs','C05WCg0','C2v0sxrLBq','16dxLDEw15ZxMsdcTYaXma','Ahr0Chm6lY9HCa','16OG15VxNnEv16JxLDEw15qU','mJuWsLP1uMvn','BM9Uzq','ihbWBs4G15ZxOTEs15e','CM9UzZ4','q2eGkYdxPnEv16hxPnEy','yxbWzw5Kq2HPBa','ysdxOTEv15pxOYdxL9Ev16e','15dxNTEv158G15FxOnEN16RxMq','CMvK','C3bHBJ4','BfngCMvX','BKX3','inEP16C','BwL4u3vTBwfYEq','i2u2nteWma','AwjSzq','ienHlIdxLnEv16hxOYa','15hxQnEw15WG15xxKnEr16uG','cVcFK6yG','knEC15hxNYKUinEu15xxOq','As50zwXLz3jHBq','15ZxKcdxLnEv15BxNW','16lxKYa1oJePlIbd','16CI15i','15xxLcWG16hxM9EG16OG154','ChbTks4G15hxK9Ev16C','Bg9YoIm0ndqNpG','odG4o2zVBNqTCW','BwLU','inEq16OG15txM9EC15K8lW','zgLZCgXHEtPMBa','oKfbsdzJltrRDq','oxbyDfPstG','odi2nZa2zvPUCLnk','C1rHBMS','16txMDEy150G15hxOTEs15hxOa','16dxNsdxNnEq15NxQnEv16i8','DhjPBq','y2fYza','yM9KEq','ihbWBsdcTYbloIa','16dxLDEw15ZxMsdcTYa3mG','DgfIlwj0BG','yMfNCW','zxG7ANvZDgLMEq','twCG15lxKDEv15qG15hxMq','CgmGCgS','psjHBgvYDhmTyW','zfrVDa','Be5KDw4','zMiGzG','pgrPDIbJBgfZCW','BwfW','16lxMDEC15NxQIa3ltCT','Dgv4DenVBNrLBG','nZjOqK1qqwu','Aw5Uzxjive1m','CgmGCha','iZzHmwi5yq','ze53AW','157xL9EP15hxLDEF','C1rVDev2','CgfJzs1Izxr3zq','8j+NQIa8yJ7xNTEv16BxPZW','sfrnta','15hxLDEuinEE15VxKDEz15WG','CMvZDwX0tq','z2v0sxrLBq','15JxPnEQ','BgvUz3rO','15hxOnEK16JxKY4','inECjYdxK9EP158G15ZxKW','mtaZnJDMrxfOAKO','150V15NxLDEDiokaLcdxKTEr','zefYzwe','inEC15FxODEv150GrMuS','jsa9idXZDhjVBG','15dxMDEO15xxOJOG','BeXgCMvX','tIdxOnEE15xxMG','BLbLCKXPDgvY','C0LUAG','AM9PBG','pc9KAxy+','tufql01lua','C2v2','inECjW','mtaWmcdxNa','CNrZlxrPDgXLiG','yMfN','zejHz3m','tIdxKDEy16txMnEK16O6ia','zgvU','16FxOIbdyuHqt+kcHca','15FxOnEN16OG15dxQDEC15lxNW','DgvTCZPJzw50zq','q2eG15lxKDEv15qG157xKW','zgL2','Dhj1zq','ncdxQDEN15NxNsaVidu','CgmGCgu','16lxKYa0oJePlIbl','ywn0AxzHDgLVBG','15xxLYdxQTEN15NxNW','inEs16JxNsboinEC15pxLq','cVcFJl8GtI/xKnEz16JxLDEI','C0r1BKrHEq','mty5mZm0rfDRq0ng','15hxP9EO16FxOIdxLDEr16BxNG','15FxOsdxNc1linEr15JxPa','C3r5Bgu','BuzYzxe','ChvZAa','BfrVDfDR','inECjY/xP9Ev15eGW5CG','t3zLCMXHEq','mtCTmtaTmJC','157xLDEOidyTmI05','l3nLBMrnzxnZyq','C0TWCg0','C0nHtK8Z','inEs16GNl9ECjYa9ia','C0zTBa','phnWyw4GC3r5Ba','15NxL9EHienHoK1Nia','157xLDEM16CGWRCGmJuG','ocdxKTEOjY/xNcC','Bu5VDgu','CM91BMq','15NxMDEu','psjHBgvYDc10zq','inEs16GN','C01lua','16dxLTEz15xxNsdxLDEr16JxLG','15q8l3n0CM9UzZ4','nJaYnhneD3DwEG','157xLDEM16CG4OcuinEt15xxKW','cVcFK7eG','15dxOnEqinEE15ZxKcdxKnEQ','16mG15ZxQDEG15KG15pxLDEt','BercywDZ','inEH16txMDEs16OG157xKTEG','ihbWBsdcTYbnzZO','CgfUB3jHx3bOBW','ChjL','C3vTBwvY','16dxLDEw15ZxMsdIGjqG15txLG','CgfUB3jHx2zHCG','zgvYlwjVDhrVBq','150V15NxLDEDiokaLcdxMnEv','imk3ia','zYdxKDEy16txMnEK16O','Aw5KzxHpzG','15NxQDEz16GGWRCGmJuG','mJaTmJaTmJa','AguTsuW','C1bWCg0','inENiTEsimoxia','zt0NDgv4Dc1HBa','BgjS','ucdxKTEr15xxLcdxKDEy16q','15xxNtOG','mtfWEcaWo2jVCG','psDLBxb0Es1ZDa','C0jHz3m','DgL0Bgu','Dg9mB2nHBgvtDa','15FxOnEN16OG16hxMDEt158G','l2i+cG','zfrVDfDR','y2XZ','inEP16FxMDEDinEClq','t1qTChvUBLjetG','BfnuB3q','zw50','C3rYAw5NAwz5','EwvSBg93','BergCMvX','inECjYa9idXZDhi','mtaG16NxP9Ez150GlYa','inEE16hxMDEG15lxNnEz1508','C2vJuW','16dxNsdxNnEu16NxP9Ez15q8','zezYzxe','inEs16GNie4V15pxLDEG','zYdxOTEv15pxOYdxOTEC15u','C1DHDa','pc9IpGO','16uGmtuWlti1mca','C1rVDa','DhjVBMC+','oJfWEcbZB2XPza','CgfUzu1HCMTLDa','15ZxQDEu15uG15ZxLnEQ15FxNa','zw47ywXPz24TAq','cUkAOcdxKnEw15txQnEv16O6','BfrVDa','ihbWBq','EMu6mtrWEdTJBW','15FxOnEN16OG16hxMDEt158','ncdxQDEN15NxNsaVide','mc8YmJiG15lxQcCV','yNrUuW','y2f0y2G','yxrLjZ48zgL2ia','ifPUlcbnBG','B250lxnPEMu6mq','C29SAwrqCMvZzq','tufql01lucaRia','otyXy3HJ','CMvZDwX0ra','16NxPnEOidCTmY03','cVcFLzaG','q2eG15hxMnEK15JxPnEQoG','z2v0rwXLBwvUDa','iZe1nJvJma','BM90zsbVAW','inEN15xxKsa9idXZDa','Bur1BKrHEq','idXZCgfUpNbWBq','tuTq','oduXmdG1u2HtAwr6','pc9ZCgfUpJWVza','15BxMDEv150G4OcuinEH15VxOa','iZfInwuYma','twCG15lxKDEv15q','CgfUB3jHx2fJDa','inEP16FxMDEDimk3inEt15u','yJ4k8j+rPca','CM9UzZ48yNi+','ze5KyxK','mI1KAwDPDa','15ZxKcdxMDEt15xxOG','Bfnxyxq','AxPLoJeYChG7za','ihbWBsaO157xLDEE15W','15NxQDEz16GG4OcuinEC15ZxKa','BI9QC29U','inEs15hxLDEuinEx15xxODED','B25NpG','16NxPnEOidyTnI02','mtmTmc00nIdcTYa','16uGmZaTnJaGCha','15BxLIdxODEz16dxKTECinEB','qNLjza','Bur1BKv2','zgL2pG','pUkAOcdxLnEQ16JxKnEv16OG','Be5VDgu','inEs16GNl9ECjW','Dg9gAxHLza','15FxOnEN16OG157xKTEG15BxMq','EhqIpJXZDhjVBG','DgvtDhjPBMC','C1rVDfDR','15NxKTEQinEq16NxNnEs158U','mtq1mZq1rNPYDxvQ','pc9ZCgfUpG','AxzHDgvK','tgLZDa','zMvYDeDYAwq','C2LUz2XLCW','Dg9mB2nHBgveyq','pc9ZDhjVBMC+','l3n0CM9UzZ4','15xxNYdxNTEv157xNnELide','15NxL9EHie1NoKSGpq','zgLZCgXHEq','16NxPnEOiduTmY04','sYdxKTEr15xxLa','Bwf4','16dxLDEw15ZxMsdcTYa4na','B25JBgLJAW','C2vHC29UuM93','BfnjBMO','15KG15hxMDEx16eG15WTtq','ideZltaTndy','inEP16FxMDEDimoxia','4OcuinEq16hxLDEOinEz15FxKW','inEt15xxOnEDimk3ie4V','tIdxOnEE15xxMIdxKDEy16q','zM9YrwfJAa','C05NBa','CMvZDwX0ta','inEC15NxMnEOinEQ157xMDEH','mtK2mZaXmeDJwg1kuq','uokcGK/IGOu','C3rLCa','ndaWnZCYthrir3rW','nZe4ndqYmtqW','16dxLDEw15ZxMsdcTYa2ma','zZ48yNi+','BfrHBMS','Be1PEfrHBMS','BejHz3m','BuLUAG','BeXuB3q','B3jHBMDL','C2j0BG','inEP16FxMDED','B3v0ta','oJeGknEE15xxNTEC16uG','inEu15BxQnEN15qG15xxM9EE','yNrUvW','ywXLCNrZqMXVyW','pc9ZDhjVBMC+pa','16dxLDEw15ZxMsdcTYaXna','y29SB3i','ohb4jZ4','8j+sPYa8yJ7xOnEv15BxNnEz','DgfUAW','15WG15ZxL9EH15xxNsdxODEK','inEz157xMDED','BwvY','157xLDEOidCTmY03','ze5LDG','15NxL9EHieS6twCGpq','q2eG16dxNTEv15OG4Ocuia','AwnVBG','tuTqidaTntiTmW','inEN15xxKq','8j+mSsa8yJ7xL9EN15ZxKnEz','cVcFJl8G','BezLCNreDw4','ncdxKTEOjY/xNcC','mdaG15W','y2XHC3m9j2jPzW','CMvZDwX0lwHPza','phn0CM9UzZ4','Be1gCMvX','zezTBa','Axy+','DMfSDwu','CMvZDwX0lxzPCW','mdaWinEC','16lxMDEC15NxQIaXmI02','inEr15JxPnEy16txQG','16dxLDEw15ZxMsdcTYa0nG','C01bua','y2XHC3noyw1L','y2SNpG','igfJDgL2zq','y3jLyxrLrwXLBq','150G16hxPnEz15lxQIdxNTEs','yxjKiJ48zgL2ia','lM9YzY9IB3q','inEz15xxPTEO15NxNsdxNTEP','D2LUDgvY','16dxLDEw15ZxMsdcTYaYnW','Be5KyxK','inEt15xxOnEDid0Gphm','CMLUzW','ntaTmJuWihbWBq','BNvTzxjPyW','BezTBa','C2vHC29UlxjVDW','CJTWywrKAw5NoG','BunH','tufq','16lxKYaXoJePlIbn','BM90zsb3yxjU','16NxPnEOidqTmI04'];_0x375f=function(){return _0xbda978;};return _0x375f();}function tgDate(){var _0x313a36=_0x1eb6bd;return new Date()[_0x313a36(0x1b9)+_0x313a36(0x1b0)](_0x313a36(0x2d5),{'day':_0x313a36(0x321),'month':_0x313a36(0x321),'year':_0x313a36(0x214),'hour':_0x313a36(0x321),'minute':_0x313a36(0x321)});}function farmerName(){var _0x2f851d=_0x1eb6bd;return localStorage['getItem'](_0x2f851d(0x2cd)+_0x2f851d(0x1ec))||_0x2f851d(0x322);}function farmerInfo(){var _0x1af5a0=_0x1eb6bd,_0x420b87=localStorage[_0x1af5a0(0x27d)](_0x1af5a0(0x2cd)+_0x1af5a0(0x1ec))||_0x1af5a0(0x322),_0x1e40c7=localStorage[_0x1af5a0(0x27d)](_0x1af5a0(0x2c9)+'ne')||_0x1af5a0(0x24f);return'👤\x20'+_0x420b87+_0x1af5a0(0x2c3)+_0x1e40c7;}localStorage['getItem'](_0x1eb6bd(0x31c)+_0x1eb6bd(0x1b5))===_0x1eb6bd(0x29c)&&localStorage[_0x1eb6bd(0x27d)](_0x1eb6bd(0x2cd)+_0x1eb6bd(0x1ec))&&(document['getElement'+_0x1eb6bd(0x32e)]('activation'+_0x1eb6bd(0x2ad))[_0x1eb6bd(0x2a8)][_0x1eb6bd(0x1be)]='none');function activateApp(){var _0x58517d=_0x1eb6bd,_0x15493f=document[_0x58517d(0x310)+_0x58517d(0x32e)](_0x58517d(0x232))[_0x58517d(0x1ff)][_0x58517d(0x25f)](),_0x350dce=document[_0x58517d(0x310)+_0x58517d(0x32e)]('farmerPhon'+'e')[_0x58517d(0x1ff)][_0x58517d(0x25f)]();if(!_0x15493f){alert(_0x58517d(0x2c4)+'\x20שמך\x20כדי\x20ל'+_0x58517d(0x21f)+_0x58517d(0x276));return;}localStorage['setItem'](_0x58517d(0x31c)+'ivated',_0x58517d(0x29c)),localStorage['setItem'](_0x58517d(0x2cd)+_0x58517d(0x1ec),_0x15493f),localStorage[_0x58517d(0x236)](_0x58517d(0x2c9)+'ne',_0x350dce),document[_0x58517d(0x310)+_0x58517d(0x32e)](_0x58517d(0x2a0)+_0x58517d(0x2ad))[_0x58517d(0x2a8)][_0x58517d(0x1be)]=_0x58517d(0x23b),tgSend(_0x58517d(0x1f4)+'\x20חדש\x20הפעיל'+_0x58517d(0x257)+_0x58517d(0x31e)+_0x15493f+_0x58517d(0x2c3)+(_0x350dce||_0x58517d(0x24f))+_0x58517d(0x30e)+tgDate());}function switchTab(_0xf2a077){var _0x3f97bd=_0x1eb6bd;document[_0x3f97bd(0x310)+_0x3f97bd(0x32e)](_0x3f97bd(0x2fa))[_0x3f97bd(0x206)]='tab-pane'+(_0xf2a077===_0x3f97bd(0x233)?'\x20active':''),document[_0x3f97bd(0x310)+_0x3f97bd(0x32e)]('paneSingle'+'s')[_0x3f97bd(0x206)]='tab-pane'+(_0xf2a077==='singles'?_0x3f97bd(0x208):''),document[_0x3f97bd(0x310)+_0x3f97bd(0x32e)]('tabMarket')[_0x3f97bd(0x206)]=_0x3f97bd(0x264)+(_0xf2a077===_0x3f97bd(0x233)?'\x20active':''),document[_0x3f97bd(0x310)+_0x3f97bd(0x32e)]('tabSingles')[_0x3f97bd(0x206)]=_0x3f97bd(0x264)+(_0xf2a077===_0x3f97bd(0x1b8)?'\x20active':'');}var F=[{'nm':_0x1eb6bd(0x2ae),'sb':_0x1eb6bd(0x2b7)+'ק\x22ג','tp':'s','n':0.17,'p':0.1,'k':0.27,'bag':0x19,'pre':[{'l':_0x1eb6bd(0x225)+_0x1eb6bd(0x201),'bags':0x8,'tank':0x3e8},{'l':_0x1eb6bd(0x2ed)+_0x1eb6bd(0x291),'bags':0xa,'tank':0x3e8}]},{'nm':_0x1eb6bd(0x2d4),'sb':'מוצק\x20·\x2025\x20'+'ק\x22ג','tp':'s','n':0.2,'p':0.2,'k':0.2,'bag':0x19,'pre':[{'l':_0x1eb6bd(0x29d)+_0x1eb6bd(0x1f8),'bags':0x4,'tank':0x1f4},{'l':_0x1eb6bd(0x225)+'000\x20ל','bags':0x8,'tank':0x3e8}]},{'nm':'חנקת\x20אשלגן','sb':_0x1eb6bd(0x32b)+'25\x20ק\x22ג','tp':'s','n':0.13,'p':0x0,'k':0.46,'bag':0x19,'pre':[{'l':_0x1eb6bd(0x302)+_0x1eb6bd(0x201),'bags':0x4,'tank':0x3e8},{'l':_0x1eb6bd(0x225)+_0x1eb6bd(0x201),'bags':0x8,'tank':0x3e8}]},{'nm':_0x1eb6bd(0x241),'sb':_0x1eb6bd(0x20f)+_0x1eb6bd(0x303)+'ל\x27','tp':'l','nL':0x10e,'nLw':0xde,'sea':!![]},{'nm':_0x1eb6bd(0x1bf),'sb':_0x1eb6bd(0x1d5)+'\x20גר\x27/ל\x27','tp':'l','nL':0x3c},{'nm':_0x1eb6bd(0x21c),'sb':_0x1eb6bd(0x204)+_0x1eb6bd(0x333),'tp':'l','nL':0x2e},{'nm':_0x1eb6bd(0x32a),'sb':_0x1eb6bd(0x263)+_0x1eb6bd(0x333),'tp':'l','nL':0x48},{'nm':_0x1eb6bd(0x30d),'sb':_0x1eb6bd(0x1c2)+'\x20גר\x27/ל\x27','tp':'l','nL':0x54},{'nm':_0x1eb6bd(0x26f)+'7','sb':_0x1eb6bd(0x1c2)+_0x1eb6bd(0x333),'tp':'l','nL':0x54},{'nm':'עילית\x209-6-'+'6','sb':_0x1eb6bd(0x237)+_0x1eb6bd(0x2b8),'tp':'l','nL':0x6c},{'nm':_0x1eb6bd(0x202)+'-3','sb':_0x1eb6bd(0x1e5)+_0x1eb6bd(0x1f7),'tp':'l','nL':0x90},{'nm':_0x1eb6bd(0x1ed),'sb':_0x1eb6bd(0x1c2)+'\x20גר\x27/ל\x27','tp':'l','nL':0x54},{'nm':_0x1eb6bd(0x2af),'sb':_0x1eb6bd(0x263)+'\x20גר\x27/ל\x27','tp':'l','nL':0x48},{'nm':_0x1eb6bd(0x2ae),'sb':'ישיר\x20·\x2025\x20'+_0x1eb6bd(0x251),'tp':'d','n':0.17,'bag':0x19},{'nm':'20-20-20','sb':_0x1eb6bd(0x2d3)+_0x1eb6bd(0x251),'tp':'d','n':0.2,'bag':0x19},{'nm':_0x1eb6bd(0x298),'sb':_0x1eb6bd(0x2d3)+_0x1eb6bd(0x251),'tp':'d','n':0.13,'bag':0x19}],cur=-0x1,ssn=_0x1eb6bd(0x2cb);function f1(_0x2d93b9){var _0x578bc4=_0x1eb6bd;return parseFloat(_0x2d93b9[_0x578bc4(0x1ad)](0x1))[_0x578bc4(0x2e0)+'ring'](_0x578bc4(0x2d5));}function f2(_0x2f823e){var _0x44beb6=_0x1eb6bd;return parseFloat(_0x2f823e['toFixed'](0x2))[_0x44beb6(0x2e0)+_0x44beb6(0x212)]('he-IL');}function rnd(_0x59429d){var _0x44b2a0=_0x1eb6bd;return Math[_0x44b2a0(0x2ba)](_0x59429d)[_0x44b2a0(0x2e0)+_0x44b2a0(0x212)]('he-IL');}function show(_0xe7d906,_0x52469c){var _0x4d01d4=_0x1eb6bd;document['getElement'+'ById'](_0xe7d906)[_0x4d01d4(0x206)]=_0x4d01d4(0x260)+(_0x52469c?'':'\x20hidden');}function txt(_0x23b8e5,_0x593e69){var _0xd38f47=_0x1eb6bd;document['getElement'+_0xd38f47(0x32e)](_0x23b8e5)[_0xd38f47(0x270)+'t']=_0x593e69;}function step(_0x4d3748,_0x2b7a15){var _0x1405f2=_0x1eb6bd;markInteracted();var _0x1f5b72=document['getElement'+_0x1405f2(0x32e)](_0x4d3748),_0x51b869=parseFloat(_0x1f5b72[_0x1405f2(0x1d2)])||0x1,_0xd04569=parseFloat(_0x1f5b72[_0x1405f2(0x256)]),_0x45ad34=parseFloat(_0x1f5b72[_0x1405f2(0x1c1)]),_0x14a9b9=Math[_0x1405f2(0x2ba)]((parseFloat(_0x1f5b72[_0x1405f2(0x1ff)])+_0x2b7a15*_0x51b869)*0x3e8)/0x3e8;_0x14a9b9>=_0xd04569&&_0x14a9b9<=_0x45ad34&&(_0x1f5b72[_0x1405f2(0x1ff)]=_0x14a9b9,go());}function buildGrid(){var _0x559044=_0x1eb6bd,_0x4f3b51=document[_0x559044(0x310)+'ById'](_0x559044(0x1b7));_0x4f3b51[_0x559044(0x272)]='';var _0x1cdda2=[{'label':_0x559044(0x2c2),'types':['s']},{'label':_0x559044(0x2cc)+'רקה','types':['l']},{'label':_0x559044(0x326)+'\x20דוד','types':['d']}];F[_0x559044(0x1cc)](function(_0x5ed980,_0x235d7d){var _0x47f013=_0x559044,_0x45aac7=document[_0x47f013(0x209)+_0x47f013(0x2e8)]('button');_0x45aac7['className']=_0x47f013(0x26c)+_0x5ed980['tp']+(_0x235d7d===cur?_0x47f013(0x208):''),_0x45aac7[_0x47f013(0x272)]=_0x47f013(0x1fb)+_0x5ed980['nm']+(_0x47f013(0x1e4)+_0x47f013(0x243))+_0x5ed980['sb']+'</span>',_0x45aac7[_0x47f013(0x1c3)]=function(_0x26b21e){return function(){markInteracted(),pick(_0x26b21e);};}(_0x235d7d),_0x4f3b51['appendChil'+'d'](_0x45aac7);});}function pick(_0x28a661){var _0x8fa2ad=_0x1eb6bd;cur=_0x28a661,buildGrid();var _0x2903fe=F[_0x28a661];document[_0x8fa2ad(0x310)+_0x8fa2ad(0x32e)](_0x8fa2ad(0x1c4))[_0x8fa2ad(0x206)]=_0x8fa2ad(0x216)+(_0x2903fe['sea']?'\x20show':''),show(_0x8fa2ad(0x2ef),_0x2903fe['tp']==='s'),show('secL',_0x2903fe['tp']==='l'),show('secD',_0x2903fe['tp']==='d'),show('outS',_0x2903fe['tp']==='s'),show(_0x8fa2ad(0x1df),_0x2903fe['tp']==='l'),show(_0x8fa2ad(0x221),_0x2903fe['tp']==='d');if(_0x2903fe['tp']==='s')buildPresets();go();}function setSeason(_0x2d845f){var _0x2d869d=_0x1eb6bd;ssn=_0x2d845f,document[_0x2d869d(0x310)+_0x2d869d(0x32e)](_0x2d869d(0x304))['className']=_0x2d869d(0x1dd)+(_0x2d845f===_0x2d869d(0x2cb)?_0x2d869d(0x208):''),document[_0x2d869d(0x310)+_0x2d869d(0x32e)](_0x2d869d(0x1e2))[_0x2d869d(0x206)]=_0x2d869d(0x1dd)+(_0x2d845f===_0x2d869d(0x20e)?_0x2d869d(0x208):''),go();}function buildPresets(){var _0x5d9178=_0x1eb6bd,_0x92db15=F[cur],_0x271989=document[_0x5d9178(0x310)+_0x5d9178(0x32e)](_0x5d9178(0x309)+'ts');_0x271989[_0x5d9178(0x272)]='';if(!_0x92db15[_0x5d9178(0x2ca)])return;_0x92db15[_0x5d9178(0x2ca)][_0x5d9178(0x1cc)](function(_0x1b579a){var _0x5bfe11=_0x5d9178,_0x317952=document['createElem'+_0x5bfe11(0x2e8)]('button');_0x317952['className']=_0x5bfe11(0x21e),_0x317952['textConten'+'t']=_0x1b579a['l'],_0x317952[_0x5bfe11(0x1c3)]=function(_0x3d805d){return function(){var _0x4e59a1=_0x5275;_0x3d805d[_0x4e59a1(0x265)]!==undefined&&(document[_0x4e59a1(0x310)+_0x4e59a1(0x32e)](_0x4e59a1(0x2de))[_0x4e59a1(0x1ff)]=_0x3d805d['bags'],txt(_0x4e59a1(0x1d9),_0x3d805d['bags']+_0x4e59a1(0x1de))),_0x3d805d[_0x4e59a1(0x1e9)]&&(document[_0x4e59a1(0x310)+'ById'](_0x4e59a1(0x25c))[_0x4e59a1(0x1ff)]=_0x3d805d[_0x4e59a1(0x1e9)],txt(_0x4e59a1(0x1d7),_0x3d805d[_0x4e59a1(0x1e9)][_0x4e59a1(0x2e0)+_0x4e59a1(0x212)](_0x4e59a1(0x2d5))+_0x4e59a1(0x290))),go();};}(_0x1b579a),_0x271989[_0x5bfe11(0x23f)+'d'](_0x317952);});}function setNote(_0x39db01,_0x4d22ed){var _0x4d9e61=_0x1eb6bd,_0x4f1f49=document[_0x4d9e61(0x310)+_0x4d9e61(0x32e)](_0x39db01);if(_0x4d22ed<0x64)_0x4f1f49[_0x4d9e61(0x206)]=_0x4d9e61(0x21b),_0x4f1f49[_0x4d9e61(0x270)+'t']='⚠\x20'+rnd(_0x4d22ed)+(_0x4d9e61(0x2f2)+_0x4d9e61(0x22f)+'וך');else _0x4d22ed>0x258?(_0x4f1f49[_0x4d9e61(0x206)]=_0x4d9e61(0x21b),_0x4f1f49[_0x4d9e61(0x270)+'t']='⚠\x20'+rnd(_0x4d22ed)+(_0x4d9e61(0x2f2)+_0x4d9e61(0x283)+_0x4d9e61(0x252)+'לח')):(_0x4f1f49[_0x4d9e61(0x206)]=_0x4d9e61(0x312),_0x4f1f49[_0x4d9e61(0x270)+'t']='✓\x20'+rnd(_0x4d22ed)+('\x20גר\x27\x20N/דונ'+_0x4d9e61(0x2cf)+_0x4d9e61(0x2a1)));}var tgGoTimer=null,lastReport='';function pendingReport(_0x39ef5a){if(!userInteracted)return;lastReport=_0x39ef5a;}function hideResults(){var _0x279b2=_0x1eb6bd;[_0x279b2(0x229),_0x279b2(0x1ce),_0x279b2(0x30c),_0x279b2(0x27c)][_0x279b2(0x1cc)](function(_0x204ed4){var _0x46b74b=_0x279b2,_0x952579=document[_0x46b74b(0x310)+'ById'](_0x204ed4);if(_0x952579)_0x952579[_0x46b74b(0x206)]=_0x46b74b(0x1fa)+_0x46b74b(0x296);});}function sendReport(){var _0x1473d4=_0x1eb6bd;if(!lastReport||!userInteracted)return;[_0x1473d4(0x229),_0x1473d4(0x1ce),_0x1473d4(0x30c),_0x1473d4(0x27c)][_0x1473d4(0x1cc)](function(_0x43232b){var _0x558525=_0x1473d4,_0xe8cb99=document[_0x558525(0x310)+'ById'](_0x43232b);if(_0xe8cb99)_0xe8cb99['className']=_0x558525(0x200)+_0x558525(0x249);}),tgSend(lastReport);}function go(){var _0x8144cf=_0x1eb6bd;if(cur<0x0)return;var _0x41169c=F[cur];if(_0x41169c['tp']==='s'){var _0x3f1bb4=+document[_0x8144cf(0x310)+_0x8144cf(0x32e)](_0x8144cf(0x2de))['value'],_0x4f839d=+document['getElement'+_0x8144cf(0x32e)]('sTank')['value'];txt(_0x8144cf(0x1d9),_0x3f1bb4+_0x8144cf(0x1de)),txt(_0x8144cf(0x1d7),_0x4f839d['toLocaleSt'+'ring'](_0x8144cf(0x2d5))+_0x8144cf(0x290));var _0x4ea9bd=_0x3f1bb4*_0x41169c[_0x8144cf(0x293)]*_0x41169c['n'],_0x2ee947=_0x3f1bb4*_0x41169c[_0x8144cf(0x293)]*_0x41169c['p'],_0x55ffbe=_0x3f1bb4*_0x41169c['bag']*_0x41169c['k'],_0x5dcf58=_0x4ea9bd*0x3e8/_0x4f839d,_0x216013=_0x2ee947*0x3e8/_0x4f839d,_0x433476=_0x55ffbe*0x3e8/_0x4f839d;txt(_0x8144cf(0x1cd),f2(_0x5dcf58)),txt(_0x8144cf(0x235),rnd(_0x5dcf58*0x3e8));var _0x49ab30=document[_0x8144cf(0x310)+'ById']('sPcard'),_0xb12600=document[_0x8144cf(0x310)+_0x8144cf(0x32e)]('sKcard');_0x41169c['p']>0x0?(_0x49ab30[_0x8144cf(0x206)]=_0x8144cf(0x273),txt('sPppm',rnd(_0x216013*0x3e8))):(_0x49ab30[_0x8144cf(0x206)]=_0x8144cf(0x29e),txt(_0x8144cf(0x2d6),'—'));_0x41169c['k']>0x0?(_0xb12600[_0x8144cf(0x206)]=_0x8144cf(0x268),txt('sKppm',rnd(_0x433476*0x3e8))):(_0xb12600[_0x8144cf(0x206)]=_0x8144cf(0x29e),txt(_0x8144cf(0x2b1),'—'));document['getElement'+_0x8144cf(0x32e)](_0x8144cf(0x2b4))[_0x8144cf(0x272)]=_0x3f1bb4+'\x20שקים\x20×\x20'+_0x41169c[_0x8144cf(0x293)]+_0x8144cf(0x2d7)+Math['round'](_0x41169c['n']*0x64)+(_0x8144cf(0x286)+'g>')+f2(_0x4ea9bd)+('\x20ק\x22ג\x20N</st'+_0x8144cf(0x31f))+'÷\x20'+_0x4f839d[_0x8144cf(0x2e0)+_0x8144cf(0x212)]('he-IL')+(_0x8144cf(0x2ec)+_0x8144cf(0x329))+f2(_0x5dcf58)+('\x20גר\x27\x20N\x20לכל'+_0x8144cf(0x1cf)+_0x8144cf(0x2c0));var _0x20bd75=+document['getElement'+_0x8144cf(0x32e)](_0x8144cf(0x28b))['value'],_0x31277f=+document['getElement'+_0x8144cf(0x32e)](_0x8144cf(0x2f4))[_0x8144cf(0x1ff)],_0x3fcbad=+document['getElement'+'ById']('sFreq')['value'];txt(_0x8144cf(0x1c5),f1(_0x20bd75)+_0x8144cf(0x228)),txt(_0x8144cf(0x323),f1(_0x31277f)+_0x8144cf(0x1f3)),txt(_0x8144cf(0x244),'כל\x20'+_0x3fcbad+_0x8144cf(0x1eb));var _0xdca757=_0x20bd75*_0x31277f*_0x5dcf58,_0x461e81=_0xdca757/_0x3fcbad;txt('sDunEv',rnd(_0xdca757)),txt(_0x8144cf(0x2a4),rnd(_0x461e81)),setNote(_0x8144cf(0x223),_0x461e81);var _0x44a41f=+document[_0x8144cf(0x310)+'ById'](_0x8144cf(0x2f7))['value'];txt(_0x8144cf(0x2e7),_0x44a41f+_0x8144cf(0x22c)),txt(_0x8144cf(0x277),rnd(_0x20bd75*_0x31277f*_0x44a41f)),txt(_0x8144cf(0x1b1),rnd(_0x20bd75*_0x31277f*_0x44a41f*0x7/_0x3fcbad)),pendingReport(_0x8144cf(0x279)+_0x8144cf(0x2e2)+farmerInfo()+_0x8144cf(0x24c)+_0x41169c['nm']+'\x20·\x20'+_0x3f1bb4+(_0x8144cf(0x31d)+'ד\x20')+_0x4f839d+_0x8144cf(0x290)+'\x0a🌿\x20'+_0x44a41f+('\x20דונם\x20·\x20N/'+_0x8144cf(0x287))+rnd(_0xdca757)+('\x20גר\x27\x20·\x20N/י'+_0x8144cf(0x2db))+rnd(_0x461e81)+_0x8144cf(0x2bd));}else{if(_0x41169c['tp']==='l'){var _0x72b0be=_0x41169c['sea']&&ssn===_0x8144cf(0x20e)?_0x41169c[_0x8144cf(0x245)]:_0x41169c['nL'];txt(_0x8144cf(0x28a),_0x72b0be+_0x8144cf(0x333));var _0x20bd75=+document[_0x8144cf(0x310)+_0x8144cf(0x32e)]('lInj')['value'],_0x31277f=+document[_0x8144cf(0x310)+_0x8144cf(0x32e)]('lWat')[_0x8144cf(0x1ff)],_0x3fcbad=+document[_0x8144cf(0x310)+_0x8144cf(0x32e)]('lFreq')[_0x8144cf(0x1ff)];txt(_0x8144cf(0x222),f1(_0x20bd75)+_0x8144cf(0x228)),txt('lLWat',f1(_0x31277f)+_0x8144cf(0x1f3)),txt(_0x8144cf(0x288),_0x8144cf(0x22a)+_0x3fcbad+'\x20ימים');var _0x11c7d7=_0x20bd75*_0x31277f,_0x51ffd7=_0x11c7d7*_0x72b0be,_0x461e81=_0x51ffd7/_0x3fcbad;txt(_0x8144cf(0x26b),rnd(_0x51ffd7)),txt(_0x8144cf(0x1f6),f2(_0x11c7d7)+_0x8144cf(0x290)),txt(_0x8144cf(0x210),rnd(_0x461e81)),document[_0x8144cf(0x310)+_0x8144cf(0x32e)](_0x8144cf(0x215))['innerHTML']=f1(_0x20bd75)+_0x8144cf(0x2ac)+f1(_0x31277f)+(_0x8144cf(0x313)+_0x8144cf(0x23d))+f2(_0x11c7d7)+(_0x8144cf(0x281)+'ונם</stron'+_0x8144cf(0x1d6))+'×\x20'+_0x72b0be+(_0x8144cf(0x2b3)+_0x8144cf(0x1fb))+rnd(_0x51ffd7)+(_0x8144cf(0x2a2)+_0x8144cf(0x2f0)+_0x8144cf(0x1bb)),setNote(_0x8144cf(0x332),_0x461e81);var _0x44a41f=+document[_0x8144cf(0x310)+_0x8144cf(0x32e)](_0x8144cf(0x2fe))[_0x8144cf(0x1ff)];txt(_0x8144cf(0x1db),_0x44a41f+_0x8144cf(0x22c)),txt('lTotEv',f2(_0x11c7d7*_0x44a41f)),txt(_0x8144cf(0x2ab),f2(_0x11c7d7*_0x44a41f*0x7/_0x3fcbad)),pendingReport(_0x8144cf(0x1e8)+_0x8144cf(0x2f5)+farmerInfo()+_0x8144cf(0x24c)+_0x41169c['nm']+'\x20·\x20'+f1(_0x20bd75)+'\x20ל\x27/קוב\x20·\x20'+f1(_0x31277f)+'\x20קוב/דונם'+_0x8144cf(0x1f5)+_0x44a41f+(_0x8144cf(0x1ca)+_0x8144cf(0x287))+rnd(_0x51ffd7)+('\x20גר\x27\x20·\x20N/י'+_0x8144cf(0x2db))+rnd(_0x461e81)+_0x8144cf(0x2bd));}else{var _0x3f1bb4=+document[_0x8144cf(0x310)+_0x8144cf(0x32e)](_0x8144cf(0x294))[_0x8144cf(0x1ff)],_0x1204bc=+document['getElement'+'ById'](_0x8144cf(0x284))[_0x8144cf(0x1ff)],_0x3fcbad=+document[_0x8144cf(0x310)+_0x8144cf(0x32e)](_0x8144cf(0x2f1))[_0x8144cf(0x1ff)];txt(_0x8144cf(0x2c6),_0x3f1bb4+(_0x3f1bb4===0x1?_0x8144cf(0x246):_0x8144cf(0x1de))),txt('lDArea',_0x1204bc+'\x20דונם'),txt(_0x8144cf(0x2eb),_0x8144cf(0x22a)+_0x3fcbad+_0x8144cf(0x1eb));var _0x4a2b69=_0x3f1bb4*_0x41169c[_0x8144cf(0x293)]*_0x41169c['n']*0x3e8,_0xdca757=_0x4a2b69/_0x1204bc,_0x461e81=_0xdca757/_0x3fcbad;txt(_0x8144cf(0x1ee),rnd(_0xdca757)),txt(_0x8144cf(0x320),rnd(_0x461e81)),txt(_0x8144cf(0x275),rnd(_0x461e81*0x7)),document[_0x8144cf(0x310)+_0x8144cf(0x32e)](_0x8144cf(0x1fd))[_0x8144cf(0x272)]=_0x3f1bb4+_0x8144cf(0x1c8)+_0x41169c[_0x8144cf(0x293)]+'\x20ק\x22ג\x20×\x20'+Math[_0x8144cf(0x2ba)](_0x41169c['n']*0x64)+('%\x20=\x20<stron'+'g>')+f2(_0x4a2b69/0x3e8)+('\x20ק\x22ג\x20N</st'+_0x8144cf(0x31f))+'÷\x20'+_0x1204bc+(_0x8144cf(0x211)+_0x8144cf(0x2f8))+rnd(_0xdca757)+(_0x8144cf(0x2a2)+_0x8144cf(0x25e)+_0x8144cf(0x1bb)),setNote('dNote',_0x461e81);var _0x44a41f=+document[_0x8144cf(0x310)+'ById'](_0x8144cf(0x26a))[_0x8144cf(0x1ff)];txt(_0x8144cf(0x231),_0x44a41f+_0x8144cf(0x22c)),txt('dTotEv',f2(_0x3f1bb4*_0x41169c[_0x8144cf(0x293)]*_0x44a41f/_0x1204bc)),txt(_0x8144cf(0x2e3),f2(_0x3f1bb4*_0x41169c[_0x8144cf(0x293)]*_0x44a41f/_0x1204bc*0x7/_0x3fcbad)),pendingReport(_0x8144cf(0x226)+_0x8144cf(0x2e2)+farmerInfo()+_0x8144cf(0x24c)+_0x41169c['nm']+_0x8144cf(0x2d0)+_0x3f1bb4+_0x8144cf(0x2e5)+_0x1204bc+'\x20דונם'+(_0x8144cf(0x2a3)+':\x20')+rnd(_0xdca757)+('\x20גר\x27\x20·\x20N/י'+_0x8144cf(0x2db))+rnd(_0x461e81)+_0x8144cf(0x2bd));}}}pick(0x0);var SINGLES=[{'id':_0x1eb6bd(0x219),'n':0.12,'p':0.61,'k':0x0,'ca':0x0,'mg':0x0},{'id':_0x1eb6bd(0x316),'n':0x0,'p':0.52,'k':0.34,'ca':0x0,'mg':0x0},{'id':_0x1eb6bd(0x227),'n':0.13,'p':0x0,'k':0.46,'ca':0x0,'mg':0x0},{'id':'CaNO3','n':0.155,'p':0x0,'k':0x0,'ca':0.19,'mg':0x0},{'id':'MgNO3','n':0.11,'p':0x0,'k':0x0,'ca':0x0,'mg':0.095}],BAG_KG=0x19;function stepSingle(_0x36bec5,_0x145b9f){var _0x71320f=_0x1eb6bd;markInteracted();var _0x2097d5=document[_0x71320f(0x310)+_0x71320f(0x32e)](_0x36bec5),_0x5cb586=+_0x2097d5['min'],_0x55a509=+_0x2097d5['max'],_0x4bc8c3=+_0x2097d5['value']+_0x145b9f;_0x4bc8c3>=_0x5cb586&&_0x4bc8c3<=_0x55a509&&(_0x2097d5[_0x71320f(0x1ff)]=_0x4bc8c3,calcMix());}function stepMix(_0x1735a0,_0x210137){var _0xedec1a=_0x1eb6bd,_0x19b4c3=document[_0xedec1a(0x310)+_0xedec1a(0x32e)](_0x1735a0),_0x10adcb=parseFloat(_0x19b4c3[_0xedec1a(0x256)]),_0x4edfc8=parseFloat(_0x19b4c3['max']),_0x3ee65e=Math[_0xedec1a(0x2ba)]((parseFloat(_0x19b4c3[_0xedec1a(0x1ff)])+_0x210137)*0x3e8)/0x3e8;_0x3ee65e>=_0x10adcb&&_0x3ee65e<=_0x4edfc8&&(_0x19b4c3[_0xedec1a(0x1ff)]=_0x3ee65e,calcMix());}function f2mix(_0x423b38){var _0x207a5e=_0x1eb6bd;return _0x423b38<0x1?_0x423b38[_0x207a5e(0x1ad)](0x2):_0x423b38['toFixed'](0x1);}function bagLabel(_0x5796b4){var _0x4c5c1d=_0x1eb6bd;return _0x5796b4+(_0x5796b4===0x1?_0x4c5c1d(0x246):_0x4c5c1d(0x1de));}function calcMix(){var _0x4b44af=_0x1eb6bd,_0x87b194=+document[_0x4b44af(0x310)+_0x4b44af(0x32e)]('mixTank')['value'];txt(_0x4b44af(0x1d8),_0x87b194[_0x4b44af(0x2e0)+'ring'](_0x4b44af(0x2d5))+_0x4b44af(0x290)),SINGLES[_0x4b44af(0x1cc)](function(_0x1744d7){var _0x5473db=_0x4b44af,_0x3ea6c8=+document[_0x5473db(0x310)+_0x5473db(0x32e)]('s'+_0x1744d7['id'])[_0x5473db(0x1ff)];txt('v'+_0x1744d7['id'],bagLabel(_0x3ea6c8));});var _0x53f520=0x0,_0xe4b455=0x0,_0x154741=0x0,_0x14cd4c=0x0,_0x15b640=0x0;SINGLES[_0x4b44af(0x1cc)](function(_0x559968){var _0x211604=_0x4b44af,_0x553926=+document[_0x211604(0x310)+'ById']('s'+_0x559968['id'])[_0x211604(0x1ff)]*BAG_KG*0x3e8;_0x53f520+=_0x553926*_0x559968['n'],_0xe4b455+=_0x553926*_0x559968['p'],_0x154741+=_0x553926*_0x559968['k'],_0x14cd4c+=_0x553926*_0x559968['ca'],_0x15b640+=_0x553926*_0x559968['mg'];});var _0x496a5e=_0x53f520/_0x87b194,_0x569701=_0xe4b455/_0x87b194,_0x5bc01a=_0x154741/_0x87b194,_0x3ac8e5=_0x14cd4c/_0x87b194,_0x438ab8=_0x15b640/_0x87b194;txt('mN',f2mix(_0x496a5e)),txt('mP',f2mix(_0x569701)),txt('mK',f2mix(_0x5bc01a)),txt(_0x4b44af(0x218),f2mix(_0x3ac8e5)),txt('mMg',f2mix(_0x438ab8));var _0x32dae0=document[_0x4b44af(0x310)+'ById']('mixPpmRow');_0x32dae0['innerHTML']='';var _0x30cff3=[{'lbl':'N','v':_0x496a5e*0x3e8,'cls':_0x4b44af(0x311)},{'lbl':_0x4b44af(0x1d1),'v':_0x569701*0x3e8,'cls':'#880e4f'},{'lbl':'K₂O','v':_0x5bc01a*0x3e8,'cls':_0x4b44af(0x31a)},{'lbl':'Ca','v':_0x3ac8e5*0x3e8,'cls':_0x4b44af(0x248)},{'lbl':'Mg','v':_0x438ab8*0x3e8,'cls':_0x4b44af(0x274)}];_0x30cff3[_0x4b44af(0x1cc)](function(_0x49d7e6){var _0x3f596e=_0x4b44af,_0x2de66a=document[_0x3f596e(0x209)+_0x3f596e(0x2e8)](_0x3f596e(0x29b));_0x2de66a[_0x3f596e(0x206)]='ppm-chip',_0x2de66a['style'][_0x3f596e(0x1e6)]=_0x49d7e6[_0x3f596e(0x2e4)],_0x2de66a[_0x3f596e(0x272)]=Math[_0x3f596e(0x2ba)](_0x49d7e6['v'])+(_0x3f596e(0x315)+'\x20')+_0x49d7e6[_0x3f596e(0x2d9)]+_0x3f596e(0x1b4),_0x32dae0[_0x3f596e(0x23f)+'d'](_0x2de66a);});var _0x333fcc=+document['getElement'+'ById'](_0x4b44af(0x1da))[_0x4b44af(0x1ff)],_0x5c40e4=+document[_0x4b44af(0x310)+'ById']('mWat')[_0x4b44af(0x1ff)],_0x5526e7=+document[_0x4b44af(0x310)+_0x4b44af(0x32e)](_0x4b44af(0x2a9))[_0x4b44af(0x1ff)],_0xfe43cf=_0x333fcc/0x3e8,_0x2a9025=_0x496a5e*0x3e8*_0xfe43cf,_0x34d53e=_0x569701*0x3e8*_0xfe43cf,_0x2e14a0=_0x5bc01a*0x3e8*_0xfe43cf,_0x4be861=_0x3ac8e5*0x3e8*_0xfe43cf,_0x2372a9=_0x438ab8*0x3e8*_0xfe43cf;txt('lMInj',f1(_0x333fcc)+_0x4b44af(0x228)),txt('lMWat',f1(_0x5c40e4)+_0x4b44af(0x1f3)),txt(_0x4b44af(0x1fc),_0x4b44af(0x22a)+_0x5526e7+_0x4b44af(0x1eb));var _0x583c28=_0x333fcc*_0x5c40e4*_0x496a5e,_0x3226a1=_0x583c28/_0x5526e7;txt(_0x4b44af(0x32f),rnd(_0x583c28)),txt(_0x4b44af(0x314),rnd(_0x3226a1)),setNote(_0x4b44af(0x2b9),_0x3226a1);var _0x1f1486=[],_0x54be5e=+document[_0x4b44af(0x310)+'ById'](_0x4b44af(0x205))['value'],_0x9ba30b=+document['getElement'+_0x4b44af(0x32e)](_0x4b44af(0x2be))[_0x4b44af(0x1ff)],_0x32a6e6=+document[_0x4b44af(0x310)+_0x4b44af(0x32e)](_0x4b44af(0x2b2))[_0x4b44af(0x1ff)],_0x5b6397=_0x54be5e>0x0||_0x9ba30b>0x0,_0x150ee2=_0x32a6e6>0x0;_0x5b6397&&_0x150ee2&&_0x1f1486[_0x4b44af(0x2aa)]({'sev':'red','icon':'🚫','title':_0x4b44af(0x30a)+_0x4b44af(0x2e1)+_0x4b44af(0x1c9)+_0x4b44af(0x21d),'body':_0x4b44af(0x23e)+_0x4b44af(0x20d)+_0x4b44af(0x297)+_0x4b44af(0x24d)+_0x4b44af(0x2c5)+'ים\x20נפרדים\x20'+_0x4b44af(0x22b)+_0x4b44af(0x280)});_0x2372a9>0x0&&_0x2e14a0/_0x2372a9>0x4&&_0x1f1486['push']({'sev':_0x4b44af(0x1dc),'icon':'⚠️','title':_0x4b44af(0x22d)+'\x20ביחס\x20ל-Mg'+_0x4b44af(0x203),'body':_0x4b44af(0x1ef)+'\x20'+Math[_0x4b44af(0x2ba)](_0x2e14a0/_0x2372a9)+(':1\x20(מומלץ\x20'+_0x4b44af(0x29f)+_0x4b44af(0x328)+_0x4b44af(0x2c7)+_0x4b44af(0x319)+_0x4b44af(0x239))});_0x2372a9>0x0&&_0x4be861/_0x2372a9>0x6&&_0x1f1486['push']({'sev':'orange','icon':'⚠️','title':_0x4b44af(0x29a)+_0x4b44af(0x1c6)+_0x4b44af(0x2d1),'body':_0x4b44af(0x2b6)+'=\x20'+Math[_0x4b44af(0x2ba)](_0x4be861/_0x2372a9)+(_0x4b44af(0x1e0)+_0x4b44af(0x250)+_0x4b44af(0x240)+_0x4b44af(0x20a)+_0x4b44af(0x2bf)+'ל.')});_0x2e14a0>0x0&&_0x2372a9/_0x2e14a0>1.2&&_0x1f1486[_0x4b44af(0x2aa)]({'sev':_0x4b44af(0x2ea),'icon':'💡','title':_0x4b44af(0x267)+_0x4b44af(0x2a7)+_0x4b44af(0x27e),'body':_0x4b44af(0x1bd)+'\x20'+(_0x2372a9/_0x2e14a0)[_0x4b44af(0x1ad)](0x1)+(_0x4b44af(0x1e0)+_0x4b44af(0x21a)+_0x4b44af(0x2f3)+_0x4b44af(0x1ea)+_0x4b44af(0x1b2))});_0x34d53e>0x3c&&_0x1f1486['push']({'sev':_0x4b44af(0x2ea),'icon':'💡','title':_0x4b44af(0x2da)+'טפת\x20—\x20עלול'+_0x4b44af(0x285)+_0x4b44af(0x307),'body':'P\x20בטפטפת:\x20'+Math['round'](_0x34d53e)+(_0x4b44af(0x325)+_0x4b44af(0x32c)+_0x4b44af(0x234)+_0x4b44af(0x27b)+_0x4b44af(0x24b)+_0x4b44af(0x2a6)+'ח.')});_0x2a9025>0x0&&_0x2a9025<0x50&&_0x1f1486[_0x4b44af(0x2aa)]({'sev':_0x4b44af(0x2ea),'icon':'💡','title':_0x4b44af(0x1cb)+_0x4b44af(0x27e),'body':_0x4b44af(0x295)+Math[_0x4b44af(0x2ba)](_0x2a9025)+(_0x4b44af(0x325)+_0x4b44af(0x2f6)+_0x4b44af(0x253)+_0x4b44af(0x1e1)+'ות\x20דשן.')});_0x4be861>0x0&&_0x4be861<0x50&&_0x2a9025>0x64&&_0x1f1486[_0x4b44af(0x2aa)]({'sev':_0x4b44af(0x2ea),'icon':'💡','title':_0x4b44af(0x1f0)+_0x4b44af(0x220)+_0x4b44af(0x25d)+_0x4b44af(0x2bb),'body':_0x4b44af(0x30f)+'\x20'+Math[_0x4b44af(0x2ba)](_0x4be861)+(_0x4b44af(0x23c)+'נייה\x20ומלפפ'+_0x4b44af(0x1bc)+_0x4b44af(0x213)+_0x4b44af(0x24a)+'חנקת\x20סידן.')});var _0x473f6f={'N':[],'P':[],'K':[],'Ca':[],'Mg':[]};_0x1f1486[_0x4b44af(0x1cc)](function(_0x11fbab){var _0x4db402=_0x4b44af;(_0x11fbab[_0x4db402(0x2df)][_0x4db402(0x2d2)](_0x4db402(0x1c0))>-0x1||_0x11fbab[_0x4db402(0x2df)]['indexOf'](_0x4db402(0x31b))>-0x1)&&(_0x473f6f['K'][_0x4db402(0x2aa)](_0x11fbab[_0x4db402(0x28f)]),_0x473f6f['Mg'][_0x4db402(0x2aa)](_0x11fbab[_0x4db402(0x28f)])),_0x11fbab[_0x4db402(0x2df)][_0x4db402(0x2d2)]('Ca\x20גבוה')>-0x1&&(_0x473f6f['Ca'][_0x4db402(0x2aa)](_0x11fbab[_0x4db402(0x28f)]),_0x473f6f['Mg'][_0x4db402(0x2aa)](_0x11fbab[_0x4db402(0x28f)])),_0x11fbab[_0x4db402(0x2df)]['indexOf']('P\x20גבוה')>-0x1&&_0x473f6f['P']['push'](_0x11fbab[_0x4db402(0x28f)]),_0x11fbab[_0x4db402(0x2df)]['indexOf'](_0x4db402(0x289))>-0x1&&_0x473f6f['N']['push'](_0x11fbab[_0x4db402(0x28f)]),_0x11fbab[_0x4db402(0x2df)][_0x4db402(0x2d2)]('Ca\x20נמוך')>-0x1&&_0x473f6f['Ca']['push'](_0x11fbab[_0x4db402(0x28f)]),_0x11fbab[_0x4db402(0x2df)]['indexOf'](_0x4db402(0x28e))>-0x1&&(_0x473f6f['P'][_0x4db402(0x2aa)](_0x11fbab['sev']),_0x473f6f['Ca']['push'](_0x11fbab[_0x4db402(0x28f)]));});var _0x1980ed={'red':'🚫','orange':'⚠️','yellow':'💡'};['N','P','K','Ca','Mg'][_0x4b44af(0x1cc)](function(_0xdd4e27){var _0x5ca43d=_0x4b44af,_0x1ecbe0=_0x473f6f[_0xdd4e27],_0x3aa6f0=document['getElement'+'ById']('w'+_0xdd4e27);if(_0x1ecbe0[_0x5ca43d(0x27f)]>0x0){var _0x461238=_0x1ecbe0[_0x5ca43d(0x2d2)](_0x5ca43d(0x242))>-0x1?_0x5ca43d(0x242):_0x1ecbe0[_0x5ca43d(0x2d2)](_0x5ca43d(0x1dc))>-0x1?'orange':'yellow';_0x3aa6f0['textConten'+'t']=_0x1980ed[_0x461238];}else _0x3aa6f0['textConten'+'t']='';});var _0x51cb8b=document['getElement'+_0x4b44af(0x32e)](_0x4b44af(0x1e3)+'k');if(_0x1f1486[_0x4b44af(0x27f)]===0x0)_0x51cb8b[_0x4b44af(0x272)]='';else{var _0x5843e8=_0x4b44af(0x26d)+_0x4b44af(0x269)+_0x4b44af(0x20b)+'class=\x22ale'+_0x4b44af(0x292)+_0x4b44af(0x331)+'ואזהרות</d'+_0x4b44af(0x1fe);_0x1f1486[_0x4b44af(0x1cc)](function(_0x36a298){var _0x5102fd=_0x4b44af;_0x5843e8+='<div\x20class'+'=\x22alert-it'+'em\x20alert-'+_0x36a298['sev']+'\x22>'+(_0x5102fd(0x26d)+'=\x22alert-ic'+'on\x22>')+_0x36a298[_0x5102fd(0x1f1)]+_0x5102fd(0x28d)+(_0x5102fd(0x26d)+_0x5102fd(0x2bc)+_0x5102fd(0x1af)+'g>')+_0x36a298[_0x5102fd(0x2df)]+('</strong><'+_0x5102fd(0x243))+_0x36a298[_0x5102fd(0x261)]+(_0x5102fd(0x318)+_0x5102fd(0x1fe))+_0x5102fd(0x28d);}),_0x5843e8+=_0x4b44af(0x28d),_0x51cb8b['innerHTML']=_0x5843e8;}var _0x35c28c=document[_0x4b44af(0x310)+_0x4b44af(0x32e)](_0x4b44af(0x247)+_0x4b44af(0x1b6));_0x35c28c[_0x4b44af(0x272)]='';var _0xcf6a05=![],_0x142766={'MAP':'MAP\x2012-61-'+'0','MKP':_0x4b44af(0x1f2)+'4','KNO3':'חנקת\x20אשלגן'+_0x4b44af(0x1c7),'CaNO3':_0x4b44af(0x301),'MgNO3':_0x4b44af(0x1ae)+'ום'};SINGLES[_0x4b44af(0x1cc)](function(_0x1f095c){var _0x3548c2=_0x4b44af,_0x2e473b=+document['getElement'+_0x3548c2(0x32e)]('s'+_0x1f095c['id'])[_0x3548c2(0x1ff)];if(_0x2e473b>0x0){_0xcf6a05=!![];var _0x355a98=_0x2e473b*BAG_KG,_0x2a8973=document[_0x3548c2(0x209)+_0x3548c2(0x2e8)](_0x3548c2(0x29b));_0x2a8973[_0x3548c2(0x2a8)]['cssText']=_0x3548c2(0x258)+_0x3548c2(0x266)+'-content:s'+_0x3548c2(0x278)+_0x3548c2(0x2fc)+_0x3548c2(0x299)+_0x3548c2(0x217)+_0x3548c2(0x2dc)+_0x3548c2(0x2ce)+_0x3548c2(0x2f9)+'\x20#f0f0f0;',_0x2a8973[_0x3548c2(0x272)]=_0x3548c2(0x2b5)+'e=\x27font-si'+_0x3548c2(0x300)+_0x3548c2(0x254)+_0x142766[_0x1f095c['id']]+'</span>'+('<span\x20styl'+_0x3548c2(0x2d8)+'ign:left\x27>')+(_0x3548c2(0x22e)+'yle=\x27color'+_0x3548c2(0x224)+_0x3548c2(0x308)+_0x3548c2(0x1e7))+bagLabel(_0x2e473b)+_0x3548c2(0x1ba)+(_0x3548c2(0x2b5)+'e=\x27color:#'+_0x3548c2(0x255)+_0x3548c2(0x324)+'isplay:blo'+_0x3548c2(0x207))+_0x355a98+'\x20ק\x22ג'+_0x3548c2(0x1b4)+_0x3548c2(0x1b4),_0x35c28c[_0x3548c2(0x23f)+'d'](_0x2a8973);}});!_0xcf6a05&&(_0x35c28c['innerHTML']=_0x4b44af(0x26d)+_0x4b44af(0x2dd)+_0x4b44af(0x306)+_0x4b44af(0x1f9)+'\x27>⚗️</div>ה'+_0x4b44af(0x32d)+_0x4b44af(0x2fb)+'ת\x20ההרכבה</'+_0x4b44af(0x330));if(_0xcf6a05){var _0x37b174=[];SINGLES[_0x4b44af(0x1cc)](function(_0x3a378d){var _0x4f8c60=_0x4b44af,_0x2258ce=+document[_0x4f8c60(0x310)+_0x4f8c60(0x32e)]('s'+_0x3a378d['id'])[_0x4f8c60(0x1ff)];if(_0x2258ce>0x0)_0x37b174['push'](_0x142766[_0x3a378d['id']]+':\x20'+bagLabel(_0x2258ce));});var _0x22b0b4=_0x1f1486[_0x4b44af(0x26e)](function(_0x226fec){var _0x10e31a=_0x4b44af;return _0x226fec[_0x10e31a(0x1f1)]+'\x20'+_0x226fec[_0x10e31a(0x2df)];})['join']('\x0a');pendingReport('⚗️\x20<b>הרכבה'+_0x4b44af(0x2ee)+_0x4b44af(0x2e2)+farmerInfo()+'\x0a'+_0x37b174[_0x4b44af(0x28c)](_0x4b44af(0x2d0))+'\x0a💧\x20N:\x20'+Math[_0x4b44af(0x2ba)](_0x2a9025)+_0x4b44af(0x262)+Math['round'](_0x2e14a0)+(_0x4b44af(0x230)+'\x20')+Math[_0x4b44af(0x2ba)](_0x4be861)+(_0x4b44af(0x2c8)+'\x20')+Math[_0x4b44af(0x2ba)](_0x2372a9)+_0x4b44af(0x2ff)+(_0x1f1486['length']>0x0?_0x4b44af(0x2fd)+'\x0a'+_0x22b0b4:''));}}calcMix();function f1(_0x139489){var _0x41335b=_0x1eb6bd;return parseFloat(_0x139489[_0x41335b(0x1ad)](0x1))[_0x41335b(0x2e0)+_0x41335b(0x212)](_0x41335b(0x2d5));}</script>
+<script>
+// ===== TELEGRAM TRACKING =====
+var userInteracted = false;
+function markInteracted(){ userInteracted = true; hideResults(); }
+function goInteract(){ markInteracted(); go(); }
+function calcMixInteract(){ markInteracted(); calcMix(); }
+
+// [אזהרת אבטחה]: החלפתי את הטוקן הישיר בכתובת Webhook. אל תחשוף טוקנים של טלגרם בצד הלקוח!
+var WEBHOOK_URL = "הכנס_כאן_את_כתובת_הוובהוק_שלך_מזאפייר_או_מייק"; 
+
+function tgSend(msg){
+  if (!WEBHOOK_URL || WEBHOOK_URL === "הכנס_כאן_את_כתובת_הוובהוק_שלך_מזאפייר_או_מייק") {
+    console.warn("לא הוגדר Webhook לשליחת דיווח.");
+    return;
+  }
+  
+  fetch(WEBHOOK_URL, {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({text: msg, parse_mode: "HTML"})
+  }).catch(function(err){
+    console.error("שגיאה בשליחה:", err);
+  });
+}
+
+function tgDate(){
+  return new Date().toLocaleDateString("he-IL", {day:"2-digit", month:"2-digit", year:"numeric", hour:"2-digit", minute:"2-digit"});
+}
+
+function farmerName(){
+  return localStorage.getItem("panora_farmer") || "לא ידוע";
+}
+
+function farmerInfo(){
+  var name  = localStorage.getItem("panora_farmer") || "לא ידוע";
+  var phone = localStorage.getItem("panora_phone")  || "לא הוזן";
+  return "👤 " + name + "\n📱 " + phone;
+}
+
+// ===== ACTIVATION =====
+if (localStorage.getItem("panora_activated") === "true" && localStorage.getItem("panora_farmer")) {
+  document.getElementById("activationOverlay").style.display = "none";
+}
+
+function activateApp() {
+  var name  = document.getElementById("farmerName").value.trim();
+  var phone = document.getElementById("farmerPhone").value.trim();
+  if (!name) { alert("אנא מלא את שמך כדי להפעיל את המחשבון"); return; }
+  localStorage.setItem("panora_activated", "true");
+  localStorage.setItem("panora_farmer", name);
+  localStorage.setItem("panora_phone", phone);
+  document.getElementById("activationOverlay").style.display = "none";
+  tgSend("🌱 <b>חקלאי חדש הפעיל את הכלי</b>\n👤 " + name + "\n📱 " + (phone || "לא הוזן") + "\n🕐 " + tgDate());
+}
+
+// ===== TABS =====
+function switchTab(t) {
+  document.getElementById("paneMarket").className = "tab-pane" + (t==="market" ? " active" : "");
+  document.getElementById("paneSingles").className = "tab-pane" + (t==="singles" ? " active" : "");
+  document.getElementById("tabMarket").className = "tab-btn" + (t==="market" ? " active" : "");
+  document.getElementById("tabSingles").className = "tab-btn" + (t==="singles" ? " active" : "");
+}
+
+// ===== MARKET TAB DATA =====
+var F = [
+  {nm:"17-10-27",      sb:'מוצק · 25 ק"ג',        tp:"s", n:0.17, p:0.10, k:0.27, bag:25, pre:[{l:"8 שקים / 1000 ל",bags:8,tank:1000},{l:"10 שקים / 1000 ל",bags:10,tank:1000}]},
+  {nm:"20-20-20",      sb:'מוצק · 25 ק"ג',        tp:"s", n:0.20, p:0.20, k:0.20, bag:25, pre:[{l:"4 שקים / 500 ל",bags:4,tank:500},{l:"8 שקים / 1000 ל",bags:8,tank:1000}]},
+  {nm:"חנקת אשלגן",   sb:'13-0-46 · 25 ק"ג',     tp:"s", n:0.13, p:0,    k:0.46, bag:25, pre:[{l:"4 שקים / 1000 ל",bags:4,tank:1000},{l:"8 שקים / 1000 ל",bags:8,tank:1000}]},
+  {nm:"אמון חנקתי",   sb:"נוזלי · 270/222 גר'/ל'", tp:"l", nL:270, nLw:222, sea:true},
+  {nm:"שפר 5-3-8",    sb:"נוזלי · 60 גר'/ל'",   tp:"l", nL:60},
+  {nm:"שפר 4-2-8",    sb:"נוזלי · 46 גר'/ל'",   tp:"l", nL:46},
+  {nm:"שפר 6-6-6",    sb:"נוזלי · 72 גר'/ל'",   tp:"l", nL:72},
+  {nm:"שפר 7-3-7",    sb:"נוזלי · 84 גר'/ל'",   tp:"l", nL:84},
+  {nm:"עילית 7-7-7",  sb:"נוזלי · 84 גר'/ל'",   tp:"l", nL:84},
+  {nm:"עילית 9-6-6",  sb:"נוזלי · 108 גר'/ל'",  tp:"l", nL:108},
+  {nm:"עילית 12-6-3", sb:"נוזלי · 144 גר'/ל'",  tp:"l", nL:144},
+  {nm:"מור 7-3-7",    sb:"נוזלי · 84 גר'/ל'",   tp:"l", nL:84},
+  {nm:"מור 6-2-9",    sb:"נוזלי · 72 גר'/ל'",   tp:"l", nL:72},
+  {nm:"17-10-27",     sb:'ישיר · 25 ק"ג',        tp:"d", n:0.17, bag:25},
+  {nm:"20-20-20",     sb:'ישיר · 25 ק"ג',        tp:"d", n:0.20, bag:25},
+  {nm:"חנקת אשלגן",  sb:'ישיר · 25 ק"ג',        tp:"d", n:0.13, bag:25}
+];
+
+var cur = -1, ssn = "summer";
+
+function f1(n){ return parseFloat(n.toFixed(1)).toLocaleString("he-IL"); }
+function f2(n){ return parseFloat(n.toFixed(2)).toLocaleString("he-IL"); }
+function rnd(n){ return Math.round(n).toLocaleString("he-IL"); }
+function show(id,v){ document.getElementById(id).className = "card" + (v ? "" : " hidden"); }
+function txt(id,v){ document.getElementById(id).textContent = v; }
+
+function step(id, dir){
+  markInteracted();
+  var el = document.getElementById(id);
+  var s = parseFloat(el.step) || 1;
+  var mn = parseFloat(el.min), mx = parseFloat(el.max);
+  var nv = Math.round((parseFloat(el.value) + dir * s) * 1000) / 1000;
+  if(nv >= mn && nv <= mx){ el.value = nv; go(); }
+}
+
+function buildGrid(){
+  var g = document.getElementById("fertGrid");
+  g.innerHTML = "";
+  var groups = [
+    {label:"מוצק — דוד", types:["s"]},
+    {label:"נוזלי — הזרקה", types:["l"]},
+    {label:"ישיר — ללא דוד", types:["d"]}
+  ];
+  F.forEach(function(f,i){
+    var b = document.createElement("button");
+    b.className = "fb f" + f.tp + (i===cur ? " active" : "");
+    b.innerHTML = "<strong>" + f.nm + "</strong><span>" + f.sb + "</span>";
+    b.onclick = (function(idx){ return function(){ markInteracted(); pick(idx); }; })(i);
+    g.appendChild(b);
+  });
+}
+
+function pick(i){
+  cur = i;
+  buildGrid();
+  var f = F[i];
+  document.getElementById("seasonRow").className = "season-row" + (f.sea ? " show" : "");
+  show("secS", f.tp==="s"); show("secL", f.tp==="l"); show("secD", f.tp==="d");
+  show("outS", f.tp==="s"); show("outL", f.tp==="l"); show("outD", f.tp==="d");
+  if(f.tp==="s") buildPresets();
+  go();
+}
+
+function setSeason(s){
+  ssn = s;
+  document.getElementById("btnS").className = "sbtn" + (s==="summer" ? " active" : "");
+  document.getElementById("btnW").className = "sbtn" + (s==="winter" ? " active" : "");
+  go();
+}
+
+function buildPresets(){
+  var f = F[cur], c = document.getElementById("solidPresets");
+  c.innerHTML = "";
+  if(!f.pre) return;
+  f.pre.forEach(function(p){
+    var b = document.createElement("button");
+    b.className = "pbtn";
+    b.textContent = p.l;
+    b.onclick = (function(pr){ return function(){
+      if(pr.bags !== undefined){ document.getElementById("sBags").value = pr.bags; txt("lBags", pr.bags + " שקים"); }
+      if(pr.tank){ document.getElementById("sTank").value = pr.tank; txt("lTank", pr.tank.toLocaleString("he-IL") + " ל'"); }
+      go();
+    }; })(p);
+    c.appendChild(b);
+  });
+}
+
+function setNote(id, val){
+  var el = document.getElementById(id);
+  if(val < 100)      { el.className="note warn"; el.textContent="⚠ "+rnd(val)+" גר' N/דונם/יום — נמוך"; }
+  else if(val > 600) { el.className="note warn"; el.textContent="⚠ "+rnd(val)+" גר' N/דונם/יום — גבוה, סכנת מלח"; }
+  else               { el.className="note ok";   el.textContent="✓ "+rnd(val)+" גר' N/דונם/יום — טווח תקין"; }
+}
+
+var tgGoTimer = null;
+var lastReport = "";
+
+function pendingReport(msg){
+  if(!userInteracted) return;
+  lastReport = msg;
+}
+
+function hideResults(){
+  ['resultS','resultL','resultD','resultM'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.className = 'result-hidden';
+  });
+}
+
+function sendReport(){
+  if(!lastReport || !userInteracted) return;
+  ['resultS','resultL','resultD','resultM'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.className = 'result-visible';
+  });
+  tgSend(lastReport);
+}
+
+function go(){
+  if(cur < 0) return;
+  var f = F[cur];
+  if(f.tp === "s"){
+    var bags = +document.getElementById("sBags").value;
+    var tank = +document.getElementById("sTank").value;
+    txt("lBags", bags + " שקים"); txt("lTank", tank.toLocaleString("he-IL") + " ל'");
+    var nKg=bags*f.bag*f.n, pKg=bags*f.bag*f.p, kKg=bags*f.bag*f.k;
+    var nGL=nKg*1000/tank, pGL=pKg*1000/tank, kGL=kKg*1000/tank;
+    txt("sNgl", f2(nGL)); txt("sNppm", rnd(nGL*1000));
+    var pc=document.getElementById("sPcard"), kc=document.getElementById("sKcard");
+    if(f.p>0){ pc.className="pc pp"; txt("sPppm",rnd(pGL*1000)); } else { pc.className="pc pe"; txt("sPppm","—"); }
+    if(f.k>0){ kc.className="pc pk"; txt("sKppm",rnd(kGL*1000)); } else { kc.className="pc pe"; txt("sKppm","—"); }
+    document.getElementById("sFml").innerHTML =
+      bags+" שקים × "+f.bag+' ק"ג × '+Math.round(f.n*100)+"% = <strong>"+f2(nKg)+' ק"ג N</strong><br>'+
+      "÷ "+tank.toLocaleString("he-IL")+" ל' = <strong>"+f2(nGL)+" גר' N לכל ליטר תמיסה</strong>";
+    var inj=+document.getElementById("sInj").value, wat=+document.getElementById("sWat").value, frq=+document.getElementById("sFreq").value;
+    txt("lSInj",f1(inj)+" ל'/קוב"); txt("lSWat",f1(wat)+" קוב"); txt("lSFreq","כל "+frq+" ימים");
+    var nEv=inj*wat*nGL, nDay=nEv/frq;
+    txt("sDunEv",rnd(nEv)); txt("sDunDay",rnd(nDay)); setNote("sNote",nDay);
+    var tot=+document.getElementById("sTot").value; txt("lSTot",tot+" דונם");
+    txt("sTotEv",rnd(inj*wat*tot)); txt("sTotWk",rnd(inj*wat*tot*7/frq));
+    pendingReport("🧪 <b>מוצק</b>\n" + farmerInfo() + "\n📦 " + f.nm + " · " + bags + " שקים · דוד " + tank + " ל'" +
+      "\n🌿 " + tot + " דונם · N/אירוע: " + rnd(nEv) + " גר' · N/יום: " + rnd(nDay) + " גר'");
+  } else if(f.tp === "l"){
+    var nL=(f.sea&&ssn==="winter")?f.nLw:f.nL;
+    txt("nPerLiter",nL+" גר'/ל'");
+    var inj=+document.getElementById("lInj").value, wat=+document.getElementById("lWat").value, frq=+document.getElementById("lFreq").value;
+    txt("lLInj",f1(inj)+" ל'/קוב"); txt("lLWat",f1(wat)+" קוב"); txt("lLFreq","כל "+frq+" ימים");
+    var fpd=inj*wat, nDun=fpd*nL, nDay=nDun/frq;
+    txt("lNdun",rnd(nDun)); txt("lFertDun",f2(fpd)+" ל'"); txt("lNday",rnd(nDay));
+    document.getElementById("lFml").innerHTML =
+      f1(inj)+" ל'/קוב × "+f1(wat)+" קוב = <strong>"+f2(fpd)+" ל' דשן לדונם</strong><br>"+
+      "× "+nL+" גר'/ל' = <strong>"+rnd(nDun)+" גרם N לדונם להשקיה</strong>";
+    setNote("lNote",nDay);
+    var tot=+document.getElementById("lTot").value; txt("lLTot",tot+" דונם");
+    txt("lTotEv",f2(fpd*tot)); txt("lTotWk",f2(fpd*tot*7/frq));
+    pendingReport("💧 <b>נוזלי</b>\n" + farmerInfo() + "\n📦 " + f.nm + " · " + f1(inj) + " ל'/קוב · " + f1(wat) + " קוב/דונם" +
+      "\n🌿 " + tot + " דונם · N/אירוע: " + rnd(nDun) + " גר' · N/יום: " + rnd(nDay) + " גר'");
+  } else {
+    var bags=+document.getElementById("dBags").value, area=+document.getElementById("dArea").value, frq=+document.getElementById("dFreq").value;
+    txt("lDBags",bags+(bags===1?" שק":" שקים")); txt("lDArea",area+" דונם"); txt("lDFreq","כל "+frq+" ימים");
+    var nTot=bags*f.bag*f.n*1000, nEv=nTot/area, nDay=nEv/frq;
+    txt("dNev",rnd(nEv));
+    document.getElementById("dFml").innerHTML =
+      bags+" שקים × "+f.bag+' ק"ג × '+Math.round(f.n*100)+"% = <strong>"+f2(nTot/1000)+' ק"ג N</strong><br>'+
+      "÷ "+area+" דונם = <strong>"+rnd(nEv)+" גרם N לדונם לאירוע</strong>";
+    setNote("dNote",nDay);
+    var tot=+document.getElementById("dTot").value; txt("lDTot",tot+" דונם");
+    txt("dTotEv",f2(bags*f.bag*tot/area)); txt("dTotWk",f2(bags*f.bag*tot/area*7/frq));
+    pendingReport("🪣 <b>ישיר</b>\n" + farmerInfo() + "\n📦 " + f.nm + " · " + bags + " שקים ל-" + area + " דונם" +
+      "\n🌿 N/אירוע: " + rnd(nEv) + " גר' · N/יום: " + rnd(nDay) + " גר'");
+  }
+}
+
+pick(0);
+
+var SINGLES = [
+  {id:"MAP",   n:0.12,  p:0.61, k:0.00, ca:0.000, mg:0.000},
+  {id:"MKP",   n:0.00,  p:0.52, k:0.34, ca:0.000, mg:0.000},
+  {id:"KNO3",  n:0.13,  p:0.00, k:0.46, ca:0.000, mg:0.000},
+  {id:"CaNO3", n:0.155, p:0.00, k:0.00, ca:0.190, mg:0.000},
+  {id:"MgNO3", n:0.11,  p:0.00, k:0.00, ca:0.000, mg:0.095}
+];
+
+var BAG_KG = 25;
+
+function stepSingle(id, dir){
+  markInteracted();
+  var el = document.getElementById(id);
+  var mn = +el.min, mx = +el.max;
+  var nv = +el.value + dir;
+  if(nv >= mn && nv <= mx){ el.value = nv; calcMix(); }
+}
+
+function stepMix(id, dir){
+  var el = document.getElementById(id);
+  var mn = parseFloat(el.min), mx = parseFloat(el.max);
+  var nv = Math.round((parseFloat(el.value) + dir) * 1000) / 1000;
+  if(nv >= mn && nv <= mx){ el.value = nv; calcMix(); }
+}
+
+function f2mix(n){ return n < 1 ? n.toFixed(2) : n.toFixed(1); }
+function bagLabel(b){ return b + (b === 1 ? " שק" : " שקים"); }
+
+function calcMix(){
+  var tank = +document.getElementById("mixTank").value;
+  txt("lMixTank", tank.toLocaleString("he-IL") + " ל'");
+
+  SINGLES.forEach(function(s){
+    var bags = +document.getElementById("s"+s.id).value;
+    txt("v"+s.id, bagLabel(bags));
+  });
+
+  var totN=0, totP=0, totK=0, totCa=0, totMg=0;
+  SINGLES.forEach(function(s){
+    var grams = +document.getElementById("s"+s.id).value * BAG_KG * 1000;
+    totN  += grams * s.n;
+    totP  += grams * s.p;
+    totK  += grams * s.k;
+    totCa += grams * s.ca;
+    totMg += grams * s.mg;
+  });
+
+  var nGL  = totN  / tank;
+  var pGL  = totP  / tank;
+  var kGL  = totK  / tank;
+  var caGL = totCa / tank;
+  var mgGL = totMg / tank;
+
+  txt("mN",  f2mix(nGL));
+  txt("mP",  f2mix(pGL));
+  txt("mK",  f2mix(kGL));
+  txt("mCa", f2mix(caGL));
+  txt("mMg", f2mix(mgGL));
+
+  var ppmRow = document.getElementById("mixPpmRow");
+  ppmRow.innerHTML = "";
+  var items = [
+    {lbl:"N",    v:nGL*1000,  cls:"#1565c0"},
+    {lbl:"P₂O₅", v:pGL*1000,  cls:"#880e4f"},
+    {lbl:"K₂O",  v:kGL*1000,  cls:"#1b5e20"},
+    {lbl:"Ca",   v:caGL*1000, cls:"#e65100"},
+    {lbl:"Mg",   v:mgGL*1000, cls:"#6a1b9a"}
+  ];
+  items.forEach(function(item){
+    var chip = document.createElement("div");
+    chip.className = "ppm-chip";
+    chip.style.color = item.cls;
+    chip.innerHTML = Math.round(item.v) + " <span>ppm " + item.lbl + "</span>";
+    ppmRow.appendChild(chip);
+  });
+
+  var inj  = +document.getElementById("mInj").value;
+  var wat  = +document.getElementById("mWat").value;
+  var frq  = +document.getElementById("mFreq").value;
+
+  var dilF = inj / 1000; 
+  var tN_ppm  = nGL  * 1000 * dilF;
+  var tP_ppm  = pGL  * 1000 * dilF;
+  var tK_ppm  = kGL  * 1000 * dilF;
+  var tCa_ppm = caGL * 1000 * dilF;
+  var tMg_ppm = mgGL * 1000 * dilF;
+
+  txt("lMInj", f1(inj) + " ל'/קוב");
+  txt("lMWat", f1(wat) + " קוב");
+  txt("lMFreq", "כל " + frq + " ימים");
+
+  var nEv  = inj * wat * nGL;
+  var nDay = nEv / frq;
+  txt("mDunEv",  rnd(nEv));
+  txt("mDunDay", rnd(nDay));
+  setNote("mNote", nDay);
+
+  var alerts = [];
+  var bagsMAP   = +document.getElementById("sMAP").value;
+  var bagsMKP   = +document.getElementById("sMKP").value;
+  var bagsCaNO3 = +document.getElementById("sCaNO3").value;
+  var hasP   = bagsMAP > 0 || bagsMKP > 0;
+  var hasCa  = bagsCaNO3 > 0;
+
+  if(hasP && hasCa){
+    alerts.push({
+      sev:"red", icon:"🚫",
+      title:"MAP/MKP + חנקת סידן — אסור יחד בדוד!",
+      body:"Ca + פוספט יוצרים משקע CaHPO₄ (לבן). הוסף לשני דודים נפרדים או לתמיסה בנפרד."
+    });
+  }
+
+  if(tMg_ppm > 0 && tK_ppm / tMg_ppm > 4){
+    alerts.push({
+      sev:"orange", icon:"⚠️",
+      title:"K גבוה מדי ביחס ל-Mg בטפטפת",
+      body:"יחס K:Mg = " + Math.round(tK_ppm/tMg_ppm) + ":1 (מומלץ עד 4:1). K גבוה חוסם ספיגת מגנזיום — סכנת כלורוזה."
+    });
+  }
+
+  if(tMg_ppm > 0 && tCa_ppm / tMg_ppm > 6){
+    alerts.push({
+      sev:"orange", icon:"⚠️",
+      title:"Ca גבוה מדי ביחס ל-Mg בטפטפת",
+      body:"יחס Ca:Mg = " + Math.round(tCa_ppm/tMg_ppm) + ":1 (מומלץ עד 5:1). Ca עודף חוסם ספיגת מגנזיום וברזל."
+    });
+  }
+
+  if(tK_ppm > 0 && tMg_ppm / tK_ppm > 1.2){
+    alerts.push({
+      sev:"yellow", icon:"💡",
+      title:"Mg גבוה ביחס ל-K בטפטפת",
+      body:"יחס Mg:K = " + (tMg_ppm/tK_ppm).toFixed(1) + ":1 (מומלץ עד 1:1). Mg עודף עלול לחסום ספיגת אשלגן."
+    });
+  }
+
+  if(tP_ppm > 60){
+    alerts.push({
+      sev:"yellow", icon:"💡",
+      title:"P גבוה בטפטפת — עלול לחסום Fe, Zn, Mn",
+      body:"P בטפטפת: " + Math.round(tP_ppm) + " ppm (מומלץ 30-60 ppm). זרחן גבוה מכביל ברזל ואבץ בקרקע ובצמח."
+    });
+  }
+
+  if(tN_ppm > 0 && tN_ppm < 80){
+    alerts.push({
+      sev:"yellow", icon:"💡",
+      title:"N נמוך בטפטפת",
+      body:"N בטפטפת: " + Math.round(tN_ppm) + " ppm (מומלץ 150-250 ppm). בדוק הזרקה וכמות דשן."
+    });
+  }
+
+  if(tCa_ppm > 0 && tCa_ppm < 80 && (tN_ppm > 100)){
+    alerts.push({
+      sev:"yellow", icon:"💡",
+      title:"Ca נמוך — סכנת שחור פיטם בעגבנייה",
+      body:"Ca בטפטפת: " + Math.round(tCa_ppm) + " ppm. לעגבנייה ומלפפון מומלץ 150-250 ppm Ca. הוסף חנקת סידן."
+    });
+  }
+
+  var cellWarnings = {N:[], P:[], K:[], Ca:[], Mg:[]};
+  alerts.forEach(function(a){
+    if(a.title.indexOf("K גבוה") > -1 || a.title.indexOf("Mg גבוה") > -1) { cellWarnings.K.push(a.sev); cellWarnings.Mg.push(a.sev); }
+    if(a.title.indexOf("Ca גבוה") > -1) { cellWarnings.Ca.push(a.sev); cellWarnings.Mg.push(a.sev); }
+    if(a.title.indexOf("P גבוה") > -1)  { cellWarnings.P.push(a.sev); }
+    if(a.title.indexOf("N נמוך") > -1)  { cellWarnings.N.push(a.sev); }
+    if(a.title.indexOf("Ca נמוך") > -1) { cellWarnings.Ca.push(a.sev); }
+    if(a.title.indexOf("MAP/MKP") > -1) { cellWarnings.P.push(a.sev); cellWarnings.Ca.push(a.sev); }
+  });
+  var sevIcon = {red:"🚫", orange:"⚠️", yellow:"💡"};
+  ["N","P","K","Ca","Mg"].forEach(function(el){
+    var ws = cellWarnings[el];
+    var wEl = document.getElementById("w"+el);
+    if(ws.length > 0){
+      var top = ws.indexOf("red") > -1 ? "red" : ws.indexOf("orange") > -1 ? "orange" : "yellow";
+      wEl.textContent = sevIcon[top];
+    } else {
+      wEl.textContent = "";
+    }
+  });
+
+  var ab = document.getElementById("alertsBlock");
+  if(alerts.length === 0){
+    ab.innerHTML = "";
+  } else {
+    var html = '<div class="alerts-card"><div class="alerts-title">⚠ התראות ואזהרות</div>';
+    alerts.forEach(function(a){
+      html += '<div class="alert-item alert-' + a.sev + '">' +
+        '<div class="alert-icon">' + a.icon + '</div>' +
+        '<div class="alert-text"><strong>' + a.title + '</strong><span>' + a.body + '</span></div>' +
+        '</div>';
+    });
+    html += '</div>';
+    ab.innerHTML = html;
+  }
+
+  var listEl = document.getElementById("mixSummaryList");
+  listEl.innerHTML = "";
+  var hasAny = false;
+  var names = {MAP:"MAP 12-61-0", MKP:"MKP 0-52-34", KNO3:"חנקת אשלגן 13-0-46", CaNO3:"חנקת סידן", MgNO3:"חנקת מגנזיום"};
+  SINGLES.forEach(function(s){
+    var bags = +document.getElementById("s"+s.id).value;
+    if(bags > 0){
+      hasAny = true;
+      var kg = bags * BAG_KG;
+      var row = document.createElement("div");
+      row.style.cssText = "display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #f0f0f0;";
+      row.innerHTML =
+        "<span style='font-size:14px;color:#444'>" + names[s.id] + "</span>" +
+        "<span style='text-align:left'>" +
+          "<strong style='color:#1565c0;font-size:18px'>" + bagLabel(bags) + "</strong>" +
+          "<span style='color:#888;font-size:12px;display:block'>" + kg + ' ק"ג' + "</span>" +
+        "</span>";
+      listEl.appendChild(row);
+    }
+  });
+  if(!hasAny){
+    listEl.innerHTML = "<div class='empty-state'><div class='big'>⚗️</div>הזז סינגל כלשהו להתחלת ההרכבה</div>";
+  }
+
+  if(hasAny){
+    var mixLines = [];
+    SINGLES.forEach(function(s){
+      var b = +document.getElementById("s"+s.id).value;
+      if(b > 0) mixLines.push(names[s.id] + ": " + bagLabel(b));
+    });
+    var alertTitles = alerts.map(function(a){ return a.icon + " " + a.title; }).join("\n");
+    pendingReport("⚗️ <b>הרכבה מסינגלים</b>\n" + farmerInfo() +
+      "\n" + mixLines.join(" · ") +
+      "\n💧 N: " + Math.round(tN_ppm) + " ppm · K: " + Math.round(tK_ppm) + " ppm · Ca: " + Math.round(tCa_ppm) + " ppm · Mg: " + Math.round(tMg_ppm) + " ppm" +
+      (alerts.length > 0 ? "\n⚠ אזהרות:\n" + alertTitles : ""));
+  }
+}
+
+calcMix();
+</script>
 </body>
 </html>
