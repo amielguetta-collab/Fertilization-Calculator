@@ -158,7 +158,11 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </button>
   <button class="tab-btn" onclick="switchTab('singles')" id="tabSingles">
     הרכבה מסינגלים
-    <span>MAP · KNO₃ · CaNO₃ · MgNO₃ · MKP</span>
+    <span>MAP · KNO₃ · CaNO₃ · MgNO₃</span>
+  </button>
+  <button class="tab-btn" onclick="switchTab('wizard')" id="tabWizard">
+    אשף NPK
+    <span>הזן יעד ← קבל מתכון</span>
   </button>
 </div>
 
@@ -290,13 +294,47 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
   </div>
 
   <div class="div"></div>
-  <p class="ctitle">סינגלים — שקי 25 ק"ג</p>
+
+  <!-- קבוצת N -->
+  <p class="ctitle">🟦 מקורות חנקן (N)</p>
+
+  <div class="sng-block">
+    <div class="sng-top">
+      <div><span class="sng-name">חנקת אמון AN</span><span class="sng-npk">33-0-0 · 50% NO₃⁻ + 50% NH₄⁺</span></div>
+      <div class="sng-val" id="vAN">0 שקים</div>
+    </div>
+    <div class="sng-npk" style="font-size:11px;color:#888;margin-bottom:6px;">N זמין מיידי (ניטרטי) + N איטי (אמוני) · הנפוץ ביותר בשדה</div>
+    <div class="sng-ctrl">
+      <button class="step-btn" onclick="stepSingle('sAN',-1)">−</button>
+      <input type="range" id="sAN" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
+      <button class="step-btn" onclick="stepSingle('sAN',1)">+</button>
+    </div>
+  </div>
+
+  <div class="sng-block">
+    <div class="sng-top">
+      <div><span class="sng-name">אוריאה WS</span><span class="sng-npk">46-0-0 · NH₂ אמידי</span></div>
+      <div class="sng-val" id="vUrea">0 שקים</div>
+    </div>
+    <div class="sng-npk" style="font-size:11px;color:#888;margin-bottom:4px;">N מרוכז · דורש הידרוליזה בקרקע · מוריד pH</div>
+    <div style="background:#fff3e0;border-radius:8px;padding:7px 10px;font-size:11px;color:#e65100;margin-bottom:6px;">⚠ <strong>חובה: אוריאה Water Soluble בלבד</strong> — אוריאה חקלאית רגילה מכילה ביורט הרעיל לצמח ולא מסיסה במלואה</div>
+    <div class="sng-ctrl">
+      <button class="step-btn" onclick="stepSingle('sUrea',-1)">−</button>
+      <input type="range" id="sUrea" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
+      <button class="step-btn" onclick="stepSingle('sUrea',1)">+</button>
+    </div>
+  </div>
+
+  <div class="div"></div>
+  <!-- קבוצת P -->
+  <p class="ctitle">🟥 מקורות זרחן (P)</p>
 
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">MAP</span><span class="sng-npk">12-61-0 · מונו-אמוניום פוספט</span></div>
       <div class="sng-val" id="vMAP">0 שקים</div>
     </div>
+    <div class="sng-npk" style="font-size:11px;color:#888;margin-bottom:6px;">עיקר = P · N אמוני (NH₄⁺) כבונוס · מוריד pH תמיסה</div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sMAP',-1)">−</button>
       <input type="range" id="sMAP" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
@@ -309,6 +347,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
       <div><span class="sng-name">MKP</span><span class="sng-npk">0-52-34 · מונו-פוטסיום פוספט</span></div>
       <div class="sng-val" id="vMKP">0 שקים</div>
     </div>
+    <div class="sng-npk" style="font-size:11px;color:#888;margin-bottom:6px;">P + K ללא Cl · ללא N · מעלה pH תמיסה</div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sMKP',-1)">−</button>
       <input type="range" id="sMKP" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
@@ -316,11 +355,16 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
     </div>
   </div>
 
+  <div class="div"></div>
+  <!-- קבוצת K+N -->
+  <p class="ctitle">🟩 אשלגן + מיקרו-אלמנטים</p>
+
   <div class="sng-block">
     <div class="sng-top">
       <div><span class="sng-name">חנקת אשלגן</span><span class="sng-npk">13-0-46 · KNO₃</span></div>
       <div class="sng-val" id="vKNO3">0 שקים</div>
     </div>
+    <div class="sng-npk" style="font-size:11px;color:#888;margin-bottom:6px;">K + N ניטרטי (NO₃⁻) · זמין מיידי · ללא Cl</div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sKNO3',-1)">−</button>
       <input type="range" id="sKNO3" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
@@ -330,9 +374,23 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 
   <div class="sng-block">
     <div class="sng-top">
+      <div><span class="sng-name">SOP</span><span class="sng-npk">0-0-50 · סולפט אשלגן</span></div>
+      <div class="sng-val" id="vSOP">0 שקים</div>
+    </div>
+    <div class="sng-npk" style="font-size:11px;color:#888;margin-bottom:6px;">K טהור ללא N · ללא Cl · מתאים לעגבנייה ומלפפון · מאפשר להעלות K בלי להוסיף N</div>
+    <div class="sng-ctrl">
+      <button class="step-btn" onclick="stepSingle('sSOP',-1)">−</button>
+      <input type="range" id="sSOP" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
+      <button class="step-btn" onclick="stepSingle('sSOP',1)">+</button>
+    </div>
+  </div>
+
+  <div class="sng-block">
+    <div class="sng-top">
       <div><span class="sng-name">חנקת סידן</span><span class="sng-npk">15.5% N · 19% Ca · CaNO₃</span></div>
       <div class="sng-val" id="vCaNO3">0 שקים</div>
     </div>
+    <div class="sng-npk" style="font-size:11px;color:#888;margin-bottom:6px;">Ca + N ניטרטי (NO₃⁻) · קריטי נגד שחור פיטם · אסור עם MAP/MKP בדוד אחד</div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sCaNO3',-1)">−</button>
       <input type="range" id="sCaNO3" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
@@ -345,6 +403,7 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
       <div><span class="sng-name">חנקת מגנזיום</span><span class="sng-npk">11% N · 9.5% Mg · MgNO₃</span></div>
       <div class="sng-val" id="vMgNO3">0 שקים</div>
     </div>
+    <div class="sng-npk" style="font-size:11px;color:#888;margin-bottom:6px;">Mg + N ניטרטי (NO₃⁻) · למניעת כלורוזה בין-עורקית</div>
     <div class="sng-ctrl">
       <button class="step-btn" onclick="stepSingle('sMgNO3',-1)">−</button>
       <input type="range" id="sMgNO3" min="0" max="10" value="0" step="1" oninput="calcMixInteract()">
@@ -387,6 +446,97 @@ footer { text-align: center; font-size: 12px; color: #888; margin-top: 30px; pad
 </div>
 
 </div><!-- end paneSingles -->
+
+<!-- ==================== TAB: WIZARD ==================== -->
+<div class="tab-pane" id="paneWizard">
+
+<div class="card">
+  <p class="ctitle">🎯 אשף NPK — הזן יעד, קבל מתכון</p>
+  <div class="singles-intro">
+    הזן את ההרכב שאתה רוצה להשיג. הכלי יחשב כמה ק"ג מכל סינגל נדרש לדוד שלך.
+    <br><br>💡 <strong>P נמוך (מתחת ל-5%)?</strong> עבוד במצב גר'/ל' — שק MAP שלם = 15 ק"ג P₂O₅, ולכן ב-% קשה להגיע ל-P נמוך עם שקים שלמים.
+  </div>
+
+  <div class="sr" style="margin-bottom:16px;">
+    <div class="sr-header"><label>נפח הדוד (ל'):</label><span class="sv" id="lWzTank">1,000 ל'</span></div>
+    <div class="slider-container">
+      <button class="step-btn" onclick="stepWzTank(-100)">-</button>
+      <input type="range" id="wzTank" min="100" max="5000" value="1000" step="100" oninput="runWizard()">
+      <button class="step-btn" onclick="stepWzTank(100)">+</button>
+    </div>
+  </div>
+
+  <!-- מצב יחידות -->
+  <div style="display:flex;gap:8px;margin-bottom:16px;">
+    <button class="sub-tab active" id="wzUnitPct" onclick="setWzUnit('pct')" style="flex:1">יעד ב-% משקל</button>
+    <button class="sub-tab" id="wzUnitGl" onclick="setWzUnit('gl')" style="flex:1">יעד בגר'/ל' תמיסה</button>
+  </div>
+
+  <!-- קלט % -->
+  <div id="wzPctInputs">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;direction:ltr;">
+      <div>
+        <div style="font-size:11px;font-weight:600;color:#1565c0;margin-bottom:6px;text-align:center;">N %</div>
+        <input type="number" id="wzN" min="0" max="50" step="0.5" value="17" oninput="runWizard()"
+          style="width:100%;padding:12px 6px;border:1.5px solid #bbdefb;border-radius:10px;font-size:22px;font-weight:700;color:#1565c0;text-align:center;font-family:inherit;outline:none;">
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;color:#880e4f;margin-bottom:6px;text-align:center;">P₂O₅ %</div>
+        <input type="number" id="wzP" min="0" max="60" step="0.5" value="10" oninput="runWizard()"
+          style="width:100%;padding:12px 6px;border:1.5px solid #f8bbd0;border-radius:10px;font-size:22px;font-weight:700;color:#880e4f;text-align:center;font-family:inherit;outline:none;">
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;color:#1b5e20;margin-bottom:6px;text-align:center;">K₂O %</div>
+        <input type="number" id="wzK" min="0" max="60" step="0.5" value="27" oninput="runWizard()"
+          style="width:100%;padding:12px 6px;border:1.5px solid #c8e6c9;border-radius:10px;font-size:22px;font-weight:700;color:#1b5e20;text-align:center;font-family:inherit;outline:none;">
+      </div>
+    </div>
+  </div>
+
+  <!-- קלט גר'/ל' -->
+  <div id="wzGlInputs" class="hidden">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:8px;direction:ltr;">
+      <div>
+        <div style="font-size:11px;font-weight:600;color:#1565c0;margin-bottom:6px;text-align:center;">N גר'/ל'</div>
+        <input type="number" id="wzNgl" min="0" max="30" step="0.1" value="2.5" oninput="runWizard()"
+          style="width:100%;padding:12px 6px;border:1.5px solid #bbdefb;border-radius:10px;font-size:22px;font-weight:700;color:#1565c0;text-align:center;font-family:inherit;outline:none;">
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;color:#880e4f;margin-bottom:6px;text-align:center;">P₂O₅ גר'/ל'</div>
+        <input type="number" id="wzPgl" min="0" max="30" step="0.1" value="1.5" oninput="runWizard()"
+          style="width:100%;padding:12px 6px;border:1.5px solid #f8bbd0;border-radius:10px;font-size:22px;font-weight:700;color:#880e4f;text-align:center;font-family:inherit;outline:none;">
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;color:#1b5e20;margin-bottom:6px;text-align:center;">K₂O גר'/ל'</div>
+        <input type="number" id="wzKgl" min="0" max="30" step="0.1" value="4.0" oninput="runWizard()"
+          style="width:100%;padding:12px 6px;border:1.5px solid #c8e6c9;border-radius:10px;font-size:22px;font-weight:700;color:#1b5e20;text-align:center;font-family:inherit;outline:none;">
+      </div>
+    </div>
+    <div style="font-size:11px;color:#aaa;text-align:center;margin-bottom:14px;">מחושב לדוד של <span id="wzTankRef">1,000</span> ל'</div>
+  </div>
+
+  <!-- פריסטים נפוצים -->
+  <div style="margin-bottom:4px;">
+    <div style="font-size:11px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;">פריסטים נפוצים</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      <button class="pbtn" onclick="setWzPreset(17,10,27)">17-10-27</button>
+      <button class="pbtn" onclick="setWzPreset(20,20,20)">20-20-20</button>
+      <button class="pbtn" onclick="setWzPreset(13,5,35)">13-5-35</button>
+      <button class="pbtn" onclick="setWzPreset(15,5,30)">15-5-30</button>
+      <button class="pbtn" onclick="setWzPreset(25,5,15)">25-5-15</button>
+    </div>
+  </div>
+</div>
+
+<!-- תוצאת האשף -->
+<div class="card" id="wzResult" style="display:none;">
+  <p class="ctitle">✅ מתכון מומלץ</p>
+  <div id="wzRecipeList"></div>
+  <div id="wzAchieved" style="margin-top:14px;background:#e3f2fd;border-radius:12px;padding:14px 16px;"></div>
+  <div id="wzDeviation" style="margin-top:10px;"></div>
+</div>
+
+</div><!-- end paneWizard -->
 
 <footer>
   <img src="logo.png" alt="Panora Seeds Logo" style="max-height:30px;margin-bottom:8px;display:block;margin-left:auto;margin-right:auto;">
@@ -477,10 +627,12 @@ function sendReport(){
 
 // ===== TABS =====
 function switchTab(t) {
-  document.getElementById("paneMarket").className = "tab-pane" + (t==="market" ? " active" : "");
+  document.getElementById("paneMarket").className  = "tab-pane" + (t==="market"  ? " active" : "");
   document.getElementById("paneSingles").className = "tab-pane" + (t==="singles" ? " active" : "");
-  document.getElementById("tabMarket").className = "tab-btn" + (t==="market" ? " active" : "");
-  document.getElementById("tabSingles").className = "tab-btn" + (t==="singles" ? " active" : "");
+  document.getElementById("paneWizard").className  = "tab-pane" + (t==="wizard"  ? " active" : "");
+  document.getElementById("tabMarket").className   = "tab-btn"  + (t==="market"  ? " active" : "");
+  document.getElementById("tabSingles").className  = "tab-btn"  + (t==="singles" ? " active" : "");
+  document.getElementById("tabWizard").className   = "tab-btn"  + (t==="wizard"  ? " active" : "");
 }
 
 // ===== MARKET TAB DATA =====
@@ -642,9 +794,12 @@ setGroup('s');
 
 // ===== SINGLES =====
 var SINGLES = [
+  {id:"AN",    n:0.33,  p:0.00, k:0.00, ca:0.000, mg:0.000},
+  {id:"Urea",  n:0.46,  p:0.00, k:0.00, ca:0.000, mg:0.000},
   {id:"MAP",   n:0.12,  p:0.61, k:0.00, ca:0.000, mg:0.000},
   {id:"MKP",   n:0.00,  p:0.52, k:0.34, ca:0.000, mg:0.000},
   {id:"KNO3",  n:0.13,  p:0.00, k:0.46, ca:0.000, mg:0.000},
+  {id:"SOP",   n:0.00,  p:0.00, k:0.50, ca:0.000, mg:0.000},
   {id:"CaNO3", n:0.155, p:0.00, k:0.00, ca:0.190, mg:0.000},
   {id:"MgNO3", n:0.11,  p:0.00, k:0.00, ca:0.000, mg:0.095}
 ];
@@ -738,14 +893,24 @@ function calcMix(){
   setNote("mNote", nDay);
 
   var alerts = [];
+  var bagsAN    = +document.getElementById("sAN").value;
+  var bagsUrea  = +document.getElementById("sUrea").value;
   var bagsMAP   = +document.getElementById("sMAP").value;
   var bagsMKP   = +document.getElementById("sMKP").value;
   var bagsCaNO3 = +document.getElementById("sCaNO3").value;
   var hasP   = bagsMAP > 0 || bagsMKP > 0;
   var hasCa  = bagsCaNO3 > 0;
+  var hasUrea = bagsUrea > 0;
+  var hasAN   = bagsAN > 0;
 
   if(hasP && hasCa){
     alerts.push({sev:"red", icon:"🚫", title:"MAP/MKP + חנקת סידן — אסור יחד בדוד!", body:"Ca + פוספט יוצרים משקע CaHPO₄ (לבן). הוסף לשני דודים נפרדים או לתמיסה בנפרד."});
+  }
+  if(hasUrea && hasCa){
+    alerts.push({sev:"orange", icon:"⚠️", title:"אוריאה + חנקת סידן — זהירות", body:"אוריאה בנוכחות Ca עלולה ליצור משקע קלציום קרבונט בתנאי pH גבוה. מומלץ לפזר הוספה לתמיסה."});
+  }
+  if(hasUrea && hasAN){
+    alerts.push({sev:"yellow", icon:"💡", title:"אוריאה + חנקת אמון — N כפול אמוני", body:"שילוב זה מעלה את חלק NH₄⁺ בתמיסה. בקרקעות כבדות/קרות עלול להאט ספיגת N. מומלץ לאזן עם מקור ניטרטי (KNO₃ / CaNO₃)."});
   }
   if(tMg_ppm > 0 && tK_ppm / tMg_ppm > 4){
     alerts.push({sev:"orange", icon:"⚠️", title:"K גבוה מדי ביחס ל-Mg בטפטפת", body:"יחס K:Mg = " + Math.round(tK_ppm/tMg_ppm) + ":1 (מומלץ עד 4:1). K גבוה חוסם ספיגת מגנזיום — סכנת כלורוזה."});
@@ -802,7 +967,14 @@ function calcMix(){
   var listEl = document.getElementById("mixSummaryList");
   listEl.innerHTML = "";
   var hasAny = false;
-  var names = {MAP:"MAP 12-61-0", MKP:"MKP 0-52-34", KNO3:"חנקת אשלגן 13-0-46", CaNO3:"חנקת סידן", MgNO3:"חנקת מגנזיום"};
+  var names = {AN:"חנקת אמון 33-0-0", Urea:"אוריאה WS 46-0-0", MAP:"MAP 12-61-0", MKP:"MKP 0-52-34", KNO3:"חנקת אשלגן 13-0-46", SOP:"SOP 0-0-50", CaNO3:"חנקת סידן", MgNO3:"חנקת מגנזיום"};
+
+  // חישוב NPK מאוחד מתוך סך הנוטריאנטים
+  var totKg = 0;
+  SINGLES.forEach(function(s){
+    totKg += +document.getElementById("s"+s.id).value * BAG_KG;
+  });
+
   SINGLES.forEach(function(s){
     var bags = +document.getElementById("s"+s.id).value;
     if(bags > 0){
@@ -814,20 +986,262 @@ function calcMix(){
       listEl.appendChild(row);
     }
   });
+
   if(!hasAny){
     listEl.innerHTML = "<div class='empty-state'><div class='big'>⚗️</div>הזז סינגל כלשהו להתחלת ההרכבה</div>";
   }
 
-  if(hasAny){
+  // הצגת הרכב NPK סופי
+  if(hasAny && totKg > 0){
+    // חישוב % מתוך סך המשקל הכולל
+    var totN_kg=0, totP_kg=0, totK_kg=0, totCa_kg=0, totMg_kg=0;
+    SINGLES.forEach(function(s){
+      var kg = +document.getElementById("s"+s.id).value * BAG_KG;
+      totN_kg  += kg * s.n;
+      totP_kg  += kg * s.p;
+      totK_kg  += kg * s.k;
+      totCa_kg += kg * s.ca;
+      totMg_kg += kg * s.mg;
+    });
+    var pN  = Math.round(totN_kg  / totKg * 100);
+    var pP  = Math.round(totP_kg  / totKg * 100);
+    var pK  = Math.round(totK_kg  / totKg * 100);
+    var pCa = Math.round(totCa_kg / totKg * 100);
+    var pMg = Math.round(totMg_kg / totKg * 100);
+
+    // שורת הרכב ראשית
+    var mainNPK = pN + "-" + pP + "-" + pK;
+    var extras = [];
+    if(pCa > 0) extras.push("Ca" + pCa);
+    if(pMg > 0) extras.push("Mg" + pMg);
+    var mainLine = mainNPK + (extras.length > 0 ? " + " + extras.join(" + ") : "");
+
+    var npkEl = document.createElement("div");
+    npkEl.style.cssText = "margin-top:14px;background:#e3f2fd;border-radius:12px;padding:14px 16px;";
+    npkEl.innerHTML =
+      "<div style='font-size:11px;font-weight:700;color:#1565c0;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;'>🧪 הרכב התמיסה</div>" +
+      "<div style='font-size:28px;font-weight:800;color:#1a1a1a;letter-spacing:1px;margin-bottom:6px;'>" + mainLine + "</div>" +
+      "<div style='font-size:12px;color:#555;line-height:2;'>" +
+        "<span style='background:#e3f2fd;border-radius:6px;padding:2px 8px;margin-left:4px;color:#1565c0;font-weight:600;'>N " + pN + "%</span>" +
+        "<span style='background:#fce4ec;border-radius:6px;padding:2px 8px;margin-left:4px;color:#880e4f;font-weight:600;'>P₂O₅ " + pP + "%</span>" +
+        "<span style='background:#e8f5e9;border-radius:6px;padding:2px 8px;margin-left:4px;color:#1b5e20;font-weight:600;'>K₂O " + pK + "%</span>" +
+        (pCa > 0 ? "<span style='background:#fff8e1;border-radius:6px;padding:2px 8px;margin-left:4px;color:#e65100;font-weight:600;'>Ca " + pCa + "%</span>" : "") +
+        (pMg > 0 ? "<span style='background:#f3e5f5;border-radius:6px;padding:2px 8px;margin-left:4px;color:#6a1b9a;font-weight:600;'>Mg " + pMg + "%</span>" : "") +
+      "</div>";
+    listEl.appendChild(npkEl);
+
     var mixLines = [];
     SINGLES.forEach(function(s){
       var b = +document.getElementById("s"+s.id).value;
       if(b > 0) mixLines.push(names[s.id] + ": " + bagLabel(b));
     });
     var alertTitles = alerts.map(function(a){ return a.icon + " " + a.title; }).join(" | ");
-    pendingReport("⚗️ סינגלים | " + farmerName() + " | " + mixLines.join(" · ") + " | N: " + Math.round(tN_ppm) + " ppm · K: " + Math.round(tK_ppm) + " ppm · Ca: " + Math.round(tCa_ppm) + " ppm · Mg: " + Math.round(tMg_ppm) + " ppm" + (alerts.length > 0 ? " | ⚠ " + alertTitles : ""));
+    pendingReport("⚗️ סינגלים | " + farmerName() + " | " + mixLines.join(" · ") +
+      " | NPK: " + mainLine +
+      " | N: " + Math.round(tN_ppm) + " ppm · K: " + Math.round(tK_ppm) + " ppm · Ca: " + Math.round(tCa_ppm) + " ppm · Mg: " + Math.round(tMg_ppm) + " ppm" +
+      (alerts.length > 0 ? " | ⚠ " + alertTitles : ""));
   }
 }
+
+
+// ===== WIZARD =====
+var wzUnit = "pct";
+
+function setWzUnit(u){
+  wzUnit = u;
+  document.getElementById("wzUnitPct").className = "sub-tab" + (u==="pct" ? " active" : "");
+  document.getElementById("wzUnitGl").className  = "sub-tab" + (u==="gl"  ? " active" : "");
+  document.getElementById("wzPctInputs").className = u==="pct" ? "" : "hidden";
+  document.getElementById("wzGlInputs").className  = u==="gl"  ? "" : "hidden";
+  runWizard();
+}
+
+function setWzPreset(n,p,k){
+  document.getElementById("wzN").value = n;
+  document.getElementById("wzP").value = p;
+  document.getElementById("wzK").value = k;
+  wzUnit = "pct";
+  setWzUnit("pct");
+}
+
+function stepWzTank(dir){
+  var el = document.getElementById("wzTank");
+  var nv = Math.min(5000, Math.max(100, +el.value + dir));
+  el.value = nv;
+  runWizard();
+}
+
+function runWizard(){
+  var tank = +document.getElementById("wzTank").value || 1000;
+  document.getElementById("lWzTank").textContent = tank.toLocaleString("he-IL") + " ל'";
+  document.getElementById("wzTankRef").textContent = tank.toLocaleString("he-IL");
+
+  var pool = [
+    {id:"AN",   nm:"חנקת אמון 33-0-0",   n:0.33,  p:0.00, k:0.00},
+    {id:"Urea", nm:"אוריאה WS 46-0-0",   n:0.46,  p:0.00, k:0.00},
+    {id:"MAP",  nm:"MAP 12-61-0",         n:0.12,  p:0.61, k:0.00},
+    {id:"MKP",  nm:"MKP 0-52-34",        n:0.00,  p:0.52, k:0.34},
+    {id:"KNO3", nm:"חנקת אשלגן 13-0-46", n:0.13,  p:0.00, k:0.46},
+    {id:"SOP",  nm:"SOP 0-0-50",         n:0.00,  p:0.00, k:0.50}
+  ];
+
+  var listEl = document.getElementById("wzRecipeList");
+  var achEl  = document.getElementById("wzAchieved");
+  var devEl  = document.getElementById("wzDeviation");
+  listEl.innerHTML = "";
+
+  if(wzUnit === "pct"){
+    // מצב %: brute force שקים שלמים, מגבלה לפי דוד
+    var tgtN = +document.getElementById("wzN").value / 100;
+    var tgtP = +document.getElementById("wzP").value / 100;
+    var tgtK = +document.getElementById("wzK").value / 100;
+
+    var maxBags = Math.max(2, Math.min(8, Math.round(tank / 250)));
+    var best = null, bestErr = 1e9;
+
+    for(var a=0;a<=maxBags;a++)for(var b=0;b<=maxBags;b++)for(var c=0;c<=maxBags;c++)
+    for(var d=0;d<=maxBags;d++)for(var e=0;e<=maxBags;e++)for(var f=0;f<=maxBags;f++){
+      var bags=[a,b,c,d,e,f], totKg=0;
+      for(var i=0;i<6;i++) totKg+=bags[i]*25;
+      if(!totKg) continue;
+      var gN=0,gP=0,gK=0;
+      for(var i=0;i<6;i++){var kg=bags[i]*25;gN+=kg*pool[i].n;gP+=kg*pool[i].p;gK+=kg*pool[i].k;}
+      var rN=gN/totKg, rP=gP/totKg, rK=gK/totKg;
+      var err=Math.pow((rN-tgtN)*2,2)+Math.pow(rP-tgtP,2)+Math.pow((rK-tgtK)*2,2);
+      if(err<bestErr){bestErr=err;best={bags:bags.slice(),totKg:totKg,rN:rN,rP:rP,rK:rK};}
+    }
+
+    if(!best){ document.getElementById("wzResult").style.display="none"; return; }
+    document.getElementById("wzResult").style.display="block";
+
+    var totalBags=0;
+    for(var i=0;i<6;i++){
+      if(!best.bags[i]) continue;
+      totalBags+=best.bags[i];
+      var kgi=best.bags[i]*25;
+      var row=document.createElement("div");
+      row.style.cssText="display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #f0f0f0;";
+      row.innerHTML="<span style='font-size:14px;color:#444'>"+pool[i].nm+"</span>"+
+        "<span style='text-align:left'><strong style='color:#1565c0;font-size:18px'>"+best.bags[i]+(best.bags[i]===1?" שק":" שקים")+"</strong>"+
+        "<span style='color:#888;font-size:12px;display:block'>"+kgi+" ק&#34;ג</span></span>";
+      listEl.appendChild(row);
+    }
+
+    var pN=Math.round(best.rN*100), pP=Math.round(best.rP*100), pK=Math.round(best.rK*100);
+    var tN=Math.round(tgtN*100), tP=Math.round(tgtP*100), tK=Math.round(tgtK*100);
+    renderAchieved(achEl, pN+"-"+pP+"-"+pK, pN,pP,pK, "יעד: "+tN+"-"+tP+"-"+tK+" · "+totalBags+" שקים");
+    var maxDev=Math.max(Math.abs(pN-tN),Math.abs(pP-tP),Math.abs(pK-tK));
+    renderDeviation(devEl, maxDev, "%");
+
+  } else {
+    // מצב גר'/ל': פתרון אנליטי ב-ק"ג מדויק
+    var tNgl = +document.getElementById("wzNgl").value;
+    var tPgl = +document.getElementById("wzPgl").value;
+    var tKgl = +document.getElementById("wzKgl").value;
+
+    // נדרש: X גרם מכל נוטריאנט לדוד כולו
+    var needN = tNgl * tank; // גרם
+    var needP = tPgl * tank;
+    var needK = tKgl * tank;
+
+    // בחר שילוב סינגלים אופטימלי:
+    // P: MAP (61%) — הכי יעיל, אם P=0 → MKP
+    // K: SOP (50%) אם K>N, אחרת KNO3 (נותן גם N)
+    // N: ממה שנשאר — AN או KNO3
+
+    var kgArr = [0,0,0,0,0,0]; // [AN, Urea, MAP, MKP, KNO3, SOP]
+
+    var remN=needN, remP=needP, remK=needK;
+
+    // 1. ספק P עם MAP
+    if(remP > 0){
+      kgArr[2] = remP / (0.61 * 1000); // ק"ג MAP
+      remN -= kgArr[2] * 0.12 * 1000;
+      remP = 0;
+    }
+
+    // 2. ספק K עם KNO3 קודם (נותן גם N), ואחרי שN מכוסה — SOP
+    if(remK > 0 && remN > 0){
+      // כמה K אפשר לספק עם KNO3 לפני ש-N יעלה מעל הצורך
+      var kno3ByN = remN / (0.13 * 1000); // כמה ק"ג KNO3 מכסה את ה-N
+      var kno3ByK = remK / (0.46 * 1000); // כמה ק"ג KNO3 מכסה את ה-K
+      var kno3kg = Math.min(kno3ByN, kno3ByK);
+      kgArr[4] = kno3kg;
+      remN -= kno3kg * 0.13 * 1000;
+      remK -= kno3kg * 0.46 * 1000;
+    }
+
+    // 3. K שנשאר → SOP
+    if(remK > 0){
+      kgArr[5] = remK / (0.50 * 1000);
+      remK = 0;
+    }
+
+    // 4. N שנשאר → AN
+    if(remN > 0){
+      kgArr[0] = remN / (0.33 * 1000);
+      remN = 0;
+    }
+
+    // חשב מה שהושג
+    var gN=0,gP=0,gK=0;
+    for(var i=0;i<6;i++){gN+=kgArr[i]*pool[i].n*1000;gP+=kgArr[i]*pool[i].p*1000;gK+=kgArr[i]*pool[i].k*1000;}
+    var achNgl=gN/tank, achPgl=gP/tank, achKgl=gK/tank;
+
+    document.getElementById("wzResult").style.display="block";
+
+    for(var i=0;i<6;i++){
+      if(kgArr[i] < 0.1) continue;
+      var kg=Math.round(kgArr[i]*10)/10;
+      var bags=kg/25;
+      var bagsStr;
+      if(bags >= 0.95 && Math.abs(bags-Math.round(bags))<0.1){
+        bagsStr=Math.round(bags)+(Math.round(bags)===1?" שק שלם":" שקים שלמים");
+      } else {
+        bagsStr=bags.toFixed(2)+" שקים (שקול!)";
+      }
+      var row=document.createElement("div");
+      row.style.cssText="display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #f0f0f0;";
+      row.innerHTML="<span style='font-size:14px;color:#444'>"+pool[i].nm+"</span>"+
+        "<span style='text-align:left'>"+
+        "<strong style='color:#1565c0;font-size:18px'>"+kg+" ק&#34;ג</strong>"+
+        "<span style='color:#888;font-size:12px;display:block'>"+bagsStr+"</span></span>";
+      listEl.appendChild(row);
+    }
+
+    var pN=Math.round(achNgl*10)/10, pP=Math.round(achPgl*10)/10, pK=Math.round(achKgl*10)/10;
+    renderAchieved(achEl, pN+"-"+pP+"-"+pK+" גר'/ל'", pN,pP,pK,
+      "יעד: "+tNgl+"-"+tPgl+"-"+tKgl+" גר'/ל'", true);
+    var maxDev=Math.max(Math.abs(pN-tNgl),Math.abs(pP-tPgl),Math.abs(pK-tKgl));
+    renderDeviation(devEl, maxDev, "גר'/ל'");
+  }
+}
+
+function renderAchieved(el, title, pN, pP, pK, subtitle, isGl){
+  var un = isGl ? "גר'/ל'" : "%";
+  el.innerHTML =
+    "<div style='font-size:11px;font-weight:700;color:#1565c0;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;'>🧪 הרכב שהושג</div>"+
+    "<div style='font-size:26px;font-weight:800;color:#1a1a1a;margin-bottom:8px;'>"+title+"</div>"+
+    "<div style='font-size:12px;color:#555;line-height:2;'>"+
+      "<span style='background:#e3f2fd;border-radius:6px;padding:2px 8px;margin-left:4px;color:#1565c0;font-weight:600;'>N "+pN+" "+un+"</span>"+
+      "<span style='background:#fce4ec;border-radius:6px;padding:2px 8px;margin-left:4px;color:#880e4f;font-weight:600;'>P₂O₅ "+pP+" "+un+"</span>"+
+      "<span style='background:#e8f5e9;border-radius:6px;padding:2px 8px;margin-left:4px;color:#1b5e20;font-weight:600;'>K₂O "+pK+" "+un+"</span>"+
+    "</div>"+
+    "<div style='margin-top:8px;font-size:11px;color:#888;'>"+subtitle+"</div>";
+}
+
+function renderDeviation(el, maxDev, unit){
+  if(maxDev <= 0.3){
+    el.className="note ok"; el.textContent="✓ התאמה מעולה — סטייה "+maxDev+" "+unit;
+  } else if(maxDev <= 1){
+    el.className="note ok"; el.textContent="✓ התאמה טובה — סטייה "+maxDev+" "+unit;
+  } else {
+    el.className="note warn"; el.textContent="⚠ סטייה "+maxDev+" "+unit+" מהיעד";
+  }
+}
+
+
+
 
 calcMix();
 
