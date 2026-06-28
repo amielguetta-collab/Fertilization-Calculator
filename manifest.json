@@ -1,0 +1,26 @@
+{
+  "name": "PANORA — הכלי החקלאי",
+  "short_name": "PANORA",
+  "description": "כלי ייעודי לחקלאי פנורה — דישון, פרוטוקול גידול, שתילים",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f5f0",
+  "theme_color": "#2e7d32",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
