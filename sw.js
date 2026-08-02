@@ -1,63 +1,58 @@
 /**
  * הכלי החקלאי של פנורה — Service Worker
  * ============================================================
- * אסטרטגיה: network-first על המסמך.
- *   • יש רשת  → תמיד הגרסה העדכנית מהשרת
- *   • אין רשת → הגרסה האחרונה שנשמרה (עבודה בשדה)
+ * מעלים פעם אחת. אין צורך לגעת בו שוב — גם לא בפריסות עתידיות.
  *
- * מחליף SW ישן שעבד ב-cache-first והחזיק מגדלים על גרסה ישנה
- * בלי שידעו. skipWaiting + clients.claim משתלטים מיד.
+ * למה: המסמך מוגש ב-network-first עם no-store, כלומר כשיש רשת
+ * המגדל תמיד מקבל את ה-index.html העדכני מהשרת. המטמון הוא
+ * גיבוי לאופליין בלבד, ונדרס בכל טעינה מוצלחת.
+ * הנכסים הסטטיים מתרעננים ברקע (stale-while-revalidate).
+ * לכן אין גרסה לקדם ואין מטמון לנקות ידנית.
  *
- * העלאה: לשורש הריפו, לצד index.html ו-logo.png.
- * בכל פריסה חדשה — הגדל את CACHE_V. זה מנקה מטמונים ישנים.
+ * העלאה: לשורש הריפו, לצד index.html.
  */
 
-var CACHE_V = 'panora-2026-08-02';
+var CACHE = 'panora';   // שם קבוע. לא לשנות.
 
-// ---- התקנה: משתלטים מיד, בלי להמתין לסגירת טאבים ----
-self.addEventListener('install', function (e) {
+self.addEventListener('install', function () {
   self.skipWaiting();
 });
 
-// ---- הפעלה: מנקים כל מטמון שאינו הגרסה הנוכחית ----
 self.addEventListener('activate', function (e) {
   e.waitUntil((async function () {
+    // ניקוי מטמונים משמות אחרים (למשל של SW ישן שהיה כאן קודם)
     var keys = await caches.keys();
     await Promise.all(keys.map(function (k) {
-      return (k === CACHE_V) ? null : caches.delete(k);
+      return (k === CACHE) ? null : caches.delete(k);
     }));
     await self.clients.claim();
   })());
 });
 
-// ---- שליפה ----
 self.addEventListener('fetch', function (e) {
   var req = e.request;
-
   if (req.method !== 'GET') return;
 
   var url;
   try { url = new URL(req.url); } catch (err) { return; }
 
-  // לא נוגעים בקריאות ל-Apps Script או לכל דומיין חיצוני —
-  // מחירים, אימות ורישום חייבים תמיד ללכת לרשת.
+  // דומיינים חיצוניים — תמיד ישירות לרשת.
+  // מחירים, אימות ורישום ב-Apps Script לא עוברים דרך המטמון.
   if (url.origin !== self.location.origin) return;
 
   // ---- המסמך: network-first ----
   if (req.mode === 'navigate') {
     e.respondWith((async function () {
       try {
-        // no-store: עוקף גם את מטמון ה-HTTP של הדפדפן
         var fresh = await fetch(req, { cache: 'no-store' });
         if (fresh && fresh.ok) {
-          var c = await caches.open(CACHE_V);
+          var c = await caches.open(CACHE);
           c.put(req, fresh.clone());
         }
         return fresh;
       } catch (err) {
         var hit = await caches.match(req);
         if (hit) return hit;
-        // גיבוי אחרון — אולי נשמר תחת נתיב השורש
         var root = await caches.match('./');
         return root || new Response(
           '<meta charset="utf-8"><p style="font:16px Heebo,sans-serif;text-align:center;padding:40px">' +
@@ -69,12 +64,12 @@ self.addEventListener('fetch', function (e) {
     return;
   }
 
-  // ---- נכסים סטטיים (לוגו, מניפסט): stale-while-revalidate ----
+  // ---- נכסים סטטיים: stale-while-revalidate ----
   e.respondWith((async function () {
     var cached = await caches.match(req);
     var network = fetch(req).then(function (res) {
       if (res && res.ok) {
-        caches.open(CACHE_V).then(function (c) { c.put(req, res.clone()); });
+        caches.open(CACHE).then(function (c) { c.put(req, res.clone()); });
       }
       return res;
     }).catch(function () { return null; });
